@@ -26,12 +26,9 @@ class UserInput extends Component {
             xmlToJSON: false
         }).then(res => {
             console.log(res);
-            // Take the object of results from the API and convert it to an array
-            const statsArray = Object.entries(res.data.results);
-            console.log(statsArray);
-            // Since we can get different versions of one hero back from the API, i.e. there are three kinds of Batman, this will select one of the results at random and leave us with the stats from one version of the hero.
-            const oneHeroStats = statsArray[Math.floor(Math.random() * statsArray.length)];
-            console.log(oneHeroStats);
+            // Array of different search results, i.e. 3 Batmans
+            const heroArray = res.data.results;
+            console.log(heroArray);
         });
     }
 
