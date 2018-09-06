@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 
+import {
+    BrowserRouter as Router,
+    Route, Link
+} from 'react-router-dom';
+
+import Search from './Search';
+
 class CharacterBlock extends Component {
     render() {
         return (
             <div>
-                { this.props.chara ?
-                
+                {this.props.chara ?
+
                     <div className="selectCharacterBlock">
                         {/* ============================================ */}
                         {/* New Team: Character Select Block */}
@@ -15,7 +22,7 @@ class CharacterBlock extends Component {
                     </div>
 
                     :
-                    
+
                     <div className="displayCharacterBlock">
                         {/* ============================================ */}
                         {/* Existing Team: Display Character Block */}
