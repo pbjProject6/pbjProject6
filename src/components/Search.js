@@ -103,7 +103,7 @@ class Search extends Component{
                 <h2>Add To Your Roster</h2>
                 <section className="searchArea">
                     <input id="searchInput" type="text" placehholder="Search for A Character"/>
-                    <button onClick={this.searchChar()}>Search</button>
+                    <button onClick={this.searchChar}>Search</button>
                     <Link to="/"><button>Return</button></Link>
                 </section>
                 {searchResult}
