@@ -1,15 +1,16 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import axios from "axios";
+import Qs from 'qs';
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
 const apiKey = '10155759872521417';
 let heroArray = [];
 let searchResult = "";
-class Search extends Component{
+class Search extends Component {
     componentDidMount() {
     }
     // get sarch results and display them on page
-    searchChar(){
+    searchChar() {
         let charString = document.getElementById("searchInput").val();
         axios({
             method: "GET",
@@ -28,15 +29,15 @@ class Search extends Component{
             heroArray = res.data.results;
             console.log(heroArray);
 
-            if(heroArray.length === 0){
-                searchResult = 
-                <div className="noResults">
-                    <h2>Sorry!</h2>
-                    <p>We dont have any results for that search term.  Try another!</p>
-                </div>
+            if (heroArray.length === 0) {
+                searchResult =
+                    <div className="noResults">
+                        <h2>Sorry!</h2>
+                        <p>We dont have any results for that search term.  Try another!</p>
+                    </div>
             }
-            else{
-                searchResult = 
+            else {
+                searchResult =
                     <section className="resultsArea">
                         {heroArray.map((chara, i) => {
                             return (
@@ -53,7 +54,7 @@ class Search extends Component{
                                             <li className="charaStat">{chara.powerstats.combat}</li>
                                         </ul>
                                         {/* can you trigger a click event and rout at the same time? */}
-                                        <Link to="/">
+                                        <Link to="/TeamSelect">
                                             <button onClick={this.addToRoster(i)}>Add to Roster</button>
                                         </Link>
                                     </div>
@@ -78,7 +79,7 @@ class Search extends Component{
         });
     }
     //add clicked character to your roster/replace old character with selected one
-    addToRoster(arrayIndex){
+    addToRoster(arrayIndex) {
         let selChar = heroArray[arrayIndex];
 
         let charObj = {
@@ -96,15 +97,15 @@ class Search extends Component{
 
         this.props.addToRoster(charObj);
     }
-    
-    render(){
-        return(
+
+    render() {
+        return (
             <div className="search">
                 <h2>Add To Your Roster</h2>
                 <section className="searchArea">
-                    <input id="searchInput" type="text" placehholder="Search for A Character"/>
-                    <button onClick={this.searchChar}>Search</button>
-                    <Link to="/"><button>Return</button></Link>
+                    <input id="searchInput" type="text" placehholder="Search for A Character" />
+                    <button className="searchCharacterButton button" onClick={this.searchChar}>Search</button>
+                    <Link to="/TeamSelect"><button className="returnToTeamSelectButton button" >Return</button></Link>
                 </section>
                 {searchResult}
             </div>

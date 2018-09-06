@@ -9,8 +9,8 @@ class CharacterBlock extends Component {
                     <div className="selectCharacterBlock">
                         {/* ============================================ */}
                         {/* New Team: Character Select Block */}
-                        <Link to="/search" component={Search}>
-                            <button className="selectCharacterButton">Select Character</button>
+                        <Link to="/Search" component={Search}>
+                            <button className="selectCharacterButton button">Select Character</button>
                         </Link>
                     </div>
 
@@ -33,12 +33,11 @@ class CharacterBlock extends Component {
                             <li className="statsList__item">Sp: {this.props.chara.stats.spd}</li>
                             <li className="statsList__item">St: {this.props.chara.stats.str}</li>
                         </ul>
-                        <Link to="/search">
-                            <button className="changeCharacterButton">Change Character</button>
+                        <Link to="/Search">
+                            <button className="changeCharacterButton button">Change Character</button>
                         </Link>
                     </div>
                 }
-                <Route path="/search" component={Search} />
             </div>
         )
     }
