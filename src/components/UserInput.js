@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Qs from 'qs';
+
+// COMPONENTS
 import firebase from './firebase';
+import CharacterBlock from './CharacterBlock';
 
 // GLOBAL VARIABLES
 // Goes to the root of the firebase database
@@ -50,8 +53,12 @@ class UserInput extends Component {
 
     render() {
         return (
-            <section>
-
+            <section className="teamSelectSection">
+                <CharacterBlock />
+                <CharacterBlock />
+                <CharacterBlock />
+                <CharacterBlock />
+                <CharacterBlock />
             </section>
         );
     }
