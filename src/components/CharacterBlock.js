@@ -4,16 +4,14 @@ class CharacterBlock extends Component {
     render() {
         return (
             <div>
-                {/* Character Select Block */}
+                {/* ============================================ */}
+                {/* New Team: Character Select Block */}
                 <div className="selectCharacterBlock">
                     <button className="selectCharacterButton">Select Character</button>
                 </div>
 
-                {/* Team Name Input */}
-                <label htmlFor="" className="teamNameLabel">Team Name</label>
-                <input type="text" className="teamNameInput" />
-
-                {/* Display Character Block */}
+                {/* ============================================ */}
+                {/* Existing Team: Display Character Block */}
                 <div className="displayCharacterBlock">
                     {/* Character Image */}
                     <div className="characterImageContainer">
@@ -31,9 +29,6 @@ class CharacterBlock extends Component {
 
                     <button className="changeCharacterButton">Change Character</button>
                 </div>
-
-                {/* Display Team Name */}
-                <h3></h3>
             </div>
         )
     }
