@@ -54,7 +54,7 @@ class Search extends Component {
                                             <li className="charaStat">{chara.powerstats.combat}</li>
                                         </ul>
                                         {/* can you trigger a click event and rout at the same time? */}
-                                        <Link to="/">
+                                        <Link to="/TeamSelect">
                                             <button onClick={this.addToRoster(i)}>Add to Roster</button>
                                         </Link>
                                     </div>
