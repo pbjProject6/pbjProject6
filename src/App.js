@@ -33,7 +33,6 @@ class App extends Component {
 
           {/* ========================================== */}
           {/* SET ROUTES FOR ALL APP ROUTING */}
-
           {/* Route to touch the TeamSelect component/page */}
           <Route path="/TeamSelect" component={TeamSelect} />
           {/* Route to touch the CharacterSearch component/page */}
