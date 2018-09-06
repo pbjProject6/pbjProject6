@@ -6,11 +6,11 @@ import {
 } from 'react-router-dom';
 
 // COMPONENTS
-// import TeamSelect from './components/TeamSelect';
-// import CharacterSearch from './components/CharacterSearch';
+import TeamSelect from './components/TeamSelect';
+import Search from './components/Search';
 // import SearchResults from './components/SearchResults';
 // import TeamReview from './components/TeamReview';
-// import Battle from './components/Battle';
+import battle from './components/battle';
 // import Results from './components/Results';
 
 class App extends Component {
@@ -25,22 +25,26 @@ class App extends Component {
           <p>James</p>
           <p className="App-intro">
             To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+          </p>
+
+          <Link to="/TeamSelect"><button className="createNewTeamButton button">Create New Team</button></Link>
+
+          <Link to="/TeamSelect"><button className="loadTeamButton button">Load Exsting Team</button></Link>
 
           {/* ========================================== */}
           {/* SET ROUTES FOR ALL APP ROUTING */}
           {/* Route to touch the App.js page */}
           {/* <Route exact path="/" component={App} /> */}
           {/* Route to touch the TeamSelect component/page */}
-          {/* <Route path="/TeamSelect" component={TeamSelect} /> */}
-          {/* Route to touch the CharacterSearch component/page  */}
-          {/* <Route path="/CharacterSearch" component={CharacterSearch} /> */}
+          <Route path="/TeamSelect" component={TeamSelect} />
+          {/* Route to touch the CharacterSearch component/page */}
+          <Route path="/Search" component={Search} />
           {/* Route to touch the SearchResults component/page  */}
           {/* <Route path="/SearchResults" component={SearchResults} /> */}
           {/* Route to touch the TeamReview component/page  */}
           {/* <Route path="/TeamReview" component={TeamReview} /> */}
           {/* Route to touch the Battle component/page  */}
-          {/* <Route path="/Battle" component={Battle} /> */}
+          <Route path="/battle" component={battle} />
           {/* Route to touch the Results component/page  */}
           {/* <Route path="/Results" component={Results} /> */}
         </div>
