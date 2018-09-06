@@ -11,7 +11,7 @@ class CharacterBlock extends Component {
     render() {
         return (
             <div>
-                {this.props.chara ?
+                {!this.props.chara ?
 
                     <div className="selectCharacterBlock">
                         {/* ============================================ */}
