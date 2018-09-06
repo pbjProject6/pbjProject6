@@ -5,6 +5,7 @@ import Qs from 'qs';
 // COMPONENTS
 import firebase from './firebase';
 import CharacterBlock from './CharacterBlock';
+import TeamName from './TeamName';
 
 // GLOBAL VARIABLES
 // Goes to the root of the firebase database
@@ -59,6 +60,8 @@ class UserInput extends Component {
                 <CharacterBlock />
                 <CharacterBlock />
                 <CharacterBlock />
+
+                <TeamName />
             </section>
         );
     }
