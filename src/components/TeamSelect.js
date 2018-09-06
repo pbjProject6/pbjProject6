@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Qs from 'qs';
+import {
+    BrowserRouter as Router,
+    Route, Link
+} from 'react-router-dom';
 
 // COMPONENTS
 import firebase from './firebase';
@@ -11,7 +15,7 @@ import TeamName from './TeamName';
 // Goes to the root of the firebase database
 const dbRef = firebase.database().ref();
 
-class UserInput extends Component {
+class TeamSelect extends Component {
     constructor() {
         super();
         this.state = {
@@ -55,16 +59,25 @@ class UserInput extends Component {
     render() {
         return (
             <section className="teamSelectSection">
+                <TeamName />
+
                 <CharacterBlock />
                 <CharacterBlock />
                 <CharacterBlock />
                 <CharacterBlock />
                 <CharacterBlock />
 
-                <TeamName />
+                <div className="teamSelectButtonsContainer">
+                    <button className="saveTeamButton button">Save Team</button>
+
+                    <Link to="/battle"><button className="goBattleButton button">Go Battle</button></Link>
+
+                    <p className="teamWinRatio"></p>
+                </div>
+
             </section>
         );
     }
 }
 
-export default UserInput;
+export default TeamSelect;

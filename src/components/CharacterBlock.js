@@ -7,7 +7,7 @@ class CharacterBlock extends Component {
                 {/* ============================================ */}
                 {/* New Team: Character Select Block */}
                 <div className="selectCharacterBlock">
-                    <button className="selectCharacterButton">Select Character</button>
+                    <button className="selectCharacterButton button">Select Character</button>
                 </div>
 
                 {/* ============================================ */}
@@ -27,7 +27,7 @@ class CharacterBlock extends Component {
                         <li className="statsList__item">St: </li>
                     </ul>
 
-                    <button className="changeCharacterButton">Change Character</button>
+                    <button className="changeCharacterButton button">Change Character</button>
                 </div>
             </div>
         )
