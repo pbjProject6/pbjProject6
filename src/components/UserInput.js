@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Qs from 'qs';
 
+// COMPONENTS
+import firebase from './firebase';
+import CharacterBlock from './CharacterBlock';
+
+// GLOBAL VARIABLES
+// Goes to the root of the firebase database
+const dbRef = firebase.database().ref();
+
 class UserInput extends Component {
     constructor() {
         super();
@@ -33,14 +41,24 @@ class UserInput extends Component {
     }
 
     componentDidMount() {
+        // FIREBASE
+        // Add event listener to tell us if the database has anything on load and when everything changes
+        dbRef.on('value', (snapshot) => {
+            console.log(snapshot.val());
+        });
+
         // Call the getStat function to make the API call and get results back for one hero
         this.getStat('Batman');
     }
 
     render() {
         return (
-            <section>
-
+            <section className="teamSelectSection">
+                <CharacterBlock />
+                <CharacterBlock />
+                <CharacterBlock />
+                <CharacterBlock />
+                <CharacterBlock />
             </section>
         );
     }
