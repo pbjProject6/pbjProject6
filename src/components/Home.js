@@ -22,8 +22,8 @@ class Home extends Component {
 
                 <Link to="/TeamSelect"><button className="createNewTeamButton button">Create New Team</button></Link>
 
-                <Link to="/TeamSelect"><button className="loadTeamButton button">Load Exsting Team</button></Link>
-
+                <Link to={`/TeamSelect/`}><button className="loadTeamButton button">Load Exsting Team</button></Link>
+                {/* {`/TeamSelect/${teams firebase ID}`} */}
             </section>
         )
     }

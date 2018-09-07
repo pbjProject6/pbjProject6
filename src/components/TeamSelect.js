@@ -103,13 +103,32 @@ class TeamSelect extends Component {
             }
         })
     }
-
+    createTeam = (code) => {
+        dbRef.once('value', (snapshot) => {
+            let teams = snapshot.val();
+        });
+        // get item reference from the code passed in
+            const itemReference = firebase.database().ref(`superherobattle/${code}`);
+            //set the state equal to the team gotten from the database
+            this.setState({
+                team: itemReference
+            })
+    }
     componentDidMount() {
         // FIREBASE
         // Add event listener to tell us if the database has anything on load and when everything changes
         dbRef.on('value', (snapshot) => {
             console.log(snapshot.val());
         });
+
+        let queryString = ""
+        // get querystring form the window
+        if( queryString !== ""){
+            
+            this.loadTeam();
+        }else{
+            this.createTeam(queryString);
+        }
     }
 
     render() {
