@@ -63,6 +63,7 @@ class Search extends Component {
             }
         };
         console.log('Testy McTesterface');
+        console.log(this.props)
         this.props.addToTeamArray(charObj);
     }
 

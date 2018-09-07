@@ -78,9 +78,9 @@ class App extends Component {
           {/* SET ROUTES FOR ALL APP ROUTING */}
           <Route exact path="/" component={Home} />
           {/* Route to touch the TeamSelect component/page */}
-          <Route path="/TeamSelect" component={TeamSelect} />
+          <Route path="/TeamSelect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} />)} />
           {/* Route to touch the CharacterSearch component/page */}
-          <Route path="/Search" render={(props) => (<Search {...props} addToTeamArray={this.addToTeamArray} />)} />
+          <Route path="/Search" render={(props) => (<Search {...props} />)} />
           {/* Route to touch the SearchResults component/page  */}
           {/* <Route path="/SearchResults" component={SearchResults} /> */}
           {/* Route to touch the TeamReview component/page  */}

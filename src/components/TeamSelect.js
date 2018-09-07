@@ -30,7 +30,7 @@ class TeamSelect extends Component {
 
                     <p className="teamWinRatio"></p>
 
-                    <Search />
+                    <Search addToTeamArray={this.props.addToTeamArray} />
                 </div>
             </section>
         );
