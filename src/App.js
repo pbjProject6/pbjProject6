@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
-  Route, Link
+  Route
 } from 'react-router-dom';
 
+
 // COMPONENTS
+import Home from './components/Home';
 import TeamSelect from './components/TeamSelect';
 import Search from './components/Search';
 // import SearchResults from './components/SearchResults';
@@ -18,21 +20,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
-            {/* <img src={logo} className="App-logo" alt="logo" /> */}
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          <p>James</p>
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-          </p>
-
-          <Link to="/TeamSelect"><button className="createNewTeamButton button">Create New Team</button></Link>
-
-          <Link to="/TeamSelect"><button className="loadTeamButton button">Load Exsting Team</button></Link>
 
           {/* ========================================== */}
           {/* SET ROUTES FOR ALL APP ROUTING */}
+          <Route exact path="/" component={Home} />
           {/* Route to touch the TeamSelect component/page */}
           <Route path="/TeamSelect" component={TeamSelect} />
           {/* Route to touch the CharacterSearch component/page */}
