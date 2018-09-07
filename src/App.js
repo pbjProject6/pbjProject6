@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-
+import firebase from './components/firebase';
 
 // COMPONENTS
 import Home from './components/Home';
@@ -15,7 +15,60 @@ import Search from './components/Search';
 import battle from './components/battle';
 // import Results from './components/Results';
 
+// GLOBAL VARIABLES
+// Goes to the root of the firebase database
+const dbRef = firebase.database().ref();
+
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      team: {
+        teamMember: []
+      }
+    };
+  }
+
+  createTeam = () => {
+    this.setState({
+      team: {
+        teamMember: [
+          {}
+          //   order: 1,
+          //   name: "",
+          //   img: "",
+          //   stats: {
+          //     int: "",
+          //     str: "",
+          //     spd: "",
+          //     dur: "",
+          //     pow: "",
+          //     com: "",
+          //   },
+          //   winRatio: "",
+        ],
+        teamName: "",
+        winRation: "",
+      }
+    })
+  }
+
+  componentDidMount() {
+    // FIREBASE
+    // Add event listener to tell us if the database has anything on load and when everything changes
+    dbRef.on('value', (snapshot) => {
+      console.log(snapshot.val());
+    });
+  }
+
+  addToTeamArray = (charObj) => {
+    const teamArray = this.state.team;
+    teamArray.teamMember.push(charObj);
+    this.setState({
+      team: teamArray
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -27,15 +80,16 @@ class App extends Component {
           {/* Route to touch the TeamSelect component/page */}
           <Route path="/TeamSelect" component={TeamSelect} />
           {/* Route to touch the CharacterSearch component/page */}
-          <Route path="/Search" component={Search} />
+          <Route path="/Search" render={(props) => (<Search {...props} addToTeamArray={this.addToTeamArray} />)} />
           {/* Route to touch the SearchResults component/page  */}
           {/* <Route path="/SearchResults" component={SearchResults} /> */}
           {/* Route to touch the TeamReview component/page  */}
           {/* <Route path="/TeamReview" component={TeamReview} /> */}
           {/* Route to touch the Battle component/page  */}
-          <Route path="/battle" component={battle} />
+          {/* <Route path="/battle" component={battle} /> */}
           {/* Route to touch the Results component/page  */}
           {/* <Route path="/Results" component={Results} /> */}
+
         </div>
       </Router>
     );
