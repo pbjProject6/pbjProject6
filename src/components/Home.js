@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import {
-    Link
+    BrowserRouter as Router,
+    Route, Link
 } from 'react-router-dom';
+
+// IMPORT COMPONENTS
+import TeamSelect from './TeamSelect';
 
 class Home extends Component {
     render() {
         return (
+
             <section className="homeSection">
                 <header className="App-header">
                     {/* <img src={logo} className="App-logo" alt="logo" /> */}

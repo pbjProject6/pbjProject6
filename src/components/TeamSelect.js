@@ -5,9 +5,9 @@ import {
     BrowserRouter as Router,
     Route, Link
 } from 'react-router-dom';
+import firebase from './firebase';
 
 // COMPONENTS
-import firebase from './firebase';
 import CharacterBlock from './CharacterBlock';
 import TeamName from './TeamName';
 
@@ -23,26 +23,85 @@ class TeamSelect extends Component {
         };
     }
 
-    // This function holds a single axios call to get stats for one super hero. We can call this function multiple times in componentDidMount for multiple heros.
-    getStat = (hero) => {
-        const apiKey = '10155759872521417';
-        axios({
-            method: "GET",
-            url: "https://proxy.hackeryou.com",
-            dataResponse: "json",
-            paramsSerializer: function (params) {
-                return Qs.stringify(params, { arrayFormat: "brackets" });
-            },
-            params: {
-                reqUrl: `http://superheroapi.com/api/${apiKey}/search/${hero}`,
-            },
-            xmlToJSON: false
-        }).then(res => {
-            console.log(res);
-            // Array of different search results, i.e. 3 Batmans
-            const heroArray = res.data.results;
-            console.log(heroArray);
-        });
+    createTeam = () => {
+        this.setState({
+            teams: {
+                teamMember: [
+                    {
+                        order: 1,
+                        name: "",
+                        img: "",
+                        stats: {
+                            int: "",
+                            str: "",
+                            spd: "",
+                            dur: "",
+                            pow: "",
+                            com: "",
+                        },
+                        winRatio: "",
+                    },
+                    {
+                        order: 2,
+                        name: "",
+                        img: "",
+                        stats: {
+                            int: "",
+                            str: "",
+                            spd: "",
+                            dur: "",
+                            pow: "",
+                            com: "",
+                        },
+                        winRatio: "",
+                    },
+                    {
+                        order: 3,
+                        name: "",
+                        img: "",
+                        stats: {
+                            int: "",
+                            str: "",
+                            spd: "",
+                            dur: "",
+                            pow: "",
+                            com: "",
+                        },
+                        winRatio: "",
+                    },
+                    {
+                        order: 4,
+                        name: "",
+                        img: "",
+                        stats: {
+                            int: "",
+                            str: "",
+                            spd: "",
+                            dur: "",
+                            pow: "",
+                            com: "",
+                        },
+                        winRatio: "",
+                    },
+                    {
+                        order: 5,
+                        name: "",
+                        img: "",
+                        stats: {
+                            int: "",
+                            str: "",
+                            spd: "",
+                            dur: "",
+                            pow: "",
+                            com: "",
+                        },
+                        winRatio: "",
+                    },
+                ],
+                teamName: "",
+                winRation: "",
+            }
+        })
     }
 
     componentDidMount() {
@@ -51,9 +110,6 @@ class TeamSelect extends Component {
         dbRef.on('value', (snapshot) => {
             console.log(snapshot.val());
         });
-
-        // Call the getStat function to make the API call and get results back for one hero
-        this.getStat('Batman');
     }
 
     render() {

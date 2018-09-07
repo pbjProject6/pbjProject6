@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Qs from 'qs';
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import swal from 'sweetalert';
 
 const apiKey = '10155759872521417';
 let heroArray = [];
@@ -35,10 +36,14 @@ class Search extends Component {
             console.log(res);
             // Array of different search results, i.e. 3 Batmans
             heroArray = res.data.results;
-            console.log(heroArray);
-            this.setState({
-                searchResults: heroArray,
-            })
+            if (!heroArray) {
+                swal('error', `${charString} returns no results. Please try a another character.`, 'error');
+            } else {
+                console.log(heroArray);
+                this.setState({
+                    searchResults: heroArray,
+                })
+            }
         });
     }
     //add clicked character to your roster/replace old character with selected one
