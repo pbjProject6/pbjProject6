@@ -17,38 +17,41 @@ import battle from './components/battle';
 
 // GLOBAL VARIABLES
 // Goes to the root of the firebase database
-const dbRef = firebase.database().ref();
+const dbRef = firebase.database().ref('/teams');
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       team: {
-        teamMember: []
+        teamMember: [],
+        teamName: '',
+        key: ''
       }
     };
   }
 
-  createTeam = () => {
+  createNewTeam = (teamName) => {
+    console.log('creating new Team');
+
     this.setState({
       team: {
         teamMember: [
-          {}
-          //   order: 1,
-          //   name: "",
-          //   img: "",
-          //   stats: {
-          //     int: "",
-          //     str: "",
-          //     spd: "",
-          //     dur: "",
-          //     pow: "",
-          //     com: "",
-          //   },
-          //   winRatio: "",
+          // order: 1,
+          // name: "",
+          // img: "",
+          // stats: {
+          //   int: "",
+          //   str: "",
+          //   spd: "",
+          //   dur: "",
+          //   pow: "",
+          //   com: "",
+          // },
+          // winRatio: "",
         ],
-        teamName: "",
-        winRation: "",
+        teamName: teamName,
+        winRatio: "",
       }
     })
   }
@@ -62,11 +65,56 @@ class App extends Component {
   }
 
   addToTeamArray = (charObj) => {
-    const teamArray = this.state.team;
-    teamArray.teamMember.push(charObj);
+    const teamObject = this.state.team;
+    teamObject.teamMember.push(charObj);
     this.setState({
-      team: teamArray
+      team: teamObject
     })
+  }
+
+  saveTeamToDB = () => {
+    dbRef.once("value", (snapshot) => {
+      let doesExist = false;
+      let dbKey = '';
+
+      let dbTeams = snapshot.val();
+      console.log(snapshot);
+
+      for (let team in dbTeams) {
+        if (dbTeams[team].name === this.state.team.name) {
+          console.log('name matches');
+
+          doesExist = true;
+          dbKey = dbTeams[team].key;
+        }
+      }
+
+      if (doesExist === false) {
+        console.log('testing db adding');
+
+        const teamKey = dbRef.push().key;
+
+        console.log(this.state.team.key);
+
+        let teamCopy = this.state.team;
+        teamCopy.key = teamKey;
+        // teamCopy.name =
+        this.setState({
+          team: teamCopy
+        })
+        console.log(this.state.team.key);
+
+        const itemReference = firebase.database().ref(`/teams/${teamKey}`);
+
+        itemReference.set(this.state.team);
+      }
+
+
+
+
+    })
+
+
   }
 
   render() {
@@ -76,9 +124,9 @@ class App extends Component {
 
           {/* ========================================== */}
           {/* SET ROUTES FOR ALL APP ROUTING */}
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" render={(props) => (<Home {...props} createNewTeam={this.createNewTeam} />)} />
           {/* Route to touch the TeamSelect component/page */}
-          <Route path="/TeamSelect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} />)} />
+          <Route path="/TeamSelect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} />)} />
           {/* Route to touch the CharacterSearch component/page */}
           <Route path="/Search" render={(props) => (<Search {...props} />)} />
           {/* Route to touch the SearchResults component/page  */}

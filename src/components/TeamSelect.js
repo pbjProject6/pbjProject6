@@ -17,14 +17,14 @@ class TeamSelect extends Component {
             <section className="teamSelectSection">
                 <TeamName />
 
-                <CharacterBlock />
-                <CharacterBlock />
-                <CharacterBlock />
-                <CharacterBlock />
-                <CharacterBlock />
+                <CharacterBlock chara={this.props.teamObject.teamMember[0]} />
+                <CharacterBlock chara={this.props.teamObject.teamMember[1]} />
+                <CharacterBlock chara={this.props.teamObject.teamMember[2]} />
+                <CharacterBlock chara={this.props.teamObject.teamMember[3]} />
+                <CharacterBlock chara={this.props.teamObject.teamMember[4]} />
 
                 <div className="teamSelectButtonsContainer">
-                    <button className="saveTeamButton button">Save Team</button>
+                    <button onClick={this.props.saveTeamToDB} className="saveTeamButton button">Save Team</button>
 
                     <Link to="/battle"><button className="goBattleButton button">Go Battle</button></Link>
 
