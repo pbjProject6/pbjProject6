@@ -7,11 +7,13 @@ import swal from 'sweetalert';
 const apiKey = '10155759872521417';
 let heroArray = [];
 let searchResult = "";
+
 class Search extends Component {
     constructor() {
         super();
         this.state = {
-            searchResults: []
+            searchResults: [],
+            chosenCharacter: {},
         }
     }
 
@@ -62,8 +64,9 @@ class Search extends Component {
                 com: selChar.powerstats.combat
             }
         };
-        console.log('Testy McTesterface');
-        // this.props.addToRoster(charObj);
+        this.setState({
+            chosenCharacter: charObj,
+        })
     }
 
     render() {
