@@ -56,28 +56,27 @@ class Home extends Component {
         }).then((res) => {
             let userTeam = res.trim();
             if (userTeam !== null) {
-                // If the user enters any value for their team name, user a forin loop to find their team's object in Firebase.
+                // If the user enters any value for their team name...
                 dbRef.once('value', (snapshot) => {
-                    // let doesExist = false;
+                    let doesExist = false;
                     let dbTeams = snapshot.val();
 
+                    console.log(dbTeams);
+                    // use a forin loop to find whether the team exists in the database.
                     for (let team in dbTeams) {
+                        // If the team exists, run the displayExistingTeam function to display the team's characters on the page.
                         if (dbTeams[team].teamName === userTeam) {
-
-                            // doesExist = true;
+                            doesExist = true;
                             // console.log('team exists');
                             this.props.displayExistingTeam(dbTeams[team]);
-                        }
-                        else {
-                            swal('Error', `Sorry, we couldn't find your team. Please check your spelling or create a new team.`, 'error');
+                            console.log('team exists in db');
                         }
                     }
-
-                    // if (doesExist === true) {
-                    // this.displayExistingTeam(userTeam);
-                    // }
-
-                    // console.log(dbTeams);
+                    // If the team doesn't exist in the database, present an error message. 
+                    if (doesExist !== true) {
+                        // this.props.displayExistingTeam(dbTeams[team]);
+                        swal('Error', `Sorry, we couldn't find your team. Please check your spelling or create a new team.`, 'error');
+                    }
                 })
             }
         });
