@@ -57,6 +57,7 @@ class App extends Component {
         winRatio: "",
       }
     })
+    // console.log(this.state);
   }
 
   displayExistingTeam = (team) => {
@@ -92,7 +93,7 @@ class App extends Component {
       console.log(dbTeams);
 
       for (let team in dbTeams) {
-        if (dbTeams[team].name === this.state.team.name) {
+        if (dbTeams[team].teamName === this.state.team.teamName) {
           console.log('name matches');
 
           doesExist = true;

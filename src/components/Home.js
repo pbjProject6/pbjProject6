@@ -27,7 +27,7 @@ class Home extends Component {
                     let doesExist = false;
 
                     let dbTeams = snapshot.val();
-
+                    console.log(dbTeams);
                     for (let team in dbTeams) {
                         if (dbTeams[team].teamName === userTeam) {
 
