@@ -11,14 +11,17 @@ class CharacterBlock extends Component {
     render() {
         return (
             <div>
+                {/* {this.props.existingChara ?
+                return the displayCharacterBlock div from below ad pass in values from exstingChara :
+                Run the below code because it we now know the user iscreatig a new team} */}
                 {!this.props.chara ?
 
                     <div className="selectCharacterBlock">
                         {/* ============================================ */}
                         {/* New Team: Character Select Block */}
-                        <Link to="/Search" component={Search}>
-                            <button className="selectCharacterButton button">Select Character</button>
-                        </Link>
+
+                        <button className="selectCharacterButton button">Select Character</button>
+
                     </div>
 
                     :
@@ -40,9 +43,9 @@ class CharacterBlock extends Component {
                             <li className="statsList__item">Sp: {this.props.chara.stats.spd}</li>
                             <li className="statsList__item">St: {this.props.chara.stats.str}</li>
                         </ul>
-                        <Link to="/Search">
-                            <button className="changeCharacterButton button">Change Character</button>
-                        </Link>
+
+                        <button className="changeCharacterButton button">Change Character</button>
+
                     </div>
                 }
             </div>

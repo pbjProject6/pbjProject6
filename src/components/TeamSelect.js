@@ -5,132 +5,36 @@ import {
     BrowserRouter as Router,
     Route, Link
 } from 'react-router-dom';
-import firebase from './firebase';
 
 // COMPONENTS
 import CharacterBlock from './CharacterBlock';
 import TeamName from './TeamName';
+import Search from './Search';
 
-// GLOBAL VARIABLES
-// Goes to the root of the firebase database
-const dbRef = firebase.database().ref();
+// const teamObjectLength = this.props.teamObject.length;
+// console.log(teamObjectLength);
 
 class TeamSelect extends Component {
-    constructor() {
-        super();
-        this.state = {
-            teams: []
-        };
-    }
-
-    createTeam = () => {
-        this.setState({
-            teams: {
-                teamMember: [
-                    {
-                        order: 1,
-                        name: "",
-                        img: "",
-                        stats: {
-                            int: "",
-                            str: "",
-                            spd: "",
-                            dur: "",
-                            pow: "",
-                            com: "",
-                        },
-                        winRatio: "",
-                    },
-                    {
-                        order: 2,
-                        name: "",
-                        img: "",
-                        stats: {
-                            int: "",
-                            str: "",
-                            spd: "",
-                            dur: "",
-                            pow: "",
-                            com: "",
-                        },
-                        winRatio: "",
-                    },
-                    {
-                        order: 3,
-                        name: "",
-                        img: "",
-                        stats: {
-                            int: "",
-                            str: "",
-                            spd: "",
-                            dur: "",
-                            pow: "",
-                            com: "",
-                        },
-                        winRatio: "",
-                    },
-                    {
-                        order: 4,
-                        name: "",
-                        img: "",
-                        stats: {
-                            int: "",
-                            str: "",
-                            spd: "",
-                            dur: "",
-                            pow: "",
-                            com: "",
-                        },
-                        winRatio: "",
-                    },
-                    {
-                        order: 5,
-                        name: "",
-                        img: "",
-                        stats: {
-                            int: "",
-                            str: "",
-                            spd: "",
-                            dur: "",
-                            pow: "",
-                            com: "",
-                        },
-                        winRatio: "",
-                    },
-                ],
-                teamName: "",
-                winRation: "",
-            }
-        })
-    }
-
-    componentDidMount() {
-        // FIREBASE
-        // Add event listener to tell us if the database has anything on load and when everything changes
-        dbRef.on('value', (snapshot) => {
-            console.log(snapshot.val());
-        });
-    }
-
     render() {
         return (
             <section className="teamSelectSection">
-                <TeamName />
+                <TeamName teamObject={this.props.teamObject} />
 
-                <CharacterBlock />
-                <CharacterBlock />
-                <CharacterBlock />
-                <CharacterBlock />
-                <CharacterBlock />
+                <CharacterBlock chara={this.props.teamObject.teamMember[0]} />
+                <CharacterBlock chara={this.props.teamObject.teamMember[1]} />
+                <CharacterBlock chara={this.props.teamObject.teamMember[2]} />
+                <CharacterBlock chara={this.props.teamObject.teamMember[3]} />
+                <CharacterBlock chara={this.props.teamObject.teamMember[4]} />
 
                 <div className="teamSelectButtonsContainer">
-                    <button className="saveTeamButton button">Save Team</button>
+                    <button onClick={this.props.saveTeamToDB} className="saveTeamButton button">Save Team</button>
 
                     <Link to="/battle"><button className="goBattleButton button">Go Battle</button></Link>
 
                     <p className="teamWinRatio"></p>
+                    {}
+                    <Search addToTeamArray={this.props.addToTeamArray} />
                 </div>
-
             </section>
         );
     }
