@@ -101,13 +101,8 @@ class Home extends Component {
 
                 <Link to="/TeamSelect"><button onClick={this.setTeamName} className="createNewTeamButton button">Create New Team</button></Link>
 
-<<<<<<< HEAD
-                <Link to={`/TeamSelect/`}><button className="loadTeamButton button">Load Exsting Team</button></Link>
-                {/* {`/TeamSelect/${teams firebase ID}`} */}
-=======
                 <Link to="/TeamSelect"><button onClick={this.searchTeamName} className="loadTeamButton button">Load Existing Team</button></Link>
 
->>>>>>> 5370c4c6a2ba8829f544b4f87a902b15bb79e710
             </section>
         )
     }
