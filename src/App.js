@@ -11,6 +11,7 @@ import Home from './components/Home';
 import TeamSelect from './components/TeamSelect';
 import TeamName from './components/TeamName';
 import Search from './components/Search';
+import CharacterBlock from './components/CharacterBlock';
 // import SearchResults from './components/SearchResults';
 // import TeamReview from './components/TeamReview';
 import battle from './components/battle';
@@ -84,6 +85,7 @@ class App extends Component {
     })
   }
 
+  // This function save the user's new team of five characters to the database
   saveTeamToDB = () => {
     dbRef.once("value", (snapshot) => {
       let doesExist = false;
@@ -123,6 +125,26 @@ class App extends Component {
     })
   }
 
+  // This function will remove a character from the team object in state. It is called when a user clicks the "Change Character" button on the TeamSelect page.
+  removeCharaFromState = (e) => {
+    const characterNameFromTeamSelect = (e.target.id);
+    const teamMemberArray = this.state.team.teamMember;
+    teamMemberArray.map((character) => {
+      if (character.name === characterNameFromTeamSelect) {
+        // const characterArray = this.state.team.teamMember
+        let indexOfCharacter = (teamMemberArray.indexOf(character));
+        let newArray = teamMemberArray.splice(indexOfCharacter, 1);
+        console.log(teamMemberArray);
+        this.setState({
+          team: {
+            teamMember: teamMemberArray
+          }
+        })
+      }
+    })
+
+  }
+
   render() {
     return (
       <Router>
@@ -132,11 +154,13 @@ class App extends Component {
           {/* SET ROUTES FOR ALL APP ROUTING */}
           <Route exact path="/" render={(props) => (<Home {...props} createNewTeam={this.createNewTeam} displayExistingTeam={this.displayExistingTeam} />)} />
           {/* Route to touch the TeamSelect component/page */}
-          <Route path="/teamselect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} />)} />
+          <Route path="/teamselect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} removeCharaFromState={this.removeCharaFromState} />)} />
           {/* Route to touch the TeamName component/page */}
           {/* <Route path="/teamname" render={(props) => (<TeamName {...props} existingTeamObject={this.state.team} />)} /> */}
 
-          {/* Route to touch the CharacterSearch component/page */}
+          {/* Route to touch the CharacterBlock component/page */}
+          {/* <Route path="/characterblock" render={(props) => (<CharacterBlock {...props} removeCharaFromState={this.removeCharaFromState} />)} /> */}
+          {/* Route to touch the Search component/page */}
           <Route path="/search" render={(props) => (<Search {...props} />)} />
           {/* Route to touch the SearchResults component/page  */}
           {/* <Route path="/SearchResults" component={SearchResults} /> */}
@@ -146,7 +170,6 @@ class App extends Component {
           {/* <Route path="/battle" component={battle} /> */}
           {/* Route to touch the Results component/page  */}
           {/* <Route path="/Results" component={Results} /> */}
-
         </div>
       </Router>
     );
