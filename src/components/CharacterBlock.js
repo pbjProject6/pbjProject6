@@ -11,6 +11,9 @@ class CharacterBlock extends Component {
     render() {
         return (
             <div>
+                {/* {this.props.existingChara ?
+                return the displayCharacterBlock div from below ad pass in values from exstingChara :
+                Run the below code because it we now know the user iscreatig a new team} */}
                 {!this.props.chara ?
 
                     <div className="selectCharacterBlock">

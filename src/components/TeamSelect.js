@@ -17,11 +17,11 @@ class TeamSelect extends Component {
             <section className="teamSelectSection">
                 <TeamName />
 
-                <CharacterBlock chara={this.props.teamObject.teamMember[0]} />
-                <CharacterBlock chara={this.props.teamObject.teamMember[1]} />
-                <CharacterBlock chara={this.props.teamObject.teamMember[2]} />
-                <CharacterBlock chara={this.props.teamObject.teamMember[3]} />
-                <CharacterBlock chara={this.props.teamObject.teamMember[4]} />
+                <CharacterBlock chara={this.props.teamObject.teamMember[0]} existingChara={this.props.existingTeamObject.teamMember[0]} />
+                <CharacterBlock chara={this.props.teamObject.teamMember[1]} existingChara={this.props.existingTeamObject.teamMember[1]} />
+                <CharacterBlock chara={this.props.teamObject.teamMember[2]} existingChara={this.props.existingTeamObject.teamMember[2]} />
+                <CharacterBlock chara={this.props.teamObject.teamMember[3]} existingChara={this.props.existingTeamObject.teamMember[3]} />
+                <CharacterBlock chara={this.props.teamObject.teamMember[4]} existingChara={this.props.existingTeamObject.teamMember[4]} />
 
                 <div className="teamSelectButtonsContainer">
                     <button onClick={this.props.saveTeamToDB} className="saveTeamButton button">Save Team</button>

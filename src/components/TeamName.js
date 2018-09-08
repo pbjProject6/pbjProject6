@@ -4,6 +4,7 @@ class TeamName extends Component {
     render() {
         return (
             <div className="TeamName">
+                {/* If this.props.existingChara exists, return a header with the team name. If not, retunr everything below. */}
                 {/* ======================================== */}
                 {/* Team Name: Creating team */}
                 <label htmlFor="teamName" className="teamNameLabel">Team Name</label>

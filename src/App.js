@@ -18,6 +18,8 @@ import battle from './components/battle';
 // GLOBAL VARIABLES
 // Goes to the root of the firebase database
 const dbRef = firebase.database().ref('/teams');
+// this variable holds the team object when the user retrieves an existing team
+let existingTeamObject = {};
 
 class App extends Component {
   constructor() {
@@ -54,6 +56,11 @@ class App extends Component {
         winRatio: "",
       }
     })
+  }
+
+  displayExistingTeam = (team) => {
+    existingTeamObject = team;
+    // console.log(existingTeamObject);
   }
 
   componentDidMount() {
@@ -124,11 +131,14 @@ class App extends Component {
 
           {/* ========================================== */}
           {/* SET ROUTES FOR ALL APP ROUTING */}
-          <Route exact path="/" render={(props) => (<Home {...props} createNewTeam={this.createNewTeam} />)} />
+          <Route exact path="/" render={(props) => (<Home {...props} createNewTeam={this.createNewTeam} displayExistingTeam={this.displayExistingTeam} />)} />
           {/* Route to touch the TeamSelect component/page */}
-          <Route path="/TeamSelect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} />)} />
+          <Route path="/teamselect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} existingTeamObject={this.existingTeamObject} />)} />
+          {/* Route to touch the TeamName component/page */}
+          <Route path="/teamname" render={(props) => (<TeamName {...props} existingTeamObject={this.existingTeamObject} />)} />
+
           {/* Route to touch the CharacterSearch component/page */}
-          <Route path="/Search" render={(props) => (<Search {...props} />)} />
+          <Route path="/search" render={(props) => (<Search {...props} />)} />
           {/* Route to touch the SearchResults component/page  */}
           {/* <Route path="/SearchResults" component={SearchResults} /> */}
           {/* Route to touch the TeamReview component/page  */}
