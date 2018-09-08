@@ -9,6 +9,7 @@ import firebase from './components/firebase';
 // COMPONENTS
 import Home from './components/Home';
 import TeamSelect from './components/TeamSelect';
+import TeamName from './components/TeamName';
 import Search from './components/Search';
 // import SearchResults from './components/SearchResults';
 // import TeamReview from './components/TeamReview';
@@ -19,7 +20,7 @@ import battle from './components/battle';
 // Goes to the root of the firebase database
 const dbRef = firebase.database().ref('/teams');
 // this variable holds the team object when the user retrieves an existing team
-let existingTeamObject = {};
+// let existingTeamObject = {};
 
 class App extends Component {
   constructor() {
@@ -59,8 +60,11 @@ class App extends Component {
   }
 
   displayExistingTeam = (team) => {
-    existingTeamObject = team;
-    // console.log(existingTeamObject);
+    this.setState({
+      team: team
+    });
+    // existingTeamObject = team
+    console.log(team);
   }
 
   componentDidMount() {
@@ -85,7 +89,7 @@ class App extends Component {
       let dbKey = '';
 
       let dbTeams = snapshot.val();
-      console.log(snapshot);
+      console.log(dbTeams);
 
       for (let team in dbTeams) {
         if (dbTeams[team].name === this.state.team.name) {
@@ -115,13 +119,7 @@ class App extends Component {
 
         itemReference.set(this.state.team);
       }
-
-
-
-
     })
-
-
   }
 
   render() {
@@ -133,9 +131,9 @@ class App extends Component {
           {/* SET ROUTES FOR ALL APP ROUTING */}
           <Route exact path="/" render={(props) => (<Home {...props} createNewTeam={this.createNewTeam} displayExistingTeam={this.displayExistingTeam} />)} />
           {/* Route to touch the TeamSelect component/page */}
-          <Route path="/teamselect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} existingTeamObject={this.existingTeamObject} />)} />
+          <Route path="/teamselect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} />)} />
           {/* Route to touch the TeamName component/page */}
-          <Route path="/teamname" render={(props) => (<TeamName {...props} existingTeamObject={this.existingTeamObject} />)} />
+          {/* <Route path="/teamname" render={(props) => (<TeamName {...props} existingTeamObject={this.state.team} />)} /> */}
 
           {/* Route to touch the CharacterSearch component/page */}
           <Route path="/search" render={(props) => (<Search {...props} />)} />
