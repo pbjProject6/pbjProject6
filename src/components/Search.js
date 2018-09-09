@@ -72,30 +72,30 @@ class Search extends Component {
     render() {
         return (
             <div className="search">
-                <h2>Add To Your Roster</h2>
                 <section className="searchArea">
                     <input id="searchInput" type="text" placehholder="Search for A Character" />
-                    <button className="searchCharacterButton button" onClick={this.searchChar}>Search</button>
-                    <Link to="/TeamSelect"><button className="returnToTeamSelectButton button" >Return</button></Link>
+                    <button className="searchCharacterButton" onClick={this.searchChar}>Search</button>
                 </section>
                 <section className="resultsArea">
                     {heroArray.map((chara, i) => {
                         return (
-                            <div key={chara.id} className="searchResult">
-                                <img src={chara.image.url} alt={`${chara.name} Snapshot`} />
-                                <div className="resultBody">
-                                    <h3>{chara.name}</h3>
-                                    <ul className="statList">
-                                        <li className="charaStat">{chara.powerstats.intelligence}</li>
-                                        <li className="charaStat">{chara.powerstats.strength}</li>
-                                        <li className="charaStat">{chara.powerstats.speed}</li>
-                                        <li className="charaStat">{chara.powerstats.durability}</li>
-                                        <li className="charaStat">{chara.powerstats.power}</li>
-                                        <li className="charaStat">{chara.powerstats.combat}</li>
-                                    </ul>
+                                <div key={chara.id} className="searchResult clearfix">
+                                    <div className="imageName">
+                                        <img src={chara.image.url} alt={`${chara.name} Snapshot`} />
+                                        <h3>{chara.name}</h3>
+                                    </div>
+                                    <div className="resultBody">
+                                        <ul className="statList">
+                                            <li className="intelligenceStat charaStat">Int:{chara.powerstats.intelligence}</li>
+                                            <li className="strengthStat charaStat">Str:{chara.powerstats.strength}</li>
+                                            <li className="speedStat charaStat">Sp:{chara.powerstats.speed}</li>
+                                            <li className="durabilityStat charaStat">Dur:{chara.powerstats.durability}</li>
+                                            <li className="powerStat charaStat">Pow:{chara.powerstats.power}</li>
+                                            <li className="combatStat charaStat">Com:{chara.powerstats.combat}</li>
+                                        </ul>
                                     {/* can you trigger a click event and rout at the same time? */}
 
-                                    <button onClick={() => this.addToRoster(i)}>Add to Roster</button>
+                                    <button className="addToRosterButton" onClick={() => this.addToRoster(i)}>Add to Roster</button>
 
                                 </div>
                                 {/* if an existing character is being replaced  display the old character */}

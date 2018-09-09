@@ -17,24 +17,60 @@ import Search from './Search';
 class TeamSelect extends Component {
     render() {
         return (
+            
+            
             <section className="teamSelectSection">
-                <TeamName teamObject={this.props.teamObject} />
 
-                <CharacterBlock chara={this.props.teamObject.teamMember[0]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
-                <CharacterBlock chara={this.props.teamObject.teamMember[1]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
-                <CharacterBlock chara={this.props.teamObject.teamMember[2]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
-                <CharacterBlock chara={this.props.teamObject.teamMember[3]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
-                <CharacterBlock chara={this.props.teamObject.teamMember[4]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
+                <header className="App-header">
+                    <div className="wrapper clearfix">
+                        <div className="logo"><h2>pb&j</h2></div>
+                        <h1 className="title">Superhero Battle</h1>
+                    </div>
+                </header>
 
-                <div className="teamSelectButtonsContainer">
-                    <button onClick={this.props.saveTeamToDB} className="saveTeamButton button">Save Team</button>
+                <main className="selectMain">
+                    <div className="wrapper clearfix">
+                        <div className="selectForm">
 
-                    <Link to="/teampreview"><button className="goBattleButton button">Go Battle</button></Link>
+                            <div className="teamName">
+                                <TeamName teamObject={this.props.teamObject} />
+                            </div>
 
-                    <p className="teamWinRatio"></p>
-                    {}
-                    <Search addToTeamArray={this.props.addToTeamArray} />
-                </div>
+                            <div className="characterBlock">
+                                <CharacterBlock chara={this.props.teamObject.teamMember[0]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
+                            </div>
+
+                            <div className="characterBlock">
+                                <CharacterBlock chara={this.props.teamObject.teamMember[1]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
+                            </div>
+
+                            <div className="characterBlock">
+                                <CharacterBlock chara={this.props.teamObject.teamMember[2]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
+                            </div>
+
+                            <div className="characterBlock">   
+                                <CharacterBlock chara={this.props.teamObject.teamMember[3]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
+                            </div>
+
+                            <div className="characterBlock"> 
+                                <CharacterBlock chara={this.props.teamObject.teamMember[4]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
+                            </div>
+
+                        </div>
+
+                        <div className="teamSelectButtonsContainer">
+                            <button onClick={this.props.saveTeamToDB} className="saveTeamButton button">Save Team</button>
+
+                            <Link to="/teampreview" className="linkToTeamPreview"><div className="goBattleButton button">Go Battle</div></Link>
+
+                            <p className="teamWinRatio"></p>
+                        </div>
+
+                        <div className="searchTeam">
+                            <Search addToTeamArray={this.props.addToTeamArray} />
+                        </div>
+                    </div>
+                </main>
             </section>
         );
     }
