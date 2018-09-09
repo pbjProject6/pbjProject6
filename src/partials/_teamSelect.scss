@@ -1,0 +1,50 @@
+.selectForm {
+    border: 1px solid rgb(140, 140, 56);
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgb(140, 140, 56);
+    float: left;
+}
+
+.selectCharacterBlock {
+    margin: 10px;
+    width: calc(100% - 20px);
+    padding: 20px;
+    background-color: rgb(213, 182, 6);
+    border: 3px solid rgb(103, 103, 41);
+    text-transform: uppercase;
+    color: #3D3D3D;
+}
+
+.selectCharacterButton {
+    width: calc(100% - 20px);
+    background-color: rgb(213, 182, 6);
+    border: none;
+    text-transform: uppercase;
+    color: #3D3D3D;
+    text-align: left;
+}
+
+.teamSelectButtonsContainer {
+    float: left;
+    
+}
+
+.linkToTeamPreview {
+    text-decoration: none;
+}
+
+
+
+
+
+.search {
+    height:459px;
+    width:459px;
+    float: left;
+    margin-left: 70px;
+    background-color: rgb(213, 182, 6);
+    border: 8px solid #8C8C38;
+    position: relative;
+    display: none;
+}
