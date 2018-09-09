@@ -5,6 +5,7 @@ import {
   Route
 } from 'react-router-dom';
 import firebase from './components/firebase';
+import swal from 'sweetalert';
 
 // COMPONENTS
 import Home from './components/Home';
@@ -23,6 +24,7 @@ import TeamPreview from './components/TeamPreview';
 const dbRef = firebase.database().ref('/teams');
 // this variable holds the team object when the user retrieves an existing team
 // let existingTeamObject = {};
+let tempArray = []
 
 class App extends Component {
   constructor() {
@@ -32,7 +34,8 @@ class App extends Component {
         teamMember: [],
         teamName: '',
         key: ''
-      }
+      },
+      tempArray: [],
     };
   }
 
@@ -77,12 +80,57 @@ class App extends Component {
     });
   }
 
+  joinArrays = () => {
+
+  }
+
   addToTeamArray = (charObj) => {
     const teamObject = this.state.team;
-    teamObject.teamMember.push(charObj);
-    this.setState({
-      team: teamObject
-    })
+    
+
+    // make sure that they cannot choose the same character twice. 
+    if (teamObject.teamMember.length > 0) {
+      let isInTeam = false;
+
+      teamObject.teamMember.forEach((item) => {
+        if (item.img === charObj.img) {
+          isInTeam = true;
+          
+        } else {
+          
+          console.log('yes!');
+        }
+
+      });
+
+      if(isInTeam === false) {
+        teamObject.teamMember.push(charObj);
+        this.setState({
+          team: teamObject
+        })
+      } else {
+        swal("Oops!", "Looks like you've already chosen that character", "error");
+        
+      }
+
+      
+      
+
+      
+
+
+      
+   
+    } else {
+      teamObject.teamMember.push(charObj);
+      this.setState({
+        team: teamObject
+      })
+      
+      
+    }
+    
+
   }
 
   // This function save the user's new team of five characters to the database
