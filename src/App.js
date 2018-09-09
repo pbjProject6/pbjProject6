@@ -13,7 +13,8 @@ import TeamName from './components/TeamName';
 import Search from './components/Search';
 // import SearchResults from './components/SearchResults';
 // import TeamReview from './components/TeamReview';
-import battle from './components/battle';
+// import battle from './components/battle';
+import TeamPreview from './components/TeamPreview';
 // import Results from './components/Results';
 
 // GLOBAL VARIABLES
@@ -72,7 +73,6 @@ class App extends Component {
     // FIREBASE
     // Add event listener to tell us if the database has anything on load and when everything changes
     dbRef.on('value', (snapshot) => {
-      console.log(snapshot.val());
     });
   }
 
@@ -140,8 +140,8 @@ class App extends Component {
           <Route path="/search" render={(props) => (<Search {...props} />)} />
           {/* Route to touch the SearchResults component/page  */}
           {/* <Route path="/SearchResults" component={SearchResults} /> */}
-          {/* Route to touch the TeamReview component/page  */}
-          {/* <Route path="/TeamReview" component={TeamReview} /> */}
+          {/* Route to touch the TeamPreview component/page  */}
+          <Route path="/teampreview" render={(props) => (<TeamPreview {...props} playerTeam={this.state.team} />)} />
           {/* Route to touch the Battle component/page  */}
           {/* <Route path="/battle" component={battle} /> */}
           {/* Route to touch the Results component/page  */}

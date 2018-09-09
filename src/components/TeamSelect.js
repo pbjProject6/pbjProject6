@@ -29,7 +29,7 @@ class TeamSelect extends Component {
                 <div className="teamSelectButtonsContainer">
                     <button onClick={this.props.saveTeamToDB} className="saveTeamButton button">Save Team</button>
 
-                    <Link to="/battle"><button className="goBattleButton button">Go Battle</button></Link>
+                    <Link to="/teampreview"><button className="goBattleButton button">Go Battle</button></Link>
 
                     <p className="teamWinRatio"></p>
                     {}
