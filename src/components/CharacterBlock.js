@@ -12,7 +12,7 @@ class CharacterBlock extends Component {
         return (
             <div>
                 {/* {this.props.existingChara ?
-                return the displayCharacterBlock div from below ad pass in values from exstingChara :
+                return the displayCharacterBlock div from below and pass in values from exstingChara :
                 Run the below code because it we now know the user iscreatig a new team} */}
                 {!this.props.chara ?
 
@@ -44,7 +44,7 @@ class CharacterBlock extends Component {
                             <li className="statsList__item">St: {this.props.chara.stats.str}</li>
                         </ul>
 
-                        <button className="changeCharacterButton button">Change Character</button>
+                        <button onClick={this.props.removeCharaFromTeamBlock} className="changeCharacterButton button" id={this.props.chara.name}>Change Character</button>
 
                     </div>
                 }

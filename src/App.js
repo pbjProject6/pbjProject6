@@ -11,6 +11,7 @@ import Home from './components/Home';
 import TeamSelect from './components/TeamSelect';
 import TeamName from './components/TeamName';
 import Search from './components/Search';
+import CharacterBlock from './components/CharacterBlock';
 // import SearchResults from './components/SearchResults';
 // import TeamReview from './components/TeamReview';
 import battle from './components/battle';
@@ -65,7 +66,7 @@ class App extends Component {
       team: team
     });
     // existingTeamObject = team
-    console.log(team);
+    console.log(this.state.team);
   }
 
   componentDidMount() {
@@ -84,20 +85,25 @@ class App extends Component {
     })
   }
 
+  // This function save the user's new team of five characters to the database
   saveTeamToDB = () => {
     dbRef.once("value", (snapshot) => {
       let doesExist = false;
       let dbKey = '';
 
       let dbTeams = snapshot.val();
-      console.log(dbTeams);
+      console.log(this.state.team);
 
       for (let team in dbTeams) {
+        // console.log(dbTeams[team].teamName);
+        // console.log(this.state.team.teamName);
         if (dbTeams[team].teamName === this.state.team.teamName) {
           console.log('name matches');
+          console.log(team);
 
           doesExist = true;
           dbKey = dbTeams[team].key;
+          // console.log(dbKey);
         }
       }
 
@@ -109,6 +115,7 @@ class App extends Component {
         console.log(this.state.team.key);
 
         let teamCopy = this.state.team;
+        console.log(teamCopy);
         teamCopy.key = teamKey;
         // teamCopy.name =
         this.setState({
@@ -119,6 +126,35 @@ class App extends Component {
         const itemReference = firebase.database().ref(`/teams/${teamKey}`);
 
         itemReference.set(this.state.team);
+      }
+      else {
+        console.log(dbKey);
+        const itemReference = firebase.database().ref(`/teams/${dbKey}`);
+        itemReference.update(this.state.team);
+        console.log(this.state.team);
+      }
+    })
+  }
+
+  // This function will remove a character from the team object in state. It is called when a user clicks the "Change Character" button on the TeamSelect page.
+  removeCharaFromState = (e) => {
+    // This variable holds the id from the button pressed to delete the character. The id is set to be the name of the character.
+    const characterNameFromTeamSelect = (e.target.id);
+    // Store the array of team characters in a variable
+    const teamMemberArray = this.state.team.teamMember;
+    // Make a copy of the state (team)
+    let stateCopy = this.state.team;
+    // Find the character in state that matches the button pressed
+    teamMemberArray.map((character) => {
+      if (character.name === characterNameFromTeamSelect) {
+        let indexOfCharacter = (teamMemberArray.indexOf(character));
+        // Remove the character from the copied team array and setState.
+        const spliceChara = teamMemberArray.splice(indexOfCharacter, 1);
+        stateCopy.teamMember = teamMemberArray;
+
+        this.setState({
+          team: stateCopy
+        })
       }
     })
   }
@@ -132,11 +168,13 @@ class App extends Component {
           {/* SET ROUTES FOR ALL APP ROUTING */}
           <Route exact path="/" render={(props) => (<Home {...props} createNewTeam={this.createNewTeam} displayExistingTeam={this.displayExistingTeam} />)} />
           {/* Route to touch the TeamSelect component/page */}
-          <Route path="/teamselect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} />)} />
+          <Route path="/teamselect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} removeCharaFromState={this.removeCharaFromState} />)} />
           {/* Route to touch the TeamName component/page */}
           {/* <Route path="/teamname" render={(props) => (<TeamName {...props} existingTeamObject={this.state.team} />)} /> */}
 
-          {/* Route to touch the CharacterSearch component/page */}
+          {/* Route to touch the CharacterBlock component/page */}
+          {/* <Route path="/characterblock" render={(props) => (<CharacterBlock {...props} removeCharaFromState={this.removeCharaFromState} />)} /> */}
+          {/* Route to touch the Search component/page */}
           <Route path="/search" render={(props) => (<Search {...props} />)} />
           {/* Route to touch the SearchResults component/page  */}
           {/* <Route path="/SearchResults" component={SearchResults} /> */}
@@ -146,7 +184,6 @@ class App extends Component {
           {/* <Route path="/battle" component={battle} /> */}
           {/* Route to touch the Results component/page  */}
           {/* <Route path="/Results" component={Results} /> */}
-
         </div>
       </Router>
     );
