@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
-  Route
+  Route, onLeave
 } from 'react-router-dom';
 import firebase from './components/firebase';
 import swal from 'sweetalert';
@@ -86,7 +86,7 @@ class App extends Component {
 
   addToTeamArray = (charObj) => {
     const teamObject = this.state.team;
-    
+
 
     // make sure that they cannot choose the same character twice. 
     if (teamObject.teamMember.length > 0) {
@@ -95,41 +95,41 @@ class App extends Component {
       teamObject.teamMember.forEach((item) => {
         if (item.img === charObj.img) {
           isInTeam = true;
-          
+
         } else {
-          
+
           console.log('yes!');
         }
 
       });
 
-      if(isInTeam === false) {
+      if (isInTeam === false) {
         teamObject.teamMember.push(charObj);
         this.setState({
           team: teamObject
         })
       } else {
         swal("Oops!", "Looks like you've already chosen that character", "error");
-        
+
       }
 
-      
-      
-
-      
 
 
-      
-   
+
+
+
+
+
+
     } else {
       teamObject.teamMember.push(charObj);
       this.setState({
         team: teamObject
       })
-      
-      
+
+
     }
-    
+
 
   }
 
