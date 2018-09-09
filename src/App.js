@@ -59,7 +59,10 @@ class App extends Component {
           // winRatio: "",
         ],
         teamName: teamName,
-        winRatio: "",
+        winRatio: {
+          wins: 0,
+          losses: 0
+        },
       }
     })
     // console.log(this.state);
@@ -112,22 +115,12 @@ class App extends Component {
         swal("Oops!", "Looks like you've already chosen that character", "error");
         
       }
-
-      
-      
-
-      
-
-
-      
-   
     } else {
       teamObject.teamMember.push(charObj);
       this.setState({
         team: teamObject
       })
-      
-      
+
     }
     
 
@@ -184,6 +177,38 @@ class App extends Component {
     })
   }
 
+  updateWinLoss = (playerScore, enemyScore) => {
+
+    //update the players win loss ratio and add it to the state
+    let playerCopy = this.state.team;
+
+    playerCopy.winRatio.wins += playerScore[0];
+    playerCopy.winRatio.losses += playerScore[1];
+
+    this.setState({
+      team: playerCopy
+    });
+    console.log(playerCopy);
+    console.log(enemyScore);
+    
+    dbRef.once("value", (snapshot) => {
+      
+        let itemReference = firebase.database().ref(`/teams/${enemyScore.key}`);
+        
+        itemReference.update({
+            winRatio: enemyScore.winRatio
+        });
+        console.log('enemyUpdated');
+        
+        itemReference = firebase.database().ref(`/teams/${this.state.team.key}`);
+
+        itemReference.update({
+          winRatio: this.state.team.winRatio
+        });
+      console.log('playerUpdated');
+    });
+  }
+
   // This function will remove a character from the team object in state. It is called when a user clicks the "Change Character" button on the TeamSelect page.
   removeCharaFromState = (e) => {
     // This variable holds the id from the button pressed to delete the character. The id is set to be the name of the character.
@@ -227,7 +252,7 @@ class App extends Component {
           {/* Route to touch the SearchResults component/page  */}
           {/* <Route path="/SearchResults" component={SearchResults} /> */}
           {/* Route to touch the TeamPreview component/page  */}
-          <Route path="/teampreview" render={(props) => (<TeamPreview {...props} playerTeam={this.state.team} />)} />
+          <Route path="/teampreview" render={(props) => (<TeamPreview {...props} playerTeam={this.state.team} updateWinLoss={this.updateWinLoss} />)} />
           {/* Route to touch the Battle component/page  */}
           {/* <Route path="/battle" component={battle} /> */}
           {/* Route to touch the Results component/page  */}

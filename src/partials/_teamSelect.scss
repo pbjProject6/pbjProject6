@@ -1,6 +1,6 @@
 .selectForm {
     border: 1px solid rgb(140, 140, 56);
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
     background-color: rgb(140, 140, 56);
     float: left;
@@ -23,10 +23,21 @@
     text-transform: uppercase;
     color: #3D3D3D;
     text-align: left;
+    font-family: $bodyFont;
 }
 
 .teamSelectButtonsContainer {
     float: left;
+    width: 20%;
+    margin: 0;
+    a{
+        margin: 0;
+    }
+    .button {
+        width: 50%;
+        margin: 0 0 0 20px;
+        
+    }
     
 }
 
@@ -35,16 +46,132 @@
 }
 
 
-
-
+// search Area
 
 .search {
     height:459px;
     width:459px;
-    float: left;
-    margin-left: 70px;
+    float: right;
     background-color: rgb(213, 182, 6);
     border: 8px solid #8C8C38;
     position: relative;
+    
+}
+
+.searchArea {
+    margin: 10px;
+    width: calc(100% - 20px);
+    background-color: rgb(213, 182, 6);
+    border: 4px solid rgb(103, 103, 41);
+    text-transform: uppercase;
+    font-family: $bodyFont;
+    color: #3D3D3D;
+    height: 65px;
+    input {
+        width: 60%;
+        background-color: white;
+        border: none;
+        text-transform: uppercase;
+        color: #3D3D3D;
+        text-align: left;
+        height: 100%;
+        padding: 5px;
+
+    }
+
+}
+
+.searchCharacterButton {
+    width: 38%;
+    background-color: rgb(213, 182, 6);
+    border: 0;
+    height: 100%;
+}
+
+.resultsArea {
+    height: 80%;
+    overflow: scroll;
+    padding: 20px;
+}
+
+.searchResult {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px grey solid;
+}
+
+.imageName {
+    width: 30%;
+    float: left;
+    img {
+        width: 100%;
+    }
+    h3 {
+        color: $black;
+        margin: 0;
+    }
+}
+
+.resultBody {
+    float: left;
+    ul {
+        padding-left: 10px;
+        margin: 0;
+        float: left;
+    }
+}
+
+.addToRosterButton {
+    float: left;
+    margin-top: 22%;
+    margin-left: 22px;
+    border-radius: 50px;
+    padding: 10px;
+    border: 6px $lightBlue solid;
+    font-family: $bodyFont;
+}
+
+.charaStat {
+    list-style: none;
+}
+
+// once character is selected
+
+.displayCharacterBlock {
+    
+    background-color: rgb(213, 182, 6);
+    margin: 10px;
+    padding: 10px;
+    border: 7px solid #81CBBE;
+    h3 {
+        margin: 0;
+        font-family: $bodyFont;
+        color: $black;
+        float: left;
+    }
+}
+
+.characterImageContainer {
     display: none;
 }
+
+.statsList {
+    list-style: none;
+    font-family: $bodyFont;
+    float: left;
+    padding-left: 9%;
+    margin: 0;
+    li {
+        display: inline;
+    }
+}
+
+.changeCharacterButton {
+    border-radius: 50px;
+    padding: 5px 10px;
+    border: 3px solid $lightBlue;
+    float: right;
+    font-size: 1rem;
+    background-color: rgb(238, 238, 238);
+}
+

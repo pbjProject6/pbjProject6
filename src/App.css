@@ -206,6 +206,31 @@ body {
   100% {
     background-position: top left; } }
 
+.charaStat {
+  margin: 5px;
+  font-size: 0.7rem;
+  border-radius: 50px;
+  padding: 3px;
+  border: 1px solid black; }
+
+.intelligenceStat {
+  background-color: yellow; }
+
+.strengthStat {
+  background-color: #00ffc3; }
+
+.speedStat {
+  background-color: red; }
+
+.durabilityStat {
+  background-color: #ff06ff; }
+
+.powerStat {
+  background-color: #75fa00; }
+
+.combatStat {
+  background-color: #ffb71b; }
+
 .homeGroup .button {
   float: left;
   margin: 30px; }
@@ -230,7 +255,7 @@ body {
 
 .selectForm {
   border: 1px solid #8c8c38;
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
   background-color: #8c8c38;
   float: left; }
@@ -250,10 +275,18 @@ body {
   border: none;
   text-transform: uppercase;
   color: #3D3D3D;
-  text-align: left; }
+  text-align: left;
+  font-family: "Nunito"; }
 
 .teamSelectButtonsContainer {
-  float: left; }
+  float: left;
+  width: 20%;
+  margin: 0; }
+  .teamSelectButtonsContainer a {
+    margin: 0; }
+  .teamSelectButtonsContainer .button {
+    width: 50%;
+    margin: 0 0 0 20px; }
 
 .linkToTeamPreview {
   text-decoration: none; }
@@ -261,9 +294,101 @@ body {
 .search {
   height: 459px;
   width: 459px;
-  float: left;
-  margin-left: 70px;
+  float: right;
   background-color: #d5b606;
   border: 8px solid #8C8C38;
-  position: relative;
+  position: relative; }
+
+.searchArea {
+  margin: 10px;
+  width: calc(100% - 20px);
+  background-color: #d5b606;
+  border: 4px solid #676729;
+  text-transform: uppercase;
+  font-family: "Nunito";
+  color: #3D3D3D;
+  height: 65px; }
+  .searchArea input {
+    width: 60%;
+    background-color: white;
+    border: none;
+    text-transform: uppercase;
+    color: #3D3D3D;
+    text-align: left;
+    height: 100%;
+    padding: 5px; }
+
+.searchCharacterButton {
+  width: 38%;
+  background-color: #d5b606;
+  border: 0;
+  height: 100%; }
+
+.resultsArea {
+  height: 80%;
+  overflow: scroll;
+  padding: 20px; }
+
+.searchResult {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px grey solid; }
+
+.imageName {
+  width: 30%;
+  float: left; }
+  .imageName img {
+    width: 100%; }
+  .imageName h3 {
+    color: #3D3D3D;
+    margin: 0; }
+
+.resultBody {
+  float: left; }
+  .resultBody ul {
+    padding-left: 10px;
+    margin: 0;
+    float: left; }
+
+.addToRosterButton {
+  float: left;
+  margin-top: 22%;
+  margin-left: 22px;
+  border-radius: 50px;
+  padding: 10px;
+  border: 6px #81CBBE solid;
+  font-family: "Nunito"; }
+
+.charaStat {
+  list-style: none; }
+
+.displayCharacterBlock {
+  background-color: #d5b606;
+  margin: 10px;
+  padding: 10px;
+  border: 7px solid #81CBBE; }
+  .displayCharacterBlock h3 {
+    margin: 0;
+    font-family: "Nunito";
+    color: #3D3D3D;
+    float: left; }
+
+.characterImageContainer {
   display: none; }
+
+.statsList {
+  list-style: none;
+  font-family: "Nunito";
+  float: left;
+  padding-left: 9%;
+  margin: 0; }
+  .statsList li {
+    display: inline; }
+
+.changeCharacterButton {
+  border-radius: 50px;
+  padding: 5px 10px;
+  border: 3px solid #81CBBE;
+  float: right;
+  font-size: 1rem;
+  background-color: #eeeeee; }

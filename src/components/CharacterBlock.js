@@ -26,26 +26,29 @@ class CharacterBlock extends Component {
 
                     :
 
-                    <div className="displayCharacterBlock">
+                    <div className="displayCharacterBlock clearfix">
                         {/* ============================================ */}
                         {/* Existing Team: Display Character Block */}
                         {/* Character Image */}
                         <div className="characterImageContainer">
                             <img src={this.props.chara.img} alt={`${this.props.chara.name} Snapshot`} />
                         </div>
-                        <h3>{this.props.chara.name}</h3>
+                        <div className="topBlock">
+                            <h3>{this.props.chara.name}</h3>
+                            <button onClick={this.props.removeCharaFromTeamBlock} className="changeCharacterButton" id={this.props.chara.name}>Change Character</button>
+                        </div>
+
                         {/* List of Stats */}
                         <ul className="statsList">
-                            <li className="statsList__item">C: {this.props.chara.stats.com}</li>
-                            <li className="statsList__item">D: {this.props.chara.stats.dur}</li>
-                            <li className="statsList__item">I: {this.props.chara.stats.int}</li>
-                            <li className="statsList__item">P: {this.props.chara.stats.pow}</li>
-                            <li className="statsList__item">Sp: {this.props.chara.stats.spd}</li>
-                            <li className="statsList__item">St: {this.props.chara.stats.str}</li>
+                            <li className="charaStat combatStat">C: {this.props.chara.stats.com}</li>
+                            <li className="charaStat durabilityStat">D: {this.props.chara.stats.dur}</li>
+                            <li className="charaStat intelligenceStat">I: {this.props.chara.stats.int}</li>
+                            <li className="charaStat powerStat">P: {this.props.chara.stats.pow}</li>
+                            <li className="charaStat speedStat">Sp: {this.props.chara.stats.spd}</li>
+                            <li className="charaStat strengthStat">St: {this.props.chara.stats.str}</li>
                         </ul>
 
-                        <button onClick={this.props.removeCharaFromTeamBlock} className="changeCharacterButton" id={this.props.chara.name}>Change Character</button>
-
+                        
                     </div>
                 }
             </div>
