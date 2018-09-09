@@ -69,7 +69,7 @@ class Home extends Component {
                             doesExist = true;
                             // console.log('team exists');
                             this.props.displayExistingTeam(dbTeams[team]);
-                            console.log('team exists in db');
+                            console.log(dbTeams[team]);
                         }
                     }
                     // If the team doesn't exist in the database, present an error message. 

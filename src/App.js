@@ -66,7 +66,7 @@ class App extends Component {
       team: team
     });
     // existingTeamObject = team
-    console.log(team);
+    console.log(this.state.team);
   }
 
   componentDidMount() {
@@ -92,14 +92,18 @@ class App extends Component {
       let dbKey = '';
 
       let dbTeams = snapshot.val();
-      console.log(dbTeams);
+      console.log(this.state.team);
 
       for (let team in dbTeams) {
+        // console.log(dbTeams[team].teamName);
+        // console.log(this.state.team.teamName);
         if (dbTeams[team].teamName === this.state.team.teamName) {
           console.log('name matches');
+          console.log(team);
 
           doesExist = true;
           dbKey = dbTeams[team].key;
+          // console.log(dbKey);
         }
       }
 
@@ -111,6 +115,7 @@ class App extends Component {
         console.log(this.state.team.key);
 
         let teamCopy = this.state.team;
+        console.log(teamCopy);
         teamCopy.key = teamKey;
         // teamCopy.name =
         this.setState({
@@ -122,27 +127,36 @@ class App extends Component {
 
         itemReference.set(this.state.team);
       }
+      else {
+        console.log(dbKey);
+        const itemReference = firebase.database().ref(`/teams/${dbKey}`);
+        itemReference.update(this.state.team);
+        console.log(this.state.team);
+      }
     })
   }
 
   // This function will remove a character from the team object in state. It is called when a user clicks the "Change Character" button on the TeamSelect page.
   removeCharaFromState = (e) => {
+    // This variable holds the id from the button pressed to delete the character. The id is set to be the name of the character.
     const characterNameFromTeamSelect = (e.target.id);
+    // Store the array of team characters in a variable
     const teamMemberArray = this.state.team.teamMember;
+    // Make a copy of the state (team)
+    let stateCopy = this.state.team;
+    // Find the character in state that matches the button pressed
     teamMemberArray.map((character) => {
       if (character.name === characterNameFromTeamSelect) {
-        // const characterArray = this.state.team.teamMember
         let indexOfCharacter = (teamMemberArray.indexOf(character));
-        let newArray = teamMemberArray.splice(indexOfCharacter, 1);
-        console.log(teamMemberArray);
+        // Remove the character from the copied team array and setState.
+        const spliceChara = teamMemberArray.splice(indexOfCharacter, 1);
+        stateCopy.teamMember = teamMemberArray;
+
         this.setState({
-          team: {
-            teamMember: teamMemberArray
-          }
+          team: stateCopy
         })
       }
     })
-
   }
 
   render() {
