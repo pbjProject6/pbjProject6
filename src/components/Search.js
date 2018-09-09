@@ -64,9 +64,9 @@ class Search extends Component {
                 com: selChar.powerstats.combat
             }
         };
-        this.setState({
-            chosenCharacter: charObj,
-        })
+        // console.log('Testy McTesterface');
+        console.log(this.props)
+        this.props.addToTeamArray(charObj);
     }
 
     render() {
@@ -94,9 +94,9 @@ class Search extends Component {
                                         <li className="charaStat">{chara.powerstats.combat}</li>
                                     </ul>
                                     {/* can you trigger a click event and rout at the same time? */}
-                                    <Link to="/TeamSelect">
-                                        <button onClick={() => this.addToRoster(i)}>Add to Roster</button>
-                                    </Link>
+
+                                    <button onClick={() => this.addToRoster(i)}>Add to Roster</button>
+
                                 </div>
                                 {/* if an existing character is being replaced  display the old character */}
                                 {/* <img src={oldChara.image.url} alt={`${oldChara.name} Snapshot`} />
