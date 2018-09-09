@@ -83,11 +83,17 @@ class TeamPreview extends Component {
         }
         // display match results to player and update ratios
         if(playerWins > enemyWins){
+            let enemyObject = this.state.fightingEnemyTeam;
+            enemyObject.winRatio.losses += 1;
+            this.props.updateWinLoss([1, 0], enemyObject);
             swal(`Competed in ${statNames[competeStat]}`, `You win with ${playerWins} wins to ${enemyWins}`).then(() => {
                 this.postBattleChoices();
             });
         }
         else{
+            let enemyObject = this.state.fightingEnemyTeam;
+            enemyObject.winRatio.wins += 1;
+            this.props.updateWinLoss([0, 1], enemyObject);
             swal(`Competed in ${statNames[competeStat]}`, `The opponent won with ${enemyWins} wins to ${playerWins}`).then(() =>{
                 this.postBattleChoices();
             });
