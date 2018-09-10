@@ -1,0 +1,60 @@
+.playerTeam {
+    width: 35%;
+    float: left;
+}
+
+.enemyTeam {
+    width: 35%;
+    float: right;
+    text-align: right;
+    
+}
+
+.teamButtons {
+    clear: both;
+}
+
+.teamPreview .characterBlock {
+    background-color: rgb(213, 182, 6);
+    border: 3px solid rgb(103, 103, 41);
+    border-radius: 50px;
+    padding: 5px;
+    margin-bottom: 10px;
+    img{
+        width: 10%;
+        margin: 0 20px;
+    }
+    h3 {
+        margin-bottom: 0;
+    }
+}
+
+.characterBlock.player {
+    img {
+        float: left;
+        
+    }
+    h3 {
+        float: left;
+    }
+}
+
+.characterBlock.enemy {
+    img {
+        float: right;
+        
+    }
+    h3 {
+        float: right;
+    }
+}
+
+
+// h2 team name
+// div.characterBlock player
+// h3 character name
+
+
+// h2 team name
+// div.characterBlock enemy
+// h3 character name

@@ -293,6 +293,9 @@ body {
     width: 50%;
     margin: 63px 0 0 20px; }
 
+.hide {
+  display: none; }
+
 .linkToTeamPreview {
   text-decoration: none; }
 
@@ -397,3 +400,39 @@ body {
   float: right;
   font-size: 1rem;
   background-color: #eeeeee; }
+
+.playerTeam {
+  width: 35%;
+  float: left; }
+
+.enemyTeam {
+  width: 35%;
+  float: right;
+  text-align: right; }
+
+.teamButtons {
+  clear: both; }
+
+.teamPreview .characterBlock {
+  background-color: #d5b606;
+  border: 3px solid #676729;
+  border-radius: 50px;
+  padding: 5px;
+  margin-bottom: 10px; }
+  .teamPreview .characterBlock img {
+    width: 10%;
+    margin: 0 20px; }
+  .teamPreview .characterBlock h3 {
+    margin-bottom: 0; }
+
+.characterBlock.player img {
+  float: left; }
+
+.characterBlock.player h3 {
+  float: left; }
+
+.characterBlock.enemy img {
+  float: right; }
+
+.characterBlock.enemy h3 {
+  float: right; }
