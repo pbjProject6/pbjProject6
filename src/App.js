@@ -39,7 +39,6 @@ class App extends Component {
           losses: 0
         }
       },
-      tempArray: [],
     };
   }
 
@@ -231,7 +230,7 @@ class App extends Component {
     let stateCopy = this.state.team;
     // Find the character in state that matches the button pressed
     teamMemberArray.map((character) => {
-      if (character.name === characterNameFromTeamSelect) {
+      if (character.img === characterNameFromTeamSelect) {
         let indexOfCharacter = (teamMemberArray.indexOf(character));
         // Remove the character from the copied team array and setState.
         const spliceChara = teamMemberArray.splice(indexOfCharacter, 1);
@@ -244,6 +243,8 @@ class App extends Component {
     })
   }
 
+
+
   render() {
     return (
       <Router>
@@ -253,7 +254,7 @@ class App extends Component {
           {/* SET ROUTES FOR ALL APP ROUTING */}
           <Route exact path="/" render={(props) => (<Home {...props} createNewTeam={this.createNewTeam} displayExistingTeam={this.displayExistingTeam} />)} />
           {/* Route to touch the TeamSelect component/page */}
-          <Route path="/teamselect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} removeCharaFromState={this.removeCharaFromState} winRatio={this.state.team.winRatio} />)} />
+          <Route path="/teamselect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} removeCharaFromState={this.removeCharaFromState} winRatio={this.state.team.winRatio} showStatsList={this.showStatsList} />)} />
           {/* Route to touch the TeamName component/page */}
           {/* <Route path="/teamname" render={(props) => (<TeamName {...props} existingTeamObject={this.state.team} />)} /> */}
 
