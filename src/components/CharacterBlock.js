@@ -18,6 +18,7 @@ class CharacterBlock extends Component {
 
     render() {
         return (
+
             <div className="characterBlockParent">
                 {/* {this.props.existingChara ?
                 return the displayCharacterBlock div from below and pass in values from exstingChara :

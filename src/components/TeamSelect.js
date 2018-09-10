@@ -49,24 +49,25 @@ class TeamSelect extends Component {
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
-                            <div className="characterBlock">
-                                <CharacterBlock chara={this.props.teamObject.teamMember[0]} removeCharaFromTeamBlock={this.props.removeCharaFromState} showStatsList={this.props.showStatsList}/>
+                            <div className="characterBlockContainer">
+                                <CharacterBlock chara={this.props.teamObject.teamMember[0]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
                             </div>
 
-                            <div className="characterBlock">
-                                <CharacterBlock chara={this.props.teamObject.teamMember[1]} removeCharaFromTeamBlock={this.props.removeCharaFromState} showStatsList={this.props.showStatsList} />
+                            <div className="characterBlockContainer">
+                                <CharacterBlock chara={this.props.teamObject.teamMember[1]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
                             </div>
 
-                            <div className="characterBlock">
-                                <CharacterBlock chara={this.props.teamObject.teamMember[2]} removeCharaFromTeamBlock={this.props.removeCharaFromState} showStatsList={this.props.showStatsList}/>
+                            <div className="characterBlockContainer">
+                                <CharacterBlock chara={this.props.teamObject.teamMember[2]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
                             </div>
 
-                            <div className="characterBlock">
-                                <CharacterBlock chara={this.props.teamObject.teamMember[3]} removeCharaFromTeamBlock={this.props.removeCharaFromState} showStatsList={this.props.showStatsList}/>
+                            <div className="characterBlockContainer">
+                                <CharacterBlock chara={this.props.teamObject.teamMember[3]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
                             </div>
 
-                            <div className="characterBlock">
-                                <CharacterBlock chara={this.props.teamObject.teamMember[4]} removeCharaFromTeamBlock={this.props.removeCharaFromState} showStatsList={this.props.showStatsList}/>
+                            <div className="characterBlockContainer">
+                                <CharacterBlock chara={this.props.teamObject.teamMember[4]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
+
                             </div>
 
                         </div>
