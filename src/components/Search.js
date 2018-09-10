@@ -39,7 +39,14 @@ class Search extends Component {
             // Array of different search results, i.e. 3 Batmans
             heroArray = res.data.results;
             if (!heroArray) {
-                swal('error', `${charString} returns no results. Please try a another character.`, 'error');
+                swal({
+                    title: 'error',
+                    text: `${charString} returns no results. Please try a another character.`,
+                    icon: 'error',
+                    button: {
+                        className: "sweetButton",
+                    }
+                });
             } else {
                 console.log(heroArray);
                 this.setState({
@@ -79,20 +86,20 @@ class Search extends Component {
                 <section className="resultsArea">
                     {heroArray.map((chara, i) => {
                         return (
-                                <div key={chara.id} className="searchResult clearfix">
-                                    <div className="imageName">
-                                        <img src={chara.image.url} alt={`${chara.name} Snapshot`} />
-                                        <h3>{chara.name}</h3>
-                                    </div>
-                                    <div className="resultBody">
-                                        <ul className="statList">
-                                            <li className="intelligenceStat charaStat">Int:{chara.powerstats.intelligence}</li>
-                                            <li className="strengthStat charaStat">Str:{chara.powerstats.strength}</li>
-                                            <li className="speedStat charaStat">Sp:{chara.powerstats.speed}</li>
-                                            <li className="durabilityStat charaStat">Dur:{chara.powerstats.durability}</li>
-                                            <li className="powerStat charaStat">Pow:{chara.powerstats.power}</li>
-                                            <li className="combatStat charaStat">Com:{chara.powerstats.combat}</li>
-                                        </ul>
+                            <div key={chara.id} className="searchResult clearfix">
+                                <div className="imageName">
+                                    <img src={chara.image.url} alt={`${chara.name} Snapshot`} />
+                                    <h3>{chara.name}</h3>
+                                </div>
+                                <div className="resultBody">
+                                    <ul className="statList">
+                                        <li className="intelligenceStat charaStat">Int:{chara.powerstats.intelligence}</li>
+                                        <li className="strengthStat charaStat">Str:{chara.powerstats.strength}</li>
+                                        <li className="speedStat charaStat">Sp:{chara.powerstats.speed}</li>
+                                        <li className="durabilityStat charaStat">Dur:{chara.powerstats.durability}</li>
+                                        <li className="powerStat charaStat">Pow:{chara.powerstats.power}</li>
+                                        <li className="combatStat charaStat">Com:{chara.powerstats.combat}</li>
+                                    </ul>
                                     {/* can you trigger a click event and rout at the same time? */}
 
                                     <button className="addToRosterButton" onClick={() => this.addToRoster(i)}>Add to Roster</button>

@@ -8,6 +8,7 @@ import HomeButton from './HomeButton';
 
 let enemyTeams = [];
 let statNames = ['com', 'dur', 'int', 'pow', 'spd', 'str'];
+let statFullNames = ['Combat', 'Durability', 'Intelligence', 'Power', 'Speed', 'Strength'];
 const dbRef = firebase.database().ref('/teams');
 
 
@@ -57,49 +58,92 @@ class TeamPreview extends Component {
 
     }
 
+    redoAnimation = () => {
+        let badTeam = document.getElementById('enemyBlock')
+        badTeam.className = 'enemyTeam';
+
+        let goodTeam = document.getElementById('playerBlock')
+        goodTeam.className = 'playerTeam';
+    }
+
     startBattle = () => {
-        console.log("starting battle");
+
+        
         //generate random number between 0 and 5 to determine stat compared
         let competeStat = Math.floor(Math.random() * statNames.length);
+        let player = this.props.playerTeam;
+        let enemy = this.state.fightingEnemyTeam;
         let playerWins = 0;
         let enemyWins = 0;
+        let result = document.createElement("div");
+        let playerResult = document.createElement("div");
+        let enemyResult = document.createElement("div");
 
         // compare each character to the character in the respective slot on the other team
         for (let i = 0; i <= 4; i++) {
             //api stores stats as strings, must convert them to numbers to compare them
-            let playerStat = parseInt(this.props.playerTeam.teamMember[i].stats[statNames[competeStat]], 10);
-            let enemyStat = parseInt(this.state.fightingEnemyTeam.teamMember[i].stats[statNames[competeStat]], 10);
+            let playerStat = parseInt(player.teamMember[i].stats[statNames[competeStat]], 10);
+            let enemyStat = parseInt(enemy.teamMember[i].stats[statNames[competeStat]], 10);
 
             console.log(playerStat, enemyStat);
 
             // calculate character wins by the larger stat
             if (playerStat >= enemyStat) {
-                console.log(`player wins match ${i}`);
                 playerWins++;
             }
             else {
-                console.log(`enemy wins match ${i}`);
                 enemyWins++;
             }
+            playerResult.innerHTML += `<p>${player.teamMember[i].name} : ${playerStat}</p>`;
+            enemyResult.innerHTML += `<p>${enemy.teamMember[i].name} : ${enemyStat}</p>`;
         }
+        result.appendChild(playerResult);
+        result.appendChild(enemyResult);
         // display match results to player and update ratios
-        if (playerWins > enemyWins) {
-            let enemyObject = this.state.fightingEnemyTeam;
-            enemyObject.winRatio.losses += 1;
-            this.props.updateWinLoss([1, 0], enemyObject);
-            swal(`Competed in ${statNames[competeStat]}`, `You win with ${playerWins} wins to ${enemyWins}`).then(() => {
-                this.postBattleChoices();
-            });
-        }
-        else {
-            let enemyObject = this.state.fightingEnemyTeam;
-            enemyObject.winRatio.wins += 1;
-            this.props.updateWinLoss([0, 1], enemyObject);
-            swal(`Competed in ${statNames[competeStat]}`, `The opponent won with ${enemyWins} wins to ${playerWins}`).then(() => {
-                this.postBattleChoices();
-            });
-        }
+        setTimeout(() => {
+            if (playerWins > enemyWins) {
+                let enemyObject = this.state.fightingEnemyTeam;
+                enemyObject.winRatio.losses += 1;
+                this.props.updateWinLoss([1, 0], enemyObject);
+
+                result.innerHTML += `You win with ${playerWins} wins to ${enemyWins}`;
+
+                swal({
+                    title: `Competed in ${statFullNames[competeStat]}`,
+                    content: result,
+                    button: {
+                        className: "sweetButton"
+                    }
+                }).then(() => {
+                    this.postBattleChoices();
+                });
+            }
+            else {
+                let enemyObject = this.state.fightingEnemyTeam;
+                enemyObject.winRatio.wins += 1;
+                this.props.updateWinLoss([0, 1], enemyObject);
+                swal({
+                    title: `Competed in ${statNames[competeStat]}`,
+                    content: result,
+                    button: {
+                        className: "sweetButton"
+                    }
+                }).then(() => {
+                    this.postBattleChoices();
+                });
+            }
+        }, 1500)
+
+        // battle animations
+        let badTeam = document.getElementById('enemyBlock')
+        badTeam.className = 'enemyTeam animated fadeOutLeft';
+
+        let goodTeam = document.getElementById('playerBlock')
+        goodTeam.className = 'playerTeam animated fadeOutRight';
+
     }
+
+
     postBattleChoices = () => {
 
         swal({
@@ -107,15 +151,18 @@ class TeamPreview extends Component {
             buttons: {
                 rematch: {
                     text: 'Fight again?',
-                    value: 'rematch'
+                    value: 'rematch',
+                    className: "sweetButton"
                 },
                 newOpponent: {
                     text: 'Get a new Opponent?',
-                    value: 'newOpponent'
+                    value: 'newOpponent',
+                    className: "sweetButton"
                 },
                 adjustTeam: {
                     text: 'Adjust Team?',
-                    value: 'adjustTeam'
+                    value: 'adjustTeam',
+                    className: "sweetButton"
                 }
 
 
@@ -124,11 +171,29 @@ class TeamPreview extends Component {
             console.log(res);
             if (res === 'rematch') {
                 //fight same opponent again
-                this.startBattle();
+
+                // make the animations restart
+                let badTeam = document.getElementById('enemyBlock')
+                badTeam.className = 'enemyTeam';
+
+                let goodTeam = document.getElementById('playerBlock')
+                goodTeam.className = 'playerTeam';
+
+                setTimeout(() => {
+                    this.startBattle();
+                }, 2000)
             }
             else if (res === 'newOpponent') {
                 //get a new random opponent
+
+                let badTeam = document.getElementById('enemyBlock')
+                badTeam.className = 'enemyTeam';
+
+                let goodTeam = document.getElementById('playerBlock')
+                goodTeam.className = 'playerTeam';
+                
                 this.componentDidMount();
+                
             }
             else if (res === 'adjustTeam') {
                 // go back to team select
@@ -154,12 +219,12 @@ class TeamPreview extends Component {
                 </header>
 
                 <div className="wrapper clearfix">
-                    <section className="playerTeam">
+                    <section className="playerTeam" id="playerBlock">
 
                         <h2>{this.props.playerTeam.teamName}</h2>
                         {this.props.playerTeam.teamMember.map((char) => {
                             return (
-                                <div className="characterBlock player clearfix">
+                                <div className="characterBlock player clearfix" >
                                     <img src={char.img} alt={`${char.name} Snapshot`} />
                                     <h3>{char.name}</h3>
                                 </div>
@@ -167,7 +232,7 @@ class TeamPreview extends Component {
                         })}
                     </section>
                     {this.state.fightingEnemyTeam === null ? null :
-                        <section className="enemyTeam">
+                        <section className="enemyTeam" id="enemyBlock">
                             <h2>{this.state.fightingEnemyTeam.teamName}</h2>
                             {this.state.fightingEnemyTeam.teamMember.map((char) => {
                                 return (
