@@ -67,6 +67,7 @@ class TeamPreview extends Component {
         let enemyWins = 0;
         let result = document.createElement("div");
         let playerResult = document.createElement("div");
+        let vs = document.createElement("div");
         let enemyResult = document.createElement("div");
 
         // compare each character to the character in the respective slot on the other team
@@ -84,10 +85,12 @@ class TeamPreview extends Component {
             else{
                 enemyWins++;
             }
-            playerResult.innerHTML += `<p>${player.teamMember[i].name} : ${playerStat}</p>`;
-            enemyResult.innerHTML += `<p>${enemy.teamMember[i].name} : ${enemyStat}</p>`;
+            playerResult.innerHTML += `<p>${player.teamMember[i].name} : <strong>${playerStat}</strong></p>`;
+            vs.innerHTML += `<p> VS </p>`
+            enemyResult.innerHTML += `<p>${enemy.teamMember[i].name} : <strong>${enemyStat}</strong></p>`;
         }
         result.appendChild(playerResult);
+        result.appendChild(vs);
         result.appendChild(enemyResult);
         // display match results to player and update ratios
         if (playerWins > enemyWins) {

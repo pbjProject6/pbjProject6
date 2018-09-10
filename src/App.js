@@ -33,19 +33,11 @@ class App extends Component {
       team: {
         teamMember: [],
         teamName: '',
-<<<<<<< HEAD
-        key: '',
-        winRatio: {
-          wins: 0,
-          losses: 0
-        }
-=======
         winRatio: {
           wins: 0,
           losses: 0
         },
         key: ''
->>>>>>> 5f0d7c3376826126e0711d6fa79df557786e9b18
       },
       tempArray: [],
     };
@@ -95,10 +87,6 @@ class App extends Component {
     });
   }
 
-  joinArrays = () => {
-
-  }
-
   addToTeamArray = (charObj) => {
     const teamObject = this.state.team;
 
@@ -140,53 +128,53 @@ class App extends Component {
 
   // This function save the user's new team of five characters to the database
   saveTeamToDB = () => {
-    // dbRef.once("value", (snapshot) => {
-    //   let doesExist = false;
-    //   let dbKey = '';
+    dbRef.once("value", (snapshot) => {
+      let doesExist = false;
+      let dbKey = '';
 
-    //   let dbTeams = snapshot.val();
-    //   console.log(this.state.team);
+      let dbTeams = snapshot.val();
+      console.log(this.state.team);
 
-    //   for (let team in dbTeams) {
-    //     // console.log(dbTeams[team].teamName);
-    //     // console.log(this.state.team.teamName);
-    //     if (dbTeams[team].teamName === this.state.team.teamName) {
-    //       console.log('name matches');
-    //       console.log(team);
+      for (let team in dbTeams) {
+        // console.log(dbTeams[team].teamName);
+        // console.log(this.state.team.teamName);
+        if (dbTeams[team].teamName === this.state.team.teamName) {
+          console.log('name matches');
+          console.log(team);
 
-    //       doesExist = true;
-    //       dbKey = dbTeams[team].key;
-    //       // console.log(dbKey);
-    //     }
-    //   }
+          doesExist = true;
+          dbKey = dbTeams[team].key;
+          // console.log(dbKey);
+        }
+      }
 
-    //   if (doesExist === false) {
-    //     console.log('testing db adding');
+      if (doesExist === false) {
+        console.log('testing db adding');
 
-    //     const teamKey = dbRef.push().key;
+        const teamKey = dbRef.push().key;
 
-    //     console.log(this.state.team.key);
+        console.log(this.state.team.key);
 
-    //     let teamCopy = this.state.team;
-    //     console.log(teamCopy);
-    //     teamCopy.key = teamKey;
-    //     // teamCopy.name =
-    //     this.setState({
-    //       team: teamCopy
-    //     })
-    //     console.log(this.state.team.key);
+        let teamCopy = this.state.team;
+        console.log(teamCopy);
+        teamCopy.key = teamKey;
+        // teamCopy.name =
+        this.setState({
+          team: teamCopy
+        })
+        console.log(this.state.team.key);
 
-    //     const itemReference = firebase.database().ref(`/teams/${teamKey}`);
+        const itemReference = firebase.database().ref(`/teams/${teamKey}`);
 
-    //     itemReference.set(this.state.team);
-    //   }
-    //   else {
-    //     console.log(dbKey);
-    //     const itemReference = firebase.database().ref(`/teams/${dbKey}`);
-    //     itemReference.update(this.state.team);
-    //     console.log(this.state.team);
-    //   }
-    // })
+        itemReference.set(this.state.team);
+      }
+      else {
+        console.log(dbKey);
+        const itemReference = firebase.database().ref(`/teams/${dbKey}`);
+        itemReference.update(this.state.team);
+        console.log(this.state.team);
+      }
+    })
 
     // make the battle button appear
     var battleButton = document.getElementById('linkToTeamPreview');
@@ -214,40 +202,20 @@ class App extends Component {
     this.setState({
       team: playerCopy
     });
-    console.log(playerCopy);
-    console.log(enemyScore);
 
     dbRef.once("value", (snapshot) => {
-<<<<<<< HEAD
       // update both database references with the updated win loss ratio
         let itemReference = firebase.database().ref(`/teams/${enemyScore.key}`);
         
         itemReference.update({
             winRatio: enemyScore.winRatio
         });
-        console.log('enemyUpdated');
         
         itemReference = firebase.database().ref(`/teams/${this.state.team.key}`);
 
         itemReference.update({
           winRatio: this.state.team.winRatio
         });
-=======
-
-      let itemReference = firebase.database().ref(`/teams/${enemyScore.key}`);
-
-      itemReference.update({
-        winRatio: enemyScore.winRatio
-      });
-      console.log('enemyUpdated');
-
-      itemReference = firebase.database().ref(`/teams/${this.state.team.key}`);
-
-      itemReference.update({
-        winRatio: this.state.team.winRatio
-      });
->>>>>>> 5f0d7c3376826126e0711d6fa79df557786e9b18
-      console.log('playerUpdated');
     });
   }
 
