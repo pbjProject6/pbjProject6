@@ -10,6 +10,7 @@ import {
 import CharacterBlock from './CharacterBlock';
 import TeamName from './TeamName';
 import Search from './Search';
+import HomeButton from './HomeButton';
 
 // const teamObjectLength = this.props.teamObject.length;
 // console.log(teamObjectLength);
@@ -17,8 +18,8 @@ import Search from './Search';
 class TeamSelect extends Component {
     render() {
         return (
-            
-            
+
+
             <section className="teamSelectSection">
 
                 <header className="App-header">
@@ -30,10 +31,14 @@ class TeamSelect extends Component {
 
                 <main className="selectMain">
                     <div className="wrapper clearfix">
-                        <div className="selectForm">
+                        <div className="selectForm clearfix">
 
                             <div className="teamName">
                                 <TeamName teamObject={this.props.teamObject} />
+                            </div>
+
+                            <div className="infoIcon">
+                                <i class="fas fa-question-circle"></i>
                             </div>
 
                             <div className="characterBlock">
@@ -48,22 +53,28 @@ class TeamSelect extends Component {
                                 <CharacterBlock chara={this.props.teamObject.teamMember[2]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
                             </div>
 
-                            <div className="characterBlock">   
+                            <div className="characterBlock">
                                 <CharacterBlock chara={this.props.teamObject.teamMember[3]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
                             </div>
 
-                            <div className="characterBlock"> 
+                            <div className="characterBlock">
                                 <CharacterBlock chara={this.props.teamObject.teamMember[4]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
                             </div>
 
                         </div>
 
                         <div className="teamSelectButtonsContainer">
-                            <button onClick={this.props.saveTeamToDB} className="saveTeamButton button">Save Team</button>
+                            <button onClick={this.props.saveTeamToDB} className="saveTeamButton button shimmer" id="saveTeamButton">
+                                <i class="fas fa-unlock lock" id="unlockedIcon"></i>
+                                <i class="fas fa-lock lock hide" id="lockedIcon"></i>
+                                Confirm Team</button>
 
-                            <Link to="/teampreview" className="linkToTeamPreview"><div className="goBattleButton button">Go Battle</div></Link>
+                            <Link to="/teampreview" className="linkToTeamPreview"
+                                id="linkToTeamPreview"><div className="goBattleButton button">Go Battle</div></Link>
 
-                            <p className="teamWinRatio"></p>
+                            <HomeButton />
+
+                            {/* <p className="teamWinRatio"></p> */}
                         </div>
 
                         <div className="searchTeam">

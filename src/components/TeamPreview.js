@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Link, Redirect } from "react-router-dom";
 import firebase from "firebase";
 import swal from 'sweetalert';
 
-
+// COMPONENTS
+import HomeButton from './HomeButton';
 
 let enemyTeams = [];
 let statNames = ['com', 'dur', 'int', 'pow', 'spd', 'str' ];
@@ -12,49 +13,49 @@ const dbRef = firebase.database().ref('/teams');
 
 
 class TeamPreview extends Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {
             fightingEnemyTeam: null,
             redirect: false
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         enemyTeams = [];
         let teamNumRef;
-            //get total number of teams in database
+        //get total number of teams in database
 
-            dbRef.once('value', (snapshot) => {
-                console.log(snapshot.val());
-                
-                //create an array of all the teams in the database
-                let dbEnemyTeams = snapshot.val();
-                for(let team in dbEnemyTeams){
-                    
-                    enemyTeams.push(dbEnemyTeams[team]);
-                }
+        dbRef.once('value', (snapshot) => {
+            console.log(snapshot.val());
+
+            //create an array of all the teams in the database
+            let dbEnemyTeams = snapshot.val();
+            for (let team in dbEnemyTeams) {
+
+                enemyTeams.push(dbEnemyTeams[team]);
+            }
+            console.log(enemyTeams);
+
+            // genereate a random number and get a random team
+            let enemyNum = Math.floor(Math.random() * enemyTeams.length);
+            // if the randomly generated team is the players team
+            if (enemyTeams[enemyNum].teamName === this.props.playerTeam.teamName) {
+                //remove it and get a new one
+                console.log(enemyTeams.length);
+
+                let playersTeam = enemyTeams.splice(enemyNum, 1);
+                console.log('removes players team');
                 console.log(enemyTeams);
 
-                // genereate a random number and get a random team
-                let enemyNum = Math.floor(Math.random() * enemyTeams.length);
-                // if the randomly generated team is the players team
-                if(enemyTeams[enemyNum].teamName === this.props.playerTeam.teamName){
-                    //remove it and get a new one
-                    console.log(enemyTeams.length);
-                    
-                    let playersTeam = enemyTeams.splice(enemyNum, 1);
-                    console.log('removes players team');
-                    console.log(enemyTeams);
-                    
-                    enemyNum = Math.floor(Math.random() * enemyTeams.length);
-                }
+                enemyNum = Math.floor(Math.random() * enemyTeams.length);
+            }
 
-                this.setState({
-                    fightingEnemyTeam: enemyTeams[enemyNum]
-                })
-            });
-            
-            
+            this.setState({
+                fightingEnemyTeam: enemyTeams[enemyNum]
+            })
+        });
+
+
     }
 
     startBattle = () => {
@@ -69,7 +70,7 @@ class TeamPreview extends Component {
         let enemyResult = document.createElement("div");
 
         // compare each character to the character in the respective slot on the other team
-        for( let i = 0; i <= 4; i++){
+        for (let i = 0; i <= 4; i++) {
             //api stores stats as strings, must convert them to numbers to compare them
             let playerStat = parseInt(player.teamMember[i].stats[statNames[competeStat]], 10);
             let enemyStat = parseInt(enemy.teamMember[i].stats[statNames[competeStat]], 10);
@@ -89,7 +90,7 @@ class TeamPreview extends Component {
         result.appendChild(playerResult);
         result.appendChild(enemyResult);
         // display match results to player and update ratios
-        if(playerWins > enemyWins){
+        if (playerWins > enemyWins) {
             let enemyObject = this.state.fightingEnemyTeam;
             enemyObject.winRatio.losses += 1;
             this.props.updateWinLoss([1, 0], enemyObject);
@@ -103,7 +104,7 @@ class TeamPreview extends Component {
                 this.postBattleChoices();
             });
         }
-        else{
+        else {
             let enemyObject = this.state.fightingEnemyTeam;
             enemyObject.winRatio.wins += 1;
             this.props.updateWinLoss([0, 1], enemyObject);
@@ -115,7 +116,7 @@ class TeamPreview extends Component {
             });
         }
     }
-    postBattleChoices = () =>{
+    postBattleChoices = () => {
 
         swal({
             text: 'What would you like to do next?',
@@ -137,15 +138,15 @@ class TeamPreview extends Component {
             }
         }).then((res) => {
             console.log(res);
-            if(res === 'rematch'){
+            if (res === 'rematch') {
                 //fight same opponent again
                 this.startBattle();
             }
-            else if(res === 'newOpponent'){
+            else if (res === 'newOpponent') {
                 //get a new random opponent
                 this.componentDidMount();
             }
-            else if(res === 'adjustTeam'){
+            else if (res === 'adjustTeam') {
                 // go back to team select
                 this.redirectToPage();
             }
@@ -155,42 +156,55 @@ class TeamPreview extends Component {
         //change state so the if statemnt in render method will redirect back to team page
         this.setState({ redirect: true });
     }
-    render(){
+    render() {
         if (this.state.redirect) {
             return <Redirect push to="/teamselect" />;
         }
-        return(
+        return (
             <div className="teamPreview">
-                <section className="playerTeam">
-                    <h2>{this.props.playerTeam.teamName}</h2>
-                    {this.props.playerTeam.teamMember.map((char) =>{
-                        return(
-                            <div className="characterBlock player">
-                                <img src={char.img} alt={`${char.name} Snapshot`} />
-                                <h3>{char.name}</h3>
-                            </div>
-                        )
-                    })}
-                </section>
-                {this.state.fightingEnemyTeam === null ? null :
-                <section className="enemyTeam">
-                    <h2>{this.state.fightingEnemyTeam.teamName}</h2>
-                    {this.state.fightingEnemyTeam.teamMember.map((char) => {
-                        return (
-                            <div className="characterBlock enemy">
-                                <img src={char.img} alt={`${char.name} Snapshot`} />
-                                <h3>{char.name}</h3>
-                            </div>
-                        )
-                    })}
-                </section>
-                }
-                <section className="teamButtons">
-                    <Link to="/teamSelect">
-                        <button>Back To Team Roster</button>
-                    </Link>
-                    <button onClick={this.startBattle}>Start Battle</button>
-                </section>
+                <header className="App-header">
+                    <div className="wrapper clearfix">
+                        <div className="logo"><h2>pb&j</h2></div>
+                        <h1 className="title">Superhero Battle</h1>
+                    </div>
+                </header>
+
+                <div className="wrapper clearfix">
+                    <section className="playerTeam">
+
+                        <h2>{this.props.playerTeam.teamName}</h2>
+                        {this.props.playerTeam.teamMember.map((char) => {
+                            return (
+                                <div className="characterBlock player clearfix">
+                                    <img src={char.img} alt={`${char.name} Snapshot`} />
+                                    <h3>{char.name}</h3>
+                                </div>
+                            )
+                        })}
+                    </section>
+                    {this.state.fightingEnemyTeam === null ? null :
+                        <section className="enemyTeam">
+                            <h2>{this.state.fightingEnemyTeam.teamName}</h2>
+                            {this.state.fightingEnemyTeam.teamMember.map((char) => {
+                                return (
+                                    <div className="characterBlock enemy clearfix">
+                                        <img src={char.img} alt={`${char.name} Snapshot`} />
+                                        <h3>{char.name}</h3>
+                                    </div>
+                                )
+                            })}
+                        </section>
+                    }
+                    <section className="teamButtons">
+                        <Link to="/teamSelect">
+                            <button>Back To Team Roster</button>
+                        </Link>
+
+                        <button onClick={this.startBattle}>Start Battle</button>
+
+                        <HomeButton />
+                    </section>
+                </div>
             </div>
         )
     }
