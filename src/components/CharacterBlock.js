@@ -10,7 +10,7 @@ import Search from './Search';
 class CharacterBlock extends Component {
     render() {
         return (
-            <div>
+            <div className="characterBlock">
                 {/* {this.props.existingChara ?
                 return the displayCharacterBlock div from below and pass in values from exstingChara :
                 Run the below code because it we now know the user iscreatig a new team} */}

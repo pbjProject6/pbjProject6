@@ -28,19 +28,26 @@
     color: #3D3D3D;
 }
 
-.characterBlock {
+.characterBlockContainer {
     clear: both;
 }
 
 .selectCharacterButton {
-    width: calc(100% - 20px);
-    background-color: rgb(213, 182, 6);
-    border: none;
+    // width: calc(100% - 20px);
+    // background-color: rgb(213, 182, 6);
+    // border: none;
     text-transform: uppercase;
     color: #3D3D3D;
-    text-align: left;
+    // text-align: left;
+    text-align: center;
     font-family: $bodyFont;
+    margin: 0;
 }
+
+// .characterBlockNum {
+//     margin: 0;
+//     float: left;
+// }
 
 // once character is selected
 
