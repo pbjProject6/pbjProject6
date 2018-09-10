@@ -16,12 +16,21 @@ import HomeButton from './HomeButton';
 // console.log(teamObjectLength);
 
 class TeamSelect extends Component {
+
+    
+
     render() {
+        if (this.props.teamObject.teamMember.length === 5) {
+            let saveTeamButton = document.getElementById('saveTeamButton');
+            saveTeamButton.classList.remove('inactiveLink')
+        }
+      
+        
         return (
 
 
             <section className="teamSelectSection">
-
+        
                 <header className="App-header">
                     <div className="wrapper clearfix">
                         <div className="logo"><h2>pb&j</h2></div>
@@ -59,12 +68,13 @@ class TeamSelect extends Component {
 
                             <div className="characterBlockContainer">
                                 <CharacterBlock chara={this.props.teamObject.teamMember[4]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
+
                             </div>
 
                         </div>
 
                         <div className="teamSelectButtonsContainer">
-                            <button onClick={this.props.saveTeamToDB} className="saveTeamButton button shimmer" id="saveTeamButton">
+                            <button onClick={this.props.saveTeamToDB} className="inactiveLink saveTeamButton button shimmer" id="saveTeamButton">
                                 <i class="fas fa-unlock lock" id="unlockedIcon"></i>
                                 <i class="fas fa-lock lock hide" id="lockedIcon"></i>
                                 Confirm Team</button>

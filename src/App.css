@@ -325,7 +325,14 @@ body {
   .statsList li {
     display: inline; }
 
-.changeCharacterButton {
+.hideStats {
+  display: none; }
+
+.showStats {
+  display: block; }
+
+.changeCharacterButton,
+.viewStatsButton {
   border-radius: 50px;
   padding: 5px 10px;
   border: 3px solid #81CBBE;
@@ -349,7 +356,8 @@ body {
   transform: scale(0.5);
   transition: all 0.5s;
   background: darkgrey;
-  border: 5px solid grey; }
+  border: 5px solid grey;
+  pointer-events: none; }
   .shrink:hover {
     background: darkgrey;
     border: 5px solid grey;
@@ -365,6 +373,15 @@ body {
   animation-name: shimmer;
   animation-duration: 2s;
   animation-iteration-count: infinite; }
+
+.inactiveLink {
+  pointer-events: none;
+  transform: scale(0.5);
+  transition: all 0.5s;
+  background: darkgrey;
+  border: 5px solid grey; }
+  .inactiveLink:hover {
+    cursor: auto; }
 
 .linkToTeamPreview {
   display: none; }

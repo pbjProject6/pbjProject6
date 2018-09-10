@@ -69,18 +69,32 @@
     display: none;
 }
 
+//stats list
+
 .statsList {
     list-style: none;
     font-family: $bodyFont;
     float: left;
     padding-left: 9%;
     margin: 0;
+    
     li {
         display: inline;
     }
 }
 
-.changeCharacterButton {
+.hideStats {
+    display: none;
+}
+
+.showStats {
+    display: block;
+}
+
+// change button
+
+.changeCharacterButton,
+.viewStatsButton {
     border-radius: 50px;
     padding: 5px 10px;
     border: 3px solid $lightBlue;
