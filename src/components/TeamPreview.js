@@ -58,7 +58,17 @@ class TeamPreview extends Component {
 
     }
 
+    redoAnimation = () => {
+        let badTeam = document.getElementById('enemyBlock')
+        badTeam.className = 'enemyTeam';
+
+        let goodTeam = document.getElementById('playerBlock')
+        goodTeam.className = 'playerTeam';
+    }
+
     startBattle = () => {
+
+        
         //generate random number between 0 and 5 to determine stat compared
         let competeStat = Math.floor(Math.random() * statNames.length);
         let player = this.props.playerTeam;
@@ -122,8 +132,18 @@ class TeamPreview extends Component {
                     this.postBattleChoices();
                 });
             }
-        }, 2500)
+        }, 1500)
+
+        // battle animations
+        let badTeam = document.getElementById('enemyBlock')
+        badTeam.className = 'enemyTeam animated fadeOutLeft';
+
+        let goodTeam = document.getElementById('playerBlock')
+        goodTeam.className = 'playerTeam animated fadeOutRight';
+
     }
+
+
     postBattleChoices = () => {
 
         swal({
@@ -151,11 +171,29 @@ class TeamPreview extends Component {
             console.log(res);
             if (res === 'rematch') {
                 //fight same opponent again
-                this.startBattle();
+
+                // make the animations restart
+                let badTeam = document.getElementById('enemyBlock')
+                badTeam.className = 'enemyTeam';
+
+                let goodTeam = document.getElementById('playerBlock')
+                goodTeam.className = 'playerTeam';
+
+                setTimeout(() => {
+                    this.startBattle();
+                }, 2000)
             }
             else if (res === 'newOpponent') {
                 //get a new random opponent
+
+                let badTeam = document.getElementById('enemyBlock')
+                badTeam.className = 'enemyTeam';
+
+                let goodTeam = document.getElementById('playerBlock')
+                goodTeam.className = 'playerTeam';
+                
                 this.componentDidMount();
+                
             }
             else if (res === 'adjustTeam') {
                 // go back to team select
@@ -181,12 +219,12 @@ class TeamPreview extends Component {
                 </header>
 
                 <div className="wrapper clearfix">
-                    <section className="playerTeam">
+                    <section className="playerTeam" id="playerBlock">
 
                         <h2>{this.props.playerTeam.teamName}</h2>
                         {this.props.playerTeam.teamMember.map((char) => {
                             return (
-                                <div className="characterBlock player clearfix">
+                                <div className="characterBlock player clearfix" >
                                     <img src={char.img} alt={`${char.name} Snapshot`} />
                                     <h3>{char.name}</h3>
                                 </div>
@@ -194,7 +232,7 @@ class TeamPreview extends Component {
                         })}
                     </section>
                     {this.state.fightingEnemyTeam === null ? null :
-                        <section className="enemyTeam">
+                        <section className="enemyTeam" id="enemyBlock">
                             <h2>{this.state.fightingEnemyTeam.teamName}</h2>
                             {this.state.fightingEnemyTeam.teamMember.map((char) => {
                                 return (
