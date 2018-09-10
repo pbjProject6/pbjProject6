@@ -20,7 +20,7 @@ class CharacterBlock extends Component {
                         {/* ============================================ */}
                         {/* New Team: Character Select Block */}
 
-                        <button className="selectCharacterButton">Select Character</button>
+                        <p className="selectCharacterButton">Character</p>
 
                     </div>
 
@@ -48,7 +48,7 @@ class CharacterBlock extends Component {
                             <li className="charaStat strengthStat">St: {this.props.chara.stats.str}</li>
                         </ul>
 
-                        
+
                     </div>
                 }
             </div>

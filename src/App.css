@@ -500,3 +500,12 @@ body {
 
 .characterBlock.enemy h3 {
   float: right; }
+
+.sweetButton {
+  color: #3D3D3D;
+  border: 5px solid #8c8c38;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: "Nunito";
+  text-align: center;
+  background: #d5b606; }
