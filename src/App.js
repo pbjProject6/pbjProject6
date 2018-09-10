@@ -33,7 +33,11 @@ class App extends Component {
       team: {
         teamMember: [],
         teamName: '',
-        key: ''
+        key: '',
+        winRatio: {
+          wins: 0,
+          losses: 0
+        }
       },
       tempArray: [],
     };
@@ -192,7 +196,7 @@ class App extends Component {
     console.log(enemyScore);
     
     dbRef.once("value", (snapshot) => {
-      
+      // update both database references with the updated win loss ratio
         let itemReference = firebase.database().ref(`/teams/${enemyScore.key}`);
         
         itemReference.update({
