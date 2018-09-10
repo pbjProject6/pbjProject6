@@ -45,7 +45,7 @@ class Home extends Component {
                     }
                     else {
                         this.props.createNewTeam(userTeam);
-                        setTimeout(() => { this.setState({ redirect: true }) }, 5000)
+                        setTimeout(() => { this.setState({ redirect: true }) }, 2000)
 
                     }
                 });
@@ -80,7 +80,7 @@ class Home extends Component {
                             // console.log('team exists');
                             this.props.displayExistingTeam(dbTeams[team]);
                             console.log(dbTeams[team]);
-                            setTimeout(() => { this.setState({ redirect: true }) }, 5000)
+                            setTimeout(() => { this.setState({ redirect: true }) }, 2000)
 
 
                         }

@@ -33,6 +33,10 @@ class App extends Component {
       team: {
         teamMember: [],
         teamName: '',
+        winRatio: {
+          wins: 0,
+          losses: 0
+        },
         key: ''
       },
       tempArray: [],

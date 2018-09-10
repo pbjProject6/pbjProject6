@@ -33,7 +33,7 @@ class TeamSelect extends Component {
                         <div className="selectForm">
 
                             <div className="teamName">
-                                <TeamName teamObject={this.props.teamObject} winRatio={this.props.winRatio} />
+                                <TeamName teamObject={this.props.teamObject} />
                             </div>
 
                             <div className="characterBlock">
