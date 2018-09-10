@@ -276,7 +276,12 @@ body {
   float: left; }
 
 .teamName {
-  text-align: center; }
+  text-align: center;
+  display: inline; }
+
+.infoIcon {
+  float: right;
+  text-align: right; }
 
 .selectCharacterBlock {
   margin: 10px;
@@ -286,6 +291,9 @@ body {
   border: 3px solid #676729;
   text-transform: uppercase;
   color: #3D3D3D; }
+
+.characterBlock {
+  clear: both; }
 
 .selectCharacterButton {
   width: calc(100% - 20px);

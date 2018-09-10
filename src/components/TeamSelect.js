@@ -30,10 +30,14 @@ class TeamSelect extends Component {
 
                 <main className="selectMain">
                     <div className="wrapper clearfix">
-                        <div className="selectForm">
+                        <div className="selectForm clearfix">
 
                             <div className="teamName">
                                 <TeamName teamObject={this.props.teamObject} />
+                            </div>
+
+                            <div className="infoIcon">
+                                <i class="fas fa-question-circle"></i>
                             </div>
 
                             <div className="characterBlock">

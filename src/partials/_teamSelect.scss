@@ -8,6 +8,14 @@
 
 .teamName {
     text-align: center;
+    // float: left;
+    display: inline;
+    
+}
+
+.infoIcon {
+    float: right;
+    text-align: right;
 }
 
 .selectCharacterBlock {
@@ -18,6 +26,10 @@
     border: 3px solid rgb(103, 103, 41);
     text-transform: uppercase;
     color: #3D3D3D;
+}
+
+.characterBlock {
+    clear: both;
 }
 
 .selectCharacterButton {
