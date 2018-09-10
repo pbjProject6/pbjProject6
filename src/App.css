@@ -292,17 +292,15 @@ body {
   text-transform: uppercase;
   color: #3D3D3D; }
 
-.characterBlock {
+.characterBlockContainer {
   clear: both; }
 
 .selectCharacterButton {
-  width: calc(100% - 20px);
-  background-color: #d5b606;
-  border: none;
   text-transform: uppercase;
   color: #3D3D3D;
-  text-align: left;
-  font-family: "Nunito"; }
+  text-align: center;
+  font-family: "Nunito";
+  margin: 0; }
 
 .displayCharacterBlock {
   background-color: #d5b606;

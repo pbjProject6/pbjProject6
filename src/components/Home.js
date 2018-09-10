@@ -16,6 +16,7 @@ class Home extends Component {
         this.state = {
             buttonClass: 'button shimmer'
         }
+        this.audioRef = React.createRef();
     }
     // componentDidMount() {
 
@@ -115,6 +116,17 @@ class Home extends Component {
         });
     }
 
+    audioPlay = () => {
+        // console.log('audio function works');
+        const audioNode = this.audioRef.current;
+        this.audioRef.current.play();
+    }
+
+    existingTeamButtonClick = () => {
+        this.audioPlay();
+        this.searchTeamName();
+    }
+
     render() {
         // This Redirect will send the user from Home to TeamSelect after they enter a valid team name in the prompt presented after clicking a Hom page button.
         if (this.state.redirect) {
@@ -131,6 +143,8 @@ class Home extends Component {
                     </div>
                 </header>
 
+                <audio ref={this.audioRef} />;
+
                 <main className="main">
                     <div className="wrapper">
                         <div className="options">
@@ -142,7 +156,7 @@ class Home extends Component {
                             </div>
 
                             <div className="homeGroup clearfix">
-                                <button onClick={this.searchTeamName} className="button shimmer existing"><p>Load Existing Team</p></button>
+                                <button onClick={this.existingTeamButtonClick} className="button shimmer existing"><p>Load Existing Team</p></button>
                                 <i class="fas fa-caret-left"></i>
                             </div>
                         </div>
