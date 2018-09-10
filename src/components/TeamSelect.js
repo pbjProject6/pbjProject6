@@ -59,9 +59,13 @@ class TeamSelect extends Component {
                         </div>
 
                         <div className="teamSelectButtonsContainer">
-                            <button onClick={this.props.saveTeamToDB} className="saveTeamButton button hide">Save Team</button>
+                            <button onClick={this.props.saveTeamToDB} className="saveTeamButton button shimmer" id="saveTeamButton">
+                                <i class="fas fa-unlock lock" id="unlockedIcon"></i>
+                                <i class="fas fa-lock lock hide" id="lockedIcon"></i>
+                                Confirm Team</button>
 
-                            <Link to="/teampreview" className="linkToTeamPreview"><div className="goBattleButton button">Go Battle</div></Link>
+                            <Link to="/teampreview" className="linkToTeamPreview"
+                                id="linkToTeamPreview"><div className="goBattleButton button">Go Battle</div></Link>
 
                             <p className="teamWinRatio"></p>
                         </div>

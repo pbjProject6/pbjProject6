@@ -200,6 +200,19 @@ body {
   background-position: 0 0;
   background-color: #d5b606; }
 
+.buttonGrey {
+  color: #3D3D3D;
+  border: 5px solid grey;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: "Nunito";
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 19px;
+  background: darkgrey;
+  width: 50%;
+  pointer-events: none; }
+
 @keyframes shimmer {
   0% {
     background-position: top left; }
@@ -283,6 +296,37 @@ body {
   text-align: left;
   font-family: "Nunito"; }
 
+.displayCharacterBlock {
+  background-color: #d5b606;
+  margin: 10px;
+  padding: 10px;
+  border: 7px solid #81CBBE; }
+  .displayCharacterBlock h3 {
+    margin: 0;
+    font-family: "Nunito";
+    color: #3D3D3D;
+    float: left; }
+
+.characterImageContainer {
+  display: none; }
+
+.statsList {
+  list-style: none;
+  font-family: "Nunito";
+  float: left;
+  padding-left: 9%;
+  margin: 0; }
+  .statsList li {
+    display: inline; }
+
+.changeCharacterButton {
+  border-radius: 50px;
+  padding: 5px 10px;
+  border: 3px solid #81CBBE;
+  float: right;
+  font-size: 1rem;
+  background-color: #eeeeee; }
+
 .teamSelectButtonsContainer {
   float: left;
   width: 20%;
@@ -290,8 +334,51 @@ body {
   .teamSelectButtonsContainer a {
     margin: 0; }
   .teamSelectButtonsContainer .button {
-    width: 50%;
+    width: 60%;
     margin: 63px 0 0 20px; }
+    .teamSelectButtonsContainer .button:hover {
+      background-size: 50%; }
+
+.shrink {
+  transform: scale(0.5);
+  transition: all 0.5s;
+  background: darkgrey;
+  border: 5px solid grey; }
+  .shrink:hover {
+    background: darkgrey;
+    border: 5px solid grey;
+    cursor: auto; }
+
+.shimmer {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-color: #d5b606;
+  animation-name: shimmer;
+  animation-duration: 2s;
+  animation-iteration-count: infinite; }
+
+.linkToTeamPreview {
+  display: none; }
+
+.showButton {
+  text-decoration: none;
+  margin: 0;
+  display: inline; }
+
+.goBattleButton {
+  display: inline-block;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-color: #d5b606;
+  animation-name: shimmer;
+  animation-duration: 2s;
+  animation-iteration-count: infinite; }
 
 .hide {
   display: none; }
@@ -369,37 +456,6 @@ body {
 
 .charaStat {
   list-style: none; }
-
-.displayCharacterBlock {
-  background-color: #d5b606;
-  margin: 10px;
-  padding: 10px;
-  border: 7px solid #81CBBE; }
-  .displayCharacterBlock h3 {
-    margin: 0;
-    font-family: "Nunito";
-    color: #3D3D3D;
-    float: left; }
-
-.characterImageContainer {
-  display: none; }
-
-.statsList {
-  list-style: none;
-  font-family: "Nunito";
-  float: left;
-  padding-left: 9%;
-  margin: 0; }
-  .statsList li {
-    display: inline; }
-
-.changeCharacterButton {
-  border-radius: 50px;
-  padding: 5px 10px;
-  border: 3px solid #81CBBE;
-  float: right;
-  font-size: 1rem;
-  background-color: #eeeeee; }
 
 .playerTeam {
   width: 35%;
