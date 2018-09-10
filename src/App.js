@@ -33,11 +33,19 @@ class App extends Component {
       team: {
         teamMember: [],
         teamName: '',
+<<<<<<< HEAD
+        key: '',
+        winRatio: {
+          wins: 0,
+          losses: 0
+        }
+=======
         winRatio: {
           wins: 0,
           losses: 0
         },
         key: ''
+>>>>>>> 5f0d7c3376826126e0711d6fa79df557786e9b18
       },
       tempArray: [],
     };
@@ -210,6 +218,21 @@ class App extends Component {
     console.log(enemyScore);
 
     dbRef.once("value", (snapshot) => {
+<<<<<<< HEAD
+      // update both database references with the updated win loss ratio
+        let itemReference = firebase.database().ref(`/teams/${enemyScore.key}`);
+        
+        itemReference.update({
+            winRatio: enemyScore.winRatio
+        });
+        console.log('enemyUpdated');
+        
+        itemReference = firebase.database().ref(`/teams/${this.state.team.key}`);
+
+        itemReference.update({
+          winRatio: this.state.team.winRatio
+        });
+=======
 
       let itemReference = firebase.database().ref(`/teams/${enemyScore.key}`);
 
@@ -223,6 +246,7 @@ class App extends Component {
       itemReference.update({
         winRatio: this.state.team.winRatio
       });
+>>>>>>> 5f0d7c3376826126e0711d6fa79df557786e9b18
       console.log('playerUpdated');
     });
   }
