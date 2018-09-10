@@ -100,7 +100,10 @@ class TeamPreview extends Component {
 
                 swal({
                     title: `Competed in ${statFullNames[competeStat]}`,
-                    content: result
+                    content: result,
+                    button: {
+                        className: "sweetButton"
+                    }
                 }).then(() => {
                     this.postBattleChoices();
                 });
@@ -111,7 +114,10 @@ class TeamPreview extends Component {
                 this.props.updateWinLoss([0, 1], enemyObject);
                 swal({
                     title: `Competed in ${statNames[competeStat]}`,
-                    content: result
+                    content: result,
+                    button: {
+                        className: "sweetButton"
+                    }
                 }).then(() => {
                     this.postBattleChoices();
                 });
