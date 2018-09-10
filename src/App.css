@@ -151,7 +151,7 @@ body {
   background-size: contain; }
 
 .wrapper {
-  width: 75%;
+  width: 85%;
   max-width: 1300px;
   margin: 0 auto; }
 
@@ -162,20 +162,22 @@ body {
   font-size: 2.5rem;
   float: left;
   text-shadow: #000; }
+  .logo h2 {
+    margin: 35px 0; }
 
 .title {
   font-family: "Bowlby One SC";
   font-size: 3.5rem;
   letter-spacing: 5px;
   float: right;
-  color: white; }
+  color: white;
+  margin: 10px 0; }
 
 .button {
   color: #3D3D3D;
   border: 5px solid #8c8c38;
   border-radius: 50px;
   text-decoration: none;
-  display: block;
   font-family: "Nunito";
   font-size: 2rem;
   text-align: center;
@@ -260,6 +262,9 @@ body {
   background-color: #8c8c38;
   float: left; }
 
+.teamName {
+  text-align: center; }
+
 .selectCharacterBlock {
   margin: 10px;
   width: calc(100% - 20px);
@@ -286,7 +291,7 @@ body {
     margin: 0; }
   .teamSelectButtonsContainer .button {
     width: 50%;
-    margin: 0 0 0 20px; }
+    margin: 63px 0 0 20px; }
 
 .linkToTeamPreview {
   text-decoration: none; }

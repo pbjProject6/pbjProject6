@@ -8,10 +8,10 @@ body {
 
 
 .wrapper {
-            width: 75%;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
+    width: 85%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
 
 
 .logo {
@@ -21,15 +21,19 @@ body {
     font-size: 2.5rem;
     float: left;
     text-shadow: #000;
+    h2 {
+        margin: 35px 0;
         }
+    }
 
 
 .title {
-    font-family: "Bowlby One SC";
+    font-family: $headFont;
     font-size: 3.5rem;
     letter-spacing: 5px;
     float: right;
     color: white;
+    margin: 10px 0;
 }
 
 // button styles and animations
@@ -39,8 +43,7 @@ body {
     border: 5px solid rgb(140, 140, 56);
     border-radius: 50px;
     text-decoration: none;
-    display: block;
-    font-family: "Nunito";
+    font-family: $bodyFont;
     font-size: 2rem;
     text-align: center;
     padding-top: 19px;
