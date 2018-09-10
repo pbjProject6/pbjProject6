@@ -23,7 +23,10 @@ class Home extends Component {
     setTeamName = () => {
         swal({
             title: 'Please Enter Your Team Name',
-            content: 'input'
+            content: 'input',
+            button: {
+                className: "sweetButton",
+            }
         }).then((res) => {
             if (res !== null) {
                 let userTeam = res.trim();
@@ -40,7 +43,14 @@ class Home extends Component {
                     }
 
                     if (doesExist === true) {
-                        swal('Error', 'This team already exists. Please choose another', 'error')
+                        swal({
+                            title: 'Error',
+                            text: 'This team already exists. Please choose another',
+                            icon: 'error',
+                            button: {
+                                className: "sweetButton",
+                            }
+                        })
                     }
                     else {
                         this.props.createNewTeam(userTeam);
@@ -61,7 +71,10 @@ class Home extends Component {
         // Prompt the user to enter their existing team's name
         swal({
             title: 'Please Enter Your Team Name',
-            content: 'input'
+            content: 'input',
+            button: {
+                className: "sweetButton"
+            }
         }).then((res) => {
             if (res !== null) {
                 let userTeam = res.trim();
@@ -87,7 +100,14 @@ class Home extends Component {
                     // If the team doesn't exist in the database, present an error message. 
                     if (doesExist !== true) {
                         // this.props.displayExistingTeam(dbTeams[team]);
-                        swal('Error', `Sorry, we couldn't find your team. Please check your spelling or create a new team.`, 'error');
+                        swal({
+                            title: 'Error',
+                            text: `Sorry, we couldn't find your team. Please check your spelling or create a new team.`,
+                            icon: 'error',
+                            button: {
+                                className: "sweetButton"
+                            }
+                        });
                     }
                 })
             }

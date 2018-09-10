@@ -7,7 +7,7 @@ import swal from 'sweetalert';
 import HomeButton from './HomeButton';
 
 let enemyTeams = [];
-let statNames = ['com', 'dur', 'int', 'pow', 'spd', 'str' ];
+let statNames = ['com', 'dur', 'int', 'pow', 'spd', 'str'];
 let statFullNames = ['Combat', 'Durability', 'Intelligence', 'Power', 'Speed', 'Strength'];
 const dbRef = firebase.database().ref('/teams');
 
@@ -79,10 +79,10 @@ class TeamPreview extends Component {
             console.log(playerStat, enemyStat);
 
             // calculate character wins by the larger stat
-            if(playerStat >= enemyStat){
+            if (playerStat >= enemyStat) {
                 playerWins++;
             }
-            else{
+            else {
                 enemyWins++;
             }
             playerResult.innerHTML += `<p>${player.teamMember[i].name} : <strong>${playerStat}</strong></p>`;
@@ -93,31 +93,39 @@ class TeamPreview extends Component {
         result.appendChild(vs);
         result.appendChild(enemyResult);
         // display match results to player and update ratios
-        if (playerWins > enemyWins) {
-            let enemyObject = this.state.fightingEnemyTeam;
-            enemyObject.winRatio.losses += 1;
-            this.props.updateWinLoss([1, 0], enemyObject);
+        setTimeout(() => {
+            if (playerWins > enemyWins) {
+                let enemyObject = this.state.fightingEnemyTeam;
+                enemyObject.winRatio.losses += 1;
+                this.props.updateWinLoss([1, 0], enemyObject);
 
-            result.innerHTML += `You win with ${playerWins} wins to ${enemyWins}`;
+                result.innerHTML += `You win with ${playerWins} wins to ${enemyWins}`;
 
-            swal({
-                title: `Competed in ${statFullNames[competeStat]}`,
-                content: result
-            },).then(() => {
-                this.postBattleChoices();
-            });
-        }
-        else {
-            let enemyObject = this.state.fightingEnemyTeam;
-            enemyObject.winRatio.wins += 1;
-            this.props.updateWinLoss([0, 1], enemyObject);
-            swal({
-                title: `Competed in ${statNames[competeStat]}`,
-                content: result
-            }).then(() =>{
-                this.postBattleChoices();
-            });
-        }
+                swal({
+                    title: `Competed in ${statFullNames[competeStat]}`,
+                    content: result,
+                    button: {
+                        className: "sweetButton"
+                    }
+                }).then(() => {
+                    this.postBattleChoices();
+                });
+            }
+            else {
+                let enemyObject = this.state.fightingEnemyTeam;
+                enemyObject.winRatio.wins += 1;
+                this.props.updateWinLoss([0, 1], enemyObject);
+                swal({
+                    title: `Competed in ${statNames[competeStat]}`,
+                    content: result,
+                    button: {
+                        className: "sweetButton"
+                    }
+                }).then(() => {
+                    this.postBattleChoices();
+                });
+            }
+        }, 2500)
     }
     postBattleChoices = () => {
 
@@ -126,15 +134,18 @@ class TeamPreview extends Component {
             buttons: {
                 rematch: {
                     text: 'Fight again?',
-                    value: 'rematch'
+                    value: 'rematch',
+                    className: "sweetButton"
                 },
                 newOpponent: {
                     text: 'Get a new Opponent?',
-                    value: 'newOpponent'
+                    value: 'newOpponent',
+                    className: "sweetButton"
                 },
                 adjustTeam: {
                     text: 'Adjust Team?',
-                    value: 'adjustTeam'
+                    value: 'adjustTeam',
+                    className: "sweetButton"
                 }
 
 

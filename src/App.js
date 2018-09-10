@@ -33,11 +33,11 @@ class App extends Component {
       team: {
         teamMember: [],
         teamName: '',
+        key: '',
         winRatio: {
           wins: 0,
           losses: 0
-        },
-        key: ''
+        }
       },
       tempArray: [],
     };
@@ -178,13 +178,13 @@ class App extends Component {
 
     // make the battle button appear
     var battleButton = document.getElementById('linkToTeamPreview');
-    battleButton.className="showButton";
+    battleButton.className = "showButton";
     // make confirm/save button small
     var saveButton = document.getElementById('saveTeamButton');
-    saveButton.className ="saveTeamButton button shrink";
+    saveButton.className = "saveTeamButton button shrink";
     // lock and unlock icons
     var unlock = document.getElementById('unlockedIcon');
-    unlock.className ="fas fa-unlock lock hide";
+    unlock.className = "fas fa-unlock lock hide";
 
     var lock = document.getElementById('lockedIcon');
     lock.className = "fas fa-lock lock";
@@ -205,17 +205,19 @@ class App extends Component {
 
     dbRef.once("value", (snapshot) => {
       // update both database references with the updated win loss ratio
-        let itemReference = firebase.database().ref(`/teams/${enemyScore.key}`);
-        
-        itemReference.update({
-            winRatio: enemyScore.winRatio
-        });
-        
-        itemReference = firebase.database().ref(`/teams/${this.state.team.key}`);
+      let itemReference = firebase.database().ref(`/teams/${enemyScore.key}`);
 
-        itemReference.update({
-          winRatio: this.state.team.winRatio
-        });
+      itemReference.update({
+        winRatio: enemyScore.winRatio
+      });
+      console.log('enemyUpdated');
+
+      itemReference = firebase.database().ref(`/teams/${this.state.team.key}`);
+
+      itemReference.update({
+        winRatio: this.state.team.winRatio
+      });
+      console.log('playerUpdated');
     });
   }
 
