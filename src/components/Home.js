@@ -95,12 +95,8 @@ class Home extends Component {
         });
     }
 
-    // handleLoadTeamClick = () => {
-
-    //     this.setState({redirect: true})
-    // }
-
     render() {
+        // This Redirect will send the user from Home to TeamSelect after they enter a valid team name in the prompt presented after clicking a Hom page button.
         if (this.state.redirect) {
             return (<Redirect push to="/TeamSelect" />)
         }

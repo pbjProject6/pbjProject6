@@ -10,7 +10,7 @@ class TeamName extends Component {
                 {/* ========================================
                     Team Name Displayed: Existing team */}
                 <h3 className="teamName">{this.props.teamObject.teamName}</h3>
-                <p className="teamWins">Wins: {this.props.teamObject.winRatio.wins}</p>
+                <p className="teamWins">Wins: {this.props.teamObject.winRatio.wins} / Losses: {this.props.teamObject.winRatio.losses}</p>
                 {/* : */}
                 {/* ========================================
                     Team Name: Creating team */}

@@ -10,6 +10,7 @@ import {
 import CharacterBlock from './CharacterBlock';
 import TeamName from './TeamName';
 import Search from './Search';
+import HomeButton from './HomeButton';
 
 // const teamObjectLength = this.props.teamObject.length;
 // console.log(teamObjectLength);
@@ -63,7 +64,9 @@ class TeamSelect extends Component {
 
                             <Link to="/teampreview" className="linkToTeamPreview"><div className="goBattleButton button">Go Battle</div></Link>
 
-                            <p className="teamWinRatio"></p>
+                            <HomeButton />
+
+                            {/* <p className="teamWinRatio"></p> */}
                         </div>
 
                         <div className="searchTeam">
