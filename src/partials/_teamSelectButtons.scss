@@ -18,11 +18,14 @@
 
 // save team button
 
+
+
 .shrink {
     transform: scale(0.5);
     transition: all 0.5s;
     background: darkgrey;
     border: 5px solid grey;
+    pointer-events: none;
     &:hover {
         background: darkgrey;
         border: 5px solid grey;
@@ -43,7 +46,16 @@
     animation-iteration-count: infinite;
 }
 
-
+.inactiveLink {
+    pointer-events: none;
+    transform: scale(0.5);
+    transition: all 0.5s;
+    background: darkgrey;
+    border: 5px solid grey;
+    &:hover {
+        cursor: auto;
+    }
+}
 
 
 //battle button
