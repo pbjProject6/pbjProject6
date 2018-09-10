@@ -92,16 +92,40 @@ class Home extends Component {
 
             <section className="homeSection">
                 <header className="App-header">
-                    {/* <img src={logo} className="App-logo" alt="logo" /> */}
-                    <h1 className="App-title">Welcome to React</h1>
+                    <div className="wrapper clearfix">
+                        <div className="logo"><h2>pb&j</h2></div>
+                        <h1 className="title">Superhero Battle</h1>
+                    </div>
                 </header>
-                <p>James</p>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.</p>
 
-                <Link to="/TeamSelect"><button onClick={this.setTeamName} className="createNewTeamButton button">Create New Team</button></Link>
+                <main className="main">
+                    <div className="wrapper">
+                        <div className="options">
 
-                <Link to="/TeamSelect"><button onClick={this.searchTeamName} className="loadTeamButton button">Load Existing Team</button></Link>
+                            
+                            <div className="homeGroup clearfix">
+                                <Link to="/TeamSelect">
+                                    <div onClick={this.setTeamName} className="button shimmer new"><p>Create New Team</p></div>
+                                    <i class="fas fa-caret-left"></i>
+                                 </Link>
+                            </div>
+
+                            <div className="homeGroup clearfix">
+                                <Link to="/TeamSelect">
+                                    <div onClick={this.searchTeamName} className="button shimmer existing"><p>Load Existing Team</p></div>
+                                    <i class="fas fa-caret-left"></i>
+                                </Link>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </main>
+                    
+                    
+
+                    
+
+                    
 
             </section>
         )

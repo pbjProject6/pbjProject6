@@ -1,0 +1,119 @@
+body {
+    font-size: 20px;
+    margin: 0;
+    height: 100vh;
+    background-image: url('background.png');
+    background-size: contain;
+}
+
+
+.wrapper {
+    width: 85%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+
+.logo {
+    font-family: 'VT323';
+    color: rgb(129, 203, 190);
+    text-shadow: 0 0 20px black;
+    font-size: 2.5rem;
+    float: left;
+    text-shadow: #000;
+    h2 {
+        margin: 35px 0;
+        }
+    }
+
+
+.title {
+    font-family: $headFont;
+    font-size: 3.5rem;
+    letter-spacing: 5px;
+    float: right;
+    color: white;
+    margin: 10px 0;
+}
+
+// button styles and animations
+
+.button {
+    color: #3D3D3D;
+    border: 5px solid rgb(140, 140, 56);
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: $bodyFont;
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 19px;
+    background: rgb(213, 182, 6);
+    width: 310px;
+    height: 150px;
+         
+        }
+
+.button:hover {
+    text-align: center;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+    background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+    background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+    background-size: 125px 100%;
+    background-clip: text;
+    animation-name: shimmer;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-color: rgb(213, 182, 6);
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: top left;
+    }
+    50% {
+        background-position: top right;
+    }
+    100% {
+        background-position: top left;
+    }
+}
+
+// stat display
+
+.charaStat {
+    margin: 5px;
+    font-size: 0.7rem;
+    border-radius: 50px;
+    padding: 3px;
+    border: 1px solid black;
+}
+
+.intelligenceStat {
+    background-color: $intelligence;
+}
+
+.strengthStat {
+    background-color: $strength;
+}
+
+.speedStat {
+    background-color: $speed;
+}
+
+.durabilityStat {
+    background-color: $durability;
+}
+
+.powerStat {
+    background-color: $power; 
+}
+
+.combatStat {
+    background-color: $combat;
+}
+
+
+
+        

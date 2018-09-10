@@ -1,0 +1,399 @@
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
+  display: block; }
+
+audio, canvas, video {
+  display: inline-block; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden] {
+  display: none; }
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+a:focus {
+  outline: thin dotted; }
+
+a:active, a:hover {
+  outline: 0; }
+
+h1 {
+  font-size: 2em; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b, strong {
+  font-weight: 700; }
+
+dfn {
+  font-style: italic; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+code, kbd, pre, samp {
+  font-family: monospace, serif;
+  font-size: 1em; }
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word; }
+
+q {
+  quotes: \201C \201D \2018 \2019; }
+
+small {
+  font-size: 80%; }
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -.5em; }
+
+sub {
+  bottom: -.25em; }
+
+img {
+  border: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: .35em .625em .75em; }
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0; }
+
+button, input {
+  line-height: normal; }
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled], input[disabled] {
+  cursor: default; }
+
+input[type=checkbox], input[type=radio] {
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box; }
+
+input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+textarea {
+  overflow: auto;
+  vertical-align: top; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body, figure {
+  margin: 0; }
+
+legend, button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: '';
+  clear: both;
+  height: 0; }
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.visuallyhidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0);
+  overflow: hidden; }
+
+body {
+  font-size: 20px;
+  margin: 0;
+  height: 100vh;
+  background-image: url("background.png");
+  background-size: contain; }
+
+.wrapper {
+  width: 85%;
+  max-width: 1300px;
+  margin: 0 auto; }
+
+.logo {
+  font-family: 'VT323';
+  color: #81cbbe;
+  text-shadow: 0 0 20px black;
+  font-size: 2.5rem;
+  float: left;
+  text-shadow: #000; }
+  .logo h2 {
+    margin: 35px 0; }
+
+.title {
+  font-family: "Bowlby One SC";
+  font-size: 3.5rem;
+  letter-spacing: 5px;
+  float: right;
+  color: white;
+  margin: 10px 0; }
+
+.button {
+  color: #3D3D3D;
+  border: 5px solid #8c8c38;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: "Nunito";
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 19px;
+  background: #d5b606;
+  width: 310px;
+  height: 150px; }
+
+.button:hover {
+  text-align: center;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background-size: 125px 100%;
+  background-clip: text;
+  animation-name: shimmer;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-color: #d5b606; }
+
+@keyframes shimmer {
+  0% {
+    background-position: top left; }
+  50% {
+    background-position: top right; }
+  100% {
+    background-position: top left; } }
+
+.charaStat {
+  margin: 5px;
+  font-size: 0.7rem;
+  border-radius: 50px;
+  padding: 3px;
+  border: 1px solid black; }
+
+.intelligenceStat {
+  background-color: yellow; }
+
+.strengthStat {
+  background-color: #00ffc3; }
+
+.speedStat {
+  background-color: red; }
+
+.durabilityStat {
+  background-color: #ff06ff; }
+
+.powerStat {
+  background-color: #75fa00; }
+
+.combatStat {
+  background-color: #ffb71b; }
+
+.homeGroup .button {
+  float: left;
+  margin: 30px; }
+
+.fa-caret-left {
+  float: left;
+  margin: 30px 0 0 0;
+  font-size: 7rem;
+  color: #3D3D3D;
+  display: none; }
+
+.homeGroupe p {
+  margin: 0; }
+
+.homeGroup .button {
+  float: left; }
+
+.homeSection .options {
+  width: 50%;
+  padding-top: 5%;
+  margin: 0 auto; }
+
+.selectForm {
+  border: 1px solid #8c8c38;
+  width: 40%;
+  margin: 0 auto;
+  background-color: #8c8c38;
+  float: left; }
+
+.teamName {
+  text-align: center; }
+
+.selectCharacterBlock {
+  margin: 10px;
+  width: calc(100% - 20px);
+  padding: 20px;
+  background-color: #d5b606;
+  border: 3px solid #676729;
+  text-transform: uppercase;
+  color: #3D3D3D; }
+
+.selectCharacterButton {
+  width: calc(100% - 20px);
+  background-color: #d5b606;
+  border: none;
+  text-transform: uppercase;
+  color: #3D3D3D;
+  text-align: left;
+  font-family: "Nunito"; }
+
+.teamSelectButtonsContainer {
+  float: left;
+  width: 20%;
+  margin: 0; }
+  .teamSelectButtonsContainer a {
+    margin: 0; }
+  .teamSelectButtonsContainer .button {
+    width: 50%;
+    margin: 63px 0 0 20px; }
+
+.linkToTeamPreview {
+  text-decoration: none; }
+
+.search {
+  height: 459px;
+  width: 459px;
+  float: right;
+  background-color: #d5b606;
+  border: 8px solid #8C8C38;
+  position: relative; }
+
+.searchArea {
+  margin: 10px;
+  width: calc(100% - 20px);
+  background-color: #d5b606;
+  border: 4px solid #676729;
+  text-transform: uppercase;
+  font-family: "Nunito";
+  color: #3D3D3D;
+  height: 65px; }
+  .searchArea input {
+    width: 60%;
+    background-color: white;
+    border: none;
+    text-transform: uppercase;
+    color: #3D3D3D;
+    text-align: left;
+    height: 100%;
+    padding: 5px; }
+
+.searchCharacterButton {
+  width: 38%;
+  background-color: #d5b606;
+  border: 0;
+  height: 100%; }
+
+.resultsArea {
+  height: 80%;
+  overflow: scroll;
+  padding: 20px; }
+
+.searchResult {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px grey solid; }
+
+.imageName {
+  width: 30%;
+  float: left; }
+  .imageName img {
+    width: 100%; }
+  .imageName h3 {
+    color: #3D3D3D;
+    margin: 0; }
+
+.resultBody {
+  float: left; }
+  .resultBody ul {
+    padding-left: 10px;
+    margin: 0;
+    float: left; }
+
+.addToRosterButton {
+  float: left;
+  margin-top: 22%;
+  margin-left: 22px;
+  border-radius: 50px;
+  padding: 10px;
+  border: 6px #81CBBE solid;
+  font-family: "Nunito"; }
+
+.charaStat {
+  list-style: none; }
+
+.displayCharacterBlock {
+  background-color: #d5b606;
+  margin: 10px;
+  padding: 10px;
+  border: 7px solid #81CBBE; }
+  .displayCharacterBlock h3 {
+    margin: 0;
+    font-family: "Nunito";
+    color: #3D3D3D;
+    float: left; }
+
+.characterImageContainer {
+  display: none; }
+
+.statsList {
+  list-style: none;
+  font-family: "Nunito";
+  float: left;
+  padding-left: 9%;
+  margin: 0; }
+  .statsList li {
+    display: inline; }
+
+.changeCharacterButton {
+  border-radius: 50px;
+  padding: 5px 10px;
+  border: 3px solid #81CBBE;
+  float: right;
+  font-size: 1rem;
+  background-color: #eeeeee; }
