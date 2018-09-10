@@ -132,53 +132,67 @@ class App extends Component {
 
   // This function save the user's new team of five characters to the database
   saveTeamToDB = () => {
-    dbRef.once("value", (snapshot) => {
-      let doesExist = false;
-      let dbKey = '';
+    // dbRef.once("value", (snapshot) => {
+    //   let doesExist = false;
+    //   let dbKey = '';
 
-      let dbTeams = snapshot.val();
-      console.log(this.state.team);
+    //   let dbTeams = snapshot.val();
+    //   console.log(this.state.team);
 
-      for (let team in dbTeams) {
-        // console.log(dbTeams[team].teamName);
-        // console.log(this.state.team.teamName);
-        if (dbTeams[team].teamName === this.state.team.teamName) {
-          console.log('name matches');
-          console.log(team);
+    //   for (let team in dbTeams) {
+    //     // console.log(dbTeams[team].teamName);
+    //     // console.log(this.state.team.teamName);
+    //     if (dbTeams[team].teamName === this.state.team.teamName) {
+    //       console.log('name matches');
+    //       console.log(team);
 
-          doesExist = true;
-          dbKey = dbTeams[team].key;
-          // console.log(dbKey);
-        }
-      }
+    //       doesExist = true;
+    //       dbKey = dbTeams[team].key;
+    //       // console.log(dbKey);
+    //     }
+    //   }
 
-      if (doesExist === false) {
-        console.log('testing db adding');
+    //   if (doesExist === false) {
+    //     console.log('testing db adding');
 
-        const teamKey = dbRef.push().key;
+    //     const teamKey = dbRef.push().key;
 
-        console.log(this.state.team.key);
+    //     console.log(this.state.team.key);
 
-        let teamCopy = this.state.team;
-        console.log(teamCopy);
-        teamCopy.key = teamKey;
-        // teamCopy.name =
-        this.setState({
-          team: teamCopy
-        })
-        console.log(this.state.team.key);
+    //     let teamCopy = this.state.team;
+    //     console.log(teamCopy);
+    //     teamCopy.key = teamKey;
+    //     // teamCopy.name =
+    //     this.setState({
+    //       team: teamCopy
+    //     })
+    //     console.log(this.state.team.key);
 
-        const itemReference = firebase.database().ref(`/teams/${teamKey}`);
+    //     const itemReference = firebase.database().ref(`/teams/${teamKey}`);
 
-        itemReference.set(this.state.team);
-      }
-      else {
-        console.log(dbKey);
-        const itemReference = firebase.database().ref(`/teams/${dbKey}`);
-        itemReference.update(this.state.team);
-        console.log(this.state.team);
-      }
-    })
+    //     itemReference.set(this.state.team);
+    //   }
+    //   else {
+    //     console.log(dbKey);
+    //     const itemReference = firebase.database().ref(`/teams/${dbKey}`);
+    //     itemReference.update(this.state.team);
+    //     console.log(this.state.team);
+    //   }
+    // })
+
+    // make the battle button appear
+    var battleButton = document.getElementById('linkToTeamPreview');
+    battleButton.className="showButton";
+    // make confirm/save button small
+    var saveButton = document.getElementById('saveTeamButton');
+    saveButton.className ="saveTeamButton button shrink";
+    // lock and unlock icons
+    var unlock = document.getElementById('unlockedIcon');
+    unlock.className ="fas fa-unlock lock hide";
+
+    var lock = document.getElementById('lockedIcon');
+    lock.className = "fas fa-lock lock";
+
   }
 
   updateWinLoss = (playerScore, enemyScore) => {
