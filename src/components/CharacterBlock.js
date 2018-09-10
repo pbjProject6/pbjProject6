@@ -8,9 +8,17 @@ import {
 import Search from './Search';
 
 class CharacterBlock extends Component {
+
+    showStatsList = () => {
+        this.myInput.classList.toggle("showStats");
+        
+        
+
+    }
+
     render() {
         return (
-            <div>
+            <div className="characterBlockParent">
                 {/* {this.props.existingChara ?
                 return the displayCharacterBlock div from below and pass in values from exstingChara :
                 Run the below code because it we now know the user iscreatig a new team} */}
@@ -35,11 +43,12 @@ class CharacterBlock extends Component {
                         </div>
                         <div className="topBlock">
                             <h3>{this.props.chara.name}</h3>
-                            <button onClick={this.props.removeCharaFromTeamBlock} className="changeCharacterButton" id={this.props.chara.name}>Change Character</button>
+                            <button onClick={this.props.removeCharaFromTeamBlock} className="changeCharacterButton" id={this.props.chara.img}>Change</button>
+                            <button className="viewStatsButton" onClick={this.showStatsList}>View Stats</button>
                         </div>
 
                         {/* List of Stats */}
-                        <ul className="statsList">
+                        <ul className="statsList hideStats" ref={ul => { this.myInput = ul }} >
                             <li className="charaStat combatStat">C: {this.props.chara.stats.com}</li>
                             <li className="charaStat durabilityStat">D: {this.props.chara.stats.dur}</li>
                             <li className="charaStat intelligenceStat">I: {this.props.chara.stats.int}</li>
