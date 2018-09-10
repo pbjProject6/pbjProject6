@@ -10,6 +10,7 @@ import {
 import CharacterBlock from './CharacterBlock';
 import TeamName from './TeamName';
 import Search from './Search';
+import HomeButton from './HomeButton';
 
 // const teamObjectLength = this.props.teamObject.length;
 // console.log(teamObjectLength);
@@ -17,8 +18,8 @@ import Search from './Search';
 class TeamSelect extends Component {
     render() {
         return (
-            
-            
+
+
             <section className="teamSelectSection">
 
                 <header className="App-header">
@@ -52,11 +53,11 @@ class TeamSelect extends Component {
                                 <CharacterBlock chara={this.props.teamObject.teamMember[2]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
                             </div>
 
-                            <div className="characterBlock">   
+                            <div className="characterBlock">
                                 <CharacterBlock chara={this.props.teamObject.teamMember[3]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
                             </div>
 
-                            <div className="characterBlock"> 
+                            <div className="characterBlock">
                                 <CharacterBlock chara={this.props.teamObject.teamMember[4]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
                             </div>
 
@@ -71,7 +72,9 @@ class TeamSelect extends Component {
                             <Link to="/teampreview" className="linkToTeamPreview"
                                 id="linkToTeamPreview"><div className="goBattleButton button">Go Battle</div></Link>
 
-                            <p className="teamWinRatio"></p>
+                            <HomeButton />
+
+                            {/* <p className="teamWinRatio"></p> */}
                         </div>
 
                         <div className="searchTeam">

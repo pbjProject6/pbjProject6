@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
-  Route
+  Route, onLeave
 } from 'react-router-dom';
 import firebase from './components/firebase';
 import swal from 'sweetalert';
@@ -33,6 +33,10 @@ class App extends Component {
       team: {
         teamMember: [],
         teamName: '',
+        winRatio: {
+          wins: 0,
+          losses: 0
+        },
         key: ''
       },
       tempArray: [],
@@ -89,7 +93,7 @@ class App extends Component {
 
   addToTeamArray = (charObj) => {
     const teamObject = this.state.team;
-    
+
 
     // make sure that they cannot choose the same character twice. 
     if (teamObject.teamMember.length > 0) {
@@ -98,22 +102,22 @@ class App extends Component {
       teamObject.teamMember.forEach((item) => {
         if (item.img === charObj.img) {
           isInTeam = true;
-          
+
         } else {
-          
+
           console.log('yes!');
         }
 
       });
 
-      if(isInTeam === false) {
+      if (isInTeam === false) {
         teamObject.teamMember.push(charObj);
         this.setState({
           team: teamObject
         })
       } else {
         swal("Oops!", "Looks like you've already chosen that character", "error");
-        
+
       }
     } else {
       teamObject.teamMember.push(charObj);
@@ -122,7 +126,7 @@ class App extends Component {
       })
 
     }
-    
+
 
   }
 
@@ -204,21 +208,21 @@ class App extends Component {
     });
     console.log(playerCopy);
     console.log(enemyScore);
-    
-    dbRef.once("value", (snapshot) => {
-      
-        let itemReference = firebase.database().ref(`/teams/${enemyScore.key}`);
-        
-        itemReference.update({
-            winRatio: enemyScore.winRatio
-        });
-        console.log('enemyUpdated');
-        
-        itemReference = firebase.database().ref(`/teams/${this.state.team.key}`);
 
-        itemReference.update({
-          winRatio: this.state.team.winRatio
-        });
+    dbRef.once("value", (snapshot) => {
+
+      let itemReference = firebase.database().ref(`/teams/${enemyScore.key}`);
+
+      itemReference.update({
+        winRatio: enemyScore.winRatio
+      });
+      console.log('enemyUpdated');
+
+      itemReference = firebase.database().ref(`/teams/${this.state.team.key}`);
+
+      itemReference.update({
+        winRatio: this.state.team.winRatio
+      });
       console.log('playerUpdated');
     });
   }
@@ -255,7 +259,7 @@ class App extends Component {
           {/* SET ROUTES FOR ALL APP ROUTING */}
           <Route exact path="/" render={(props) => (<Home {...props} createNewTeam={this.createNewTeam} displayExistingTeam={this.displayExistingTeam} />)} />
           {/* Route to touch the TeamSelect component/page */}
-          <Route path="/teamselect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} removeCharaFromState={this.removeCharaFromState} />)} />
+          <Route path="/teamselect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} removeCharaFromState={this.removeCharaFromState} winRatio={this.state.team.winRatio} />)} />
           {/* Route to touch the TeamName component/page */}
           {/* <Route path="/teamname" render={(props) => (<TeamName {...props} existingTeamObject={this.state.team} />)} /> */}
 
