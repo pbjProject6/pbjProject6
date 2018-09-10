@@ -59,7 +59,7 @@ class TeamSelect extends Component {
                         </div>
 
                         <div className="teamSelectButtonsContainer">
-                            <button onClick={this.props.saveTeamToDB} className="saveTeamButton button">Save Team</button>
+                            <button onClick={this.props.saveTeamToDB} className="saveTeamButton button hide">Save Team</button>
 
                             <Link to="/teampreview" className="linkToTeamPreview"><div className="goBattleButton button">Go Battle</div></Link>
 

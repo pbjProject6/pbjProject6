@@ -11,7 +11,12 @@ import TeamSelect from './TeamSelect';
 const dbRef = firebase.database().ref('/teams');
 
 class Home extends Component {
-
+    constructor() {
+        super();
+        this.state = {
+            buttonClass: 'button shimmer'
+        }
+    }
     // componentDidMount() {
 
     // }
@@ -49,6 +54,9 @@ class Home extends Component {
     }
 
     searchTeamName = () => {
+        this.setState({
+            buttonClass: 'button shimmer animated fadeOutRightBig'
+        })
         // Prompt the user to enter their existing team's name
         swal({
             title: 'Please Enter Your Team Name',
@@ -104,14 +112,14 @@ class Home extends Component {
                             
                             <div className="homeGroup clearfix">
                                 <Link to="/TeamSelect">
-                                    <div onClick={this.setTeamName} className="button shimmer new"><p>Create New Team</p></div>
+                                    <div onClick={this.setTeamName} className={this.state.buttonClass}><p>Create New Team</p></div>
                                     <i class="fas fa-caret-left"></i>
                                  </Link>
                             </div>
 
                             <div className="homeGroup clearfix">
                                 <Link to="/TeamSelect">
-                                    <div onClick={this.searchTeamName} className="button shimmer existing"><p>Load Existing Team</p></div>
+                                    <div onClick={this.searchTeamName} className={this.state.buttonClass}><p>Load Existing Team</p></div>
                                     <i class="fas fa-caret-left"></i>
                                 </Link>
                             </div>

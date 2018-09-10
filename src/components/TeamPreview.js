@@ -145,36 +145,46 @@ class TeamPreview extends Component {
         }
         return(
             <div className="teamPreview">
-                <section className="playerTeam">
+                <header className="App-header">
+                    <div className="wrapper clearfix">
+                        <div className="logo"><h2>pb&j</h2></div>
+                        <h1 className="title">Superhero Battle</h1>
+                    </div>
+                </header>
+
+                <div className="wrapper clearfix">
+                    <section className="playerTeam">
+
                     <h2>{this.props.playerTeam.teamName}</h2>
                     {this.props.playerTeam.teamMember.map((char) =>{
                         return(
-                            <div className="characterBlock player">
+                            <div className="characterBlock player clearfix">
                                 <img src={char.img} alt={`${char.name} Snapshot`} />
                                 <h3>{char.name}</h3>
                             </div>
                         )
                     })}
-                </section>
-                {this.state.fightingEnemyTeam === null ? null :
-                <section className="enemyTeam">
-                    <h2>{this.state.fightingEnemyTeam.teamName}</h2>
+                    </section>
+                    {this.state.fightingEnemyTeam === null ? null :
+                        <section className="enemyTeam">
+                        <h2>{this.state.fightingEnemyTeam.teamName}</h2>
                     {this.state.fightingEnemyTeam.teamMember.map((char) => {
                         return (
-                            <div className="characterBlock enemy">
+                            <div className="characterBlock enemy clearfix">
                                 <img src={char.img} alt={`${char.name} Snapshot`} />
                                 <h3>{char.name}</h3>
                             </div>
                         )
                     })}
                 </section>
-                }
+                    }
                 <section className="teamButtons">
                     <Link to="/teamSelect">
-                        <button>Back To Team Roster</button>
+                    <button>Back To Team Roster</button>
                     </Link>
                     <button onClick={this.startBattle}>Start Battle</button>
                 </section>
+                </div>
             </div>
         )
     }
