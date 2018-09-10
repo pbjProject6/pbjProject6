@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class TeamName extends Component {
     render() {
+        console.log(this.props.teamObject);
         return (
             <div className="TeamName">
                 {/* {this.props.teamObject.teamName !== "" ? */}
@@ -9,6 +10,7 @@ class TeamName extends Component {
                 {/* ========================================
                     Team Name Displayed: Existing team */}
                 <h3 className="teamName">{this.props.teamObject.teamName}</h3>
+                <p className="teamWins">Wins: {this.props.teamObject.teamName}</p>
                 {/* : */}
                 {/* ========================================
                     Team Name: Creating team */}

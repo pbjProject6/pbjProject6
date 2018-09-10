@@ -17,8 +17,8 @@ import Search from './Search';
 class TeamSelect extends Component {
     render() {
         return (
-            
-            
+
+
             <section className="teamSelectSection">
 
                 <header className="App-header">
@@ -33,7 +33,7 @@ class TeamSelect extends Component {
                         <div className="selectForm">
 
                             <div className="teamName">
-                                <TeamName teamObject={this.props.teamObject} />
+                                <TeamName teamObject={this.props.teamObject} winRatio={this.props.winRatio} />
                             </div>
 
                             <div className="characterBlock">
@@ -48,11 +48,11 @@ class TeamSelect extends Component {
                                 <CharacterBlock chara={this.props.teamObject.teamMember[2]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
                             </div>
 
-                            <div className="characterBlock">   
+                            <div className="characterBlock">
                                 <CharacterBlock chara={this.props.teamObject.teamMember[3]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
                             </div>
 
-                            <div className="characterBlock"> 
+                            <div className="characterBlock">
                                 <CharacterBlock chara={this.props.teamObject.teamMember[4]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
                             </div>
 

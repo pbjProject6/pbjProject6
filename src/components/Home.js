@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
     BrowserRouter as Router,
-    Route, Link
+    Route, Link, Redirect
 } from 'react-router-dom';
 import firebase from 'firebase';
 import swal from 'sweetalert';
@@ -11,7 +11,10 @@ import TeamSelect from './TeamSelect';
 const dbRef = firebase.database().ref('/teams');
 
 class Home extends Component {
-
+    constructor() {
+        super();
+        this.state = {}
+    }
     // componentDidMount() {
 
     // }
@@ -40,6 +43,8 @@ class Home extends Component {
                     }
                     else {
                         this.props.createNewTeam(userTeam);
+                        setTimeout(() => { this.setState({ redirect: true }) }, 5000)
+
                     }
                 });
 
@@ -70,6 +75,9 @@ class Home extends Component {
                             // console.log('team exists');
                             this.props.displayExistingTeam(dbTeams[team]);
                             console.log(dbTeams[team]);
+                            setTimeout(() => { this.setState({ redirect: true }) }, 5000)
+
+
                         }
                     }
                     // If the team doesn't exist in the database, present an error message. 
@@ -82,12 +90,16 @@ class Home extends Component {
         });
     }
 
+    // handleLoadTeamClick = () => {
 
-    // displayExistingTeam = () => {
-
+    //     this.setState({redirect: true})
     // }
 
     render() {
+        if (this.state.redirect) {
+            return (<Redirect push to="/TeamSelect" />)
+        }
+
         return (
 
             <section className="homeSection">
@@ -102,31 +114,19 @@ class Home extends Component {
                     <div className="wrapper">
                         <div className="options">
 
-                            
+
                             <div className="homeGroup clearfix">
-                                <Link to="/TeamSelect">
-                                    <div onClick={this.setTeamName} className="button shimmer new"><p>Create New Team</p></div>
-                                    <i class="fas fa-caret-left"></i>
-                                 </Link>
+                                <div onClick={this.setTeamName} className="button shimmer new"><p>Create New Team</p></div>
+                                <i class="fas fa-caret-left"></i>
                             </div>
 
                             <div className="homeGroup clearfix">
-                                <Link to="/TeamSelect">
-                                    <div onClick={this.searchTeamName} className="button shimmer existing"><p>Load Existing Team</p></div>
-                                    <i class="fas fa-caret-left"></i>
-                                </Link>
+                                <div onClick={this.searchTeamName} className="button shimmer existing"><p>Load Existing Team</p></div>
+                                <i class="fas fa-caret-left"></i>
                             </div>
-                        
                         </div>
                     </div>
                 </main>
-                    
-                    
-
-                    
-
-                    
-
             </section>
         )
     }
