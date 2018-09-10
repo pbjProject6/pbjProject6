@@ -524,3 +524,15 @@ body {
   font-family: "Nunito";
   text-align: center;
   background: #d5b606; }
+
+.sweetResultsDiv {
+  float: left;
+  width: 37%;
+  text-align: right; }
+
+.sweetVsDiv {
+  float: left;
+  width: 25%; }
+
+.swal-modal.sweetWideAlert {
+  width: 543px; }

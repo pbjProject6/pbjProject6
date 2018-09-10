@@ -77,7 +77,11 @@ class TeamPreview extends Component {
         let enemyWins = 0;
         let result = document.createElement("div");
         let playerResult = document.createElement("div");
+        playerResult.classList.add("sweetResultsDiv")
+        let vs = document.createElement("div");
+        vs.classList.add("sweetVsDiv");
         let enemyResult = document.createElement("div");
+        enemyResult.classList.add("sweetResultsDiv")
 
         // compare each character to the character in the respective slot on the other team
         for (let i = 0; i <= 4; i++) {
@@ -94,10 +98,12 @@ class TeamPreview extends Component {
             else {
                 enemyWins++;
             }
-            playerResult.innerHTML += `<p>${player.teamMember[i].name} : ${playerStat}</p>`;
-            enemyResult.innerHTML += `<p>${enemy.teamMember[i].name} : ${enemyStat}</p>`;
+            playerResult.innerHTML += `<p>${player.teamMember[i].name} : <strong>${playerStat}</strong></p>`;
+            vs.innerHTML += `<p> VS </p>`
+            enemyResult.innerHTML += `<p>${enemy.teamMember[i].name} : <strong>${enemyStat}</strong></p>`;
         }
         result.appendChild(playerResult);
+        result.appendChild(vs);
         result.appendChild(enemyResult);
         // display match results to player and update ratios
         setTimeout(() => {
@@ -164,9 +170,8 @@ class TeamPreview extends Component {
                     value: 'adjustTeam',
                     className: "sweetButton"
                 }
-
-
-            }
+            },
+            customClass: 'sweetWideAlert'
         }).then((res) => {
             console.log(res);
             if (res === 'rematch') {

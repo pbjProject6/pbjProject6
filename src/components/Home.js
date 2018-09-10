@@ -29,9 +29,8 @@ class Home extends Component {
                 className: "sweetButton",
             }
         }).then((res) => {
-            let userTeam = res.trim();
-            if (userTeam !== null) {
-
+            if (res !== null) {
+                let userTeam = res.trim();
                 dbRef.once("value", (snapshot) => {
                     let doesExist = false;
 
@@ -78,8 +77,8 @@ class Home extends Component {
                 className: "sweetButton"
             }
         }).then((res) => {
-            let userTeam = res.trim();
-            if (userTeam !== null) {
+            if (res !== null) {
+                let userTeam = res.trim();
                 // If the user enters any value for their team name...
                 dbRef.once('value', (snapshot) => {
                     let doesExist = false;

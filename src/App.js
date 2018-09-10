@@ -86,10 +86,6 @@ class App extends Component {
     });
   }
 
-  joinArrays = () => {
-
-  }
-
   addToTeamArray = (charObj) => {
     const teamObject = this.state.team;
 
@@ -205,8 +201,6 @@ class App extends Component {
     this.setState({
       team: playerCopy
     });
-    console.log(playerCopy);
-    console.log(enemyScore);
 
     dbRef.once("value", (snapshot) => {
       // update both database references with the updated win loss ratio
