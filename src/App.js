@@ -253,12 +253,9 @@ class App extends Component {
   render() {
     return (
 
-      
-      <Router>
-        
-        <div className="App">
-        <HomeButton />
 
+      <Router>
+        <div className="App">
           {/* ========================================== */}
           {/* SET ROUTES FOR ALL APP ROUTING */}
           <Route exact path="/" render={(props) => (<Home {...props} audioThemePlay={this.audioThemePlay} createNewTeam={this.createNewTeam} displayExistingTeam={this.displayExistingTeam} />)} />
@@ -285,6 +282,9 @@ class App extends Component {
             id="themeAudio"
             loop={true}
           />
+          <div className="homeButtonContainer">
+            <HomeButton />
+          </div>
         </div>
       </Router>
     );
