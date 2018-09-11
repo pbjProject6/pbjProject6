@@ -239,9 +239,9 @@ body {
   pointer-events: none; }
 
 .homeButtonContainer {
-  position: absolute;
-  right: -5px;
-  top: -20px; }
+  position: fixed;
+  right: 5px;
+  top: 8px; }
 
 .homeButton {
   width: 120px;
