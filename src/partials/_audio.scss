@@ -2,6 +2,23 @@
     width: 50px;
     border-radius: 40%;
     position: absolute;
-    top: 10px;
+    bottom: 0;
     right: 10px;
+}
+// =======================
+// RESPONSIVENE DESIGN
+// =======================
+// **Landscape phone to portrait tablet**
+@media (max-width: 940px) {
+    
+}
+// **Portrait tablet to small desktops**
+@media (max-width: 767px) {
+    #themeAudio {
+        top: 95%;
+    }
+}
+// **Small desktop to large desktops**
+@media (max-width: 480px) {
+    
 }

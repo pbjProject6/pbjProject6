@@ -170,7 +170,7 @@ class Home extends Component {
                 <header className="App-header">
                     <div className="wrapper clearfix headerTextContainer">
                         <h2 className="logo">pb&j</h2>
-                        <h1 className="title">Havoc Of Heros</h1>
+                        <h1 className="title home">Havoc Of Heros</h1>
                     </div>
                 </header>
 
@@ -191,7 +191,7 @@ class Home extends Component {
 
                 <main className="main">
                     <div className="wrapper">
-                        <div className="options" id="homeOptions">
+                        <div className="options homeButtonsContainer clearfix" id="homeOptions">
 
                             <div className="homeGroup clearfix">
                                 <button onClick={this.createNewTeamButtonClick} className="button" id="newButton"><p>Create New Team</p></button>
