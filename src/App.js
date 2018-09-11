@@ -17,6 +17,7 @@ import CharacterBlock from './components/CharacterBlock';
 // import TeamReview from './components/TeamReview';
 // import battle from './components/battle';
 import TeamPreview from './components/TeamPreview';
+import HomeButton from './components/HomeButton';
 // import Results from './components/Results';
 import ReactAudioPlayer from 'react-audio-player';
 import theme from './assets/audio/theme/audioTheme.mp3';
@@ -251,8 +252,12 @@ class App extends Component {
 
   render() {
     return (
+
+      
       <Router>
+        
         <div className="App">
+        <HomeButton />
 
           {/* ========================================== */}
           {/* SET ROUTES FOR ALL APP ROUTING */}

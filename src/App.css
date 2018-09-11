@@ -165,13 +165,36 @@ body {
   .logo h2 {
     margin: 35px 0; }
 
-.title {
+.title, .swal-title, .teamName h3 {
   font-family: "Bowlby One SC";
   font-size: 3.5rem;
   letter-spacing: 5px;
   float: right;
   color: white;
-  margin: 0; }
+  margin: 10px 0;
+  text-shadow: -4px -4px 0 #3D3D3D, 4px -4px 0 #3D3D3D, -4px 4px 0 #3D3D3D, 4px 4px 0 #3D3D3D; }
+
+.teamName h3 {
+  float: none;
+  font-size: 1.5rem;
+  text-shadow: -3px -3px 0 #3D3D3D, 3px -3px 0 #3D3D3D, -3px 3px 0 #3D3D3D, 3px 3px 0 #3D3D3D; }
+
+.playerTeam h2, .enemyTeam h2 {
+  font-family: "Bowlby One SC";
+  color: white;
+  letter-spacing: 5px; }
+
+.swal-text, .swal-content, .teamName, .characterBlock {
+  font-family: "Nunito";
+  color: #3D3D3D;
+  text-align: center; }
+
+.swal-text {
+  color: white; }
+
+.swal-content__input {
+  font-family: "Nunito";
+  border: 2px solid #3D3D3D; }
 
 .button {
   color: #3D3D3D;
@@ -188,11 +211,10 @@ body {
 
 .button:hover {
   text-align: center;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background-image: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background-image: linear-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
   background-size: 125px 100%;
-  background-clip: text;
   animation-name: shimmer;
   animation-duration: 2s;
   animation-iteration-count: infinite;
@@ -254,6 +276,8 @@ body {
 
 .homeGroup .button {
   margin: 30px; }
+  .homeGroup .button p {
+    font-weight: 700; }
 
 .fa-caret-left {
   float: left;
@@ -303,7 +327,8 @@ body {
 
 .teamName {
   text-align: center;
-  display: inline; }
+  display: inline;
+  font-weight: 700; }
 
 .infoIcon {
   float: right;
@@ -374,7 +399,8 @@ body {
     margin: 0; }
   .teamSelectButtonsContainer .button {
     width: 60%;
-    margin: 63px 0 0 20px; }
+    margin: 63px 0 0 20px;
+    font-weight: 700; }
     .teamSelectButtonsContainer .button:hover {
       background-size: 50%; }
 
@@ -388,17 +414,6 @@ body {
     background: darkgrey;
     border: 5px solid grey;
     cursor: auto; }
-
-.shimmer {
-  background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-color: #d5b606;
-  animation-name: shimmer;
-  animation-duration: 2s;
-  animation-iteration-count: infinite; }
 
 .inactiveLink {
   pointer-events: none;
@@ -507,13 +522,20 @@ body {
   list-style: none; }
 
 .playerTeam {
-  width: 35%;
+  width: 40%;
   float: left; }
+  .playerTeam h2 {
+    text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green; }
 
 .enemyTeam {
-  width: 35%;
+  width: 40%;
   float: right;
   text-align: right; }
+  .enemyTeam h2 {
+    text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red; }
+
+.playerTeam h2, .enemyTeam h2 {
+  letter-spacing: 3px; }
 
 .teamButtons {
   clear: both; }
@@ -525,8 +547,10 @@ body {
   padding: 5px;
   margin-bottom: 10px; }
   .teamPreview .characterBlock img {
-    width: 10%;
-    margin: 0 20px; }
+    width: 14%;
+    margin: 0 20px;
+    border: 2px outset #676729;
+    border-radius: 10px; }
   .teamPreview .characterBlock h3 {
     margin-bottom: 0; }
 
@@ -542,6 +566,13 @@ body {
 .characterBlock.enemy h3 {
   float: right; }
 
+.swal-overlay {
+  background-color: rgba(129, 209, 190, 0.4); }
+
+.swal-modal {
+  background-color: #49789a;
+  border: 5px solid #396683; }
+
 .sweetButton {
   color: #3D3D3D;
   border: 5px solid #8c8c38;
@@ -550,18 +581,54 @@ body {
   font-family: "Nunito";
   text-align: center;
   background: #d5b606; }
+  .sweetButton:hover {
+    background: #8b7604;
+    border-color: #555522; }
 
 .sweetResultsDiv {
   float: left;
-  width: 37%;
-  text-align: right; }
+  width: 37%; }
+  .sweetResultsDiv.player {
+    text-align: right; }
+    .sweetResultsDiv.player strong {
+      text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
+      font-size: 1.1rem; }
+  .sweetResultsDiv.enemy {
+    text-align: left; }
+    .sweetResultsDiv.enemy strong {
+      text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
+      font-size: 1.1rem; }
+
+strong.player {
+  text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
+  font-size: 1.1rem; }
+
+strong.enemy {
+  text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
+  font-size: 1.1rem; }
+
+.swal-title {
+  float: none;
+  font-size: 2.2rem;
+  text-shadow: -3px -3px 0 #3D3D3D, 3px -3px 0 #3D3D3D, -3px 3px 0 #3D3D3D, 3px 3px 0 #3D3D3D; }
 
 .sweetVsDiv {
   float: left;
-  width: 25%; }
+  width: 25%;
+  font-family: "Bowlby One SC";
+  text-shadow: -3px -3px 0 #3D3D3D, 3px -3px 0 #3D3D3D, -3px 3px 0 #3D3D3D, 3px 3px 0 #3D3D3D; }
 
 .swal-modal.sweetWideAlert {
-  width: 543px; }
+  width: 553px !important; }
+
+.swal-modal.swalResults {
+  width: 550px !important; }
+  .swal-modal.swalResults .swal-content p {
+    color: white;
+    font-weight: 700; }
+  .swal-modal.swalResults .swal-content strong {
+    font-family: "Bowlby One SC";
+    color: white; }
 
 #themeAudio {
   width: 50px;
