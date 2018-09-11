@@ -17,7 +17,10 @@ import CharacterBlock from './components/CharacterBlock';
 // import TeamReview from './components/TeamReview';
 // import battle from './components/battle';
 import TeamPreview from './components/TeamPreview';
+import HomeButton from './components/HomeButton';
 // import Results from './components/Results';
+import ReactAudioPlayer from 'react-audio-player';
+import theme from './assets/audio/theme/audioTheme.mp3';
 
 // GLOBAL VARIABLES
 // Goes to the root of the firebase database
@@ -180,7 +183,7 @@ class App extends Component {
     battleButton.className = "showButton";
     // make confirm/save button small
     var saveButton = document.getElementById('saveTeamButton');
-    saveButton.className = "saveTeamButton button shrink";
+    saveButton.className = "saveTeamButton shrink";
     // lock and unlock icons
     var unlock = document.getElementById('unlockedIcon');
     unlock.className = "fas fa-unlock lock hide";
@@ -243,16 +246,19 @@ class App extends Component {
     })
   }
 
-
+  audioThemePlay = () => {
+    document.getElementById('themeAudio').setAttribute('autoplay', true);
+  }
 
   render() {
     return (
+
+
       <Router>
         <div className="App">
-
           {/* ========================================== */}
           {/* SET ROUTES FOR ALL APP ROUTING */}
-          <Route exact path="/" render={(props) => (<Home {...props} createNewTeam={this.createNewTeam} displayExistingTeam={this.displayExistingTeam} />)} />
+          <Route exact path="/" render={(props) => (<Home {...props} audioThemePlay={this.audioThemePlay} createNewTeam={this.createNewTeam} displayExistingTeam={this.displayExistingTeam} />)} />
           {/* Route to touch the TeamSelect component/page */}
           <Route path="/teamselect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} removeCharaFromState={this.removeCharaFromState} winRatio={this.state.team.winRatio} showStatsList={this.showStatsList} />)} />
           {/* Route to touch the TeamName component/page */}
@@ -270,6 +276,15 @@ class App extends Component {
           {/* <Route path="/battle" component={battle} /> */}
           {/* Route to touch the Results component/page  */}
           {/* <Route path="/Results" component={Results} /> */}
+          <ReactAudioPlayer
+            src={theme}
+            controls
+            id="themeAudio"
+            loop={true}
+          />
+          <div className="homeButtonContainer">
+            <HomeButton />
+          </div>
         </div>
       </Router>
     );

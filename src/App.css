@@ -152,7 +152,7 @@ body {
 
 .wrapper {
   width: 85%;
-  max-width: 1300px;
+  max-width: 1920px;
   margin: 0 auto; }
 
 .logo {
@@ -204,7 +204,6 @@ body {
   font-family: "Nunito";
   font-size: 2rem;
   text-align: center;
-  padding-top: 19px;
   background: #d5b606;
   width: 310px;
   max-width: 100%;
@@ -212,17 +211,19 @@ body {
 
 .button:hover {
   text-align: center;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background-image: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background-image: linear-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
   background-size: 125px 100%;
-  background-clip: text;
   animation-name: shimmer;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   background-repeat: no-repeat;
   background-position: 0 0;
   background-color: #d5b606; }
+
+.button p {
+  margin: 0; }
 
 .buttonGrey {
   color: #3D3D3D;
@@ -236,6 +237,18 @@ body {
   background: darkgrey;
   width: 50%;
   pointer-events: none; }
+
+.homeButtonContainer {
+  position: absolute;
+  right: -5px;
+  top: -5px; }
+
+.homeButton {
+  width: 120px;
+  height: auto;
+  margin: 30px 30px 10px 0; }
+  .homeButton p {
+    font-weight: 700; }
 
 @keyframes shimmer {
   0% {
@@ -270,6 +283,21 @@ body {
 .combatStat {
   background-color: #ffb71b; }
 
+@media (max-width: 940px) {
+  body {
+    height: auto;
+    padding-bottom: 100px; } }
+
+.logo {
+  margin: 0; }
+
+.title {
+  float: none;
+  text-align: center; }
+
+.homeGroup {
+  text-align: center; }
+
 .homeGroup .button {
   margin: 30px; }
   .homeGroup .button p {
@@ -285,11 +313,7 @@ body {
 .homeGroupe p {
   margin: 0; }
 
-.homeGroup {
-  text-align: center; }
-
 .homeSection .options {
-  width: 38%;
   padding-top: 5%;
   margin: 0 auto; }
 
@@ -306,6 +330,7 @@ body {
   font-family: "Nunito"; }
   .listOfExistingTeams li {
     list-style: none;
+    font-weight: 700;
     color: #3D3D3D;
     display: inline; }
     .listOfExistingTeams li:hover {
@@ -314,17 +339,51 @@ body {
 .homeFloat {
   float: left; }
 
+@media (max-width: 1200px) {
+  .existingTeamsList {
+    width: 40%; } }
+
+@media (max-width: 940px) {
+  .existingTeamsList {
+    width: 47%; }
+  .homeGroup .button {
+    margin-left: 0; }
+  .headerTextContainer .logo {
+    float: none; }
+  .title {
+    margin-top: 20px; } }
+
+@media (max-width: 767px) {
+  .existingTeamsList {
+    width: 50%; }
+  .homeGroup .button {
+    margin-right: 10px;
+    width: 175px; } }
+
+@media (max-width: 480px) {
+  .homeGroup .button {
+    margin: 15px 0; }
+  .homeFloat {
+    float: none; }
+  .existingTeamsList {
+    float: none;
+    margin: 0 auto;
+    width: 100%; }
+  .homeGroup .button {
+    width: 100%; }
+  .homeSection .options {
+    margin: -30px 0 auto; } }
+
 .selectForm {
   border: 1px solid #8c8c38;
-  width: 40%;
+  width: 45%;
   margin: 0 auto;
   background-color: #8c8c38;
   float: left; }
 
 .teamName {
   text-align: center;
-  display: inline;
-  font-weight: 700; }
+  display: inline; }
 
 .infoIcon {
   float: right;
@@ -343,6 +402,9 @@ body {
   clear: both; }
 
 .selectCharacterButton {
+  width: calc(100% - 20px);
+  background-color: #d5b606;
+  border: none;
   text-transform: uppercase;
   color: #3D3D3D;
   text-align: center;
@@ -387,18 +449,42 @@ body {
   font-size: 1rem;
   background-color: #eeeeee; }
 
+.inactiveChangeCharacterButton {
+  pointer-events: none;
+  background: darkgrey;
+  border: 3px solid grey; }
+  .inactiveChangeCharacterButton:hover {
+    cursor: auto; }
+
+@media (max-width: 1070px) {
+  .topBlock h3 {
+    font-size: 1rem; } }
+
+@media (max-width: 940px) {
+  .selectForm {
+    float: none;
+    width: 65%;
+    margin: 30px auto; } }
+
 .teamSelectButtonsContainer {
-  float: left;
-  width: 20%;
-  margin: 0; }
+  border-top: 5px solid #8C8C38;
+  border-bottom: 5px solid #8C8C38;
+  width: 100%;
+  height: 11%;
+  margin: 0;
+  position: relative; }
   .teamSelectButtonsContainer a {
     margin: 0; }
-  .teamSelectButtonsContainer .button {
-    width: 60%;
-    margin: 63px 0 0 20px;
+  .teamSelectButtonsContainer .teamButton {
+    width: 50%;
+    height: 100%;
+    border: none;
     font-weight: 700; }
-    .teamSelectButtonsContainer .button:hover {
+    .teamSelectButtonsContainer .teamButton:hover {
       background-size: 50%; }
+
+.lock {
+  margin-right: 5px; }
 
 .shrink {
   transform: scale(0.5);
@@ -441,28 +527,26 @@ body {
 
 .goBattleButton {
   display: inline-block;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-color: #d5b606;
-  animation-name: shimmer;
-  animation-duration: 2s;
-  animation-iteration-count: infinite; }
-
-.hide {
-  display: none; }
+  color: #3D3D3D;
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+  padding: 10px 7px 2px; }
 
 .linkToTeamPreview {
   text-decoration: none; }
 
+@media (max-width: 985px) {
+  .teamButton {
+    font-size: 1rem; } }
+
 .search {
-  height: 459px;
-  width: 459px;
+  height: 482px;
+  width: 45%;
   float: right;
   background-color: #d5b606;
-  border: 8px solid #8C8C38;
+  border: 7px solid #8C8C38;
   position: relative; }
 
 .searchArea {
@@ -491,7 +575,7 @@ body {
   height: 100%; }
 
 .resultsArea {
-  height: 80%;
+  height: 72%;
   overflow: scroll;
   padding: 20px; }
 
@@ -528,18 +612,37 @@ body {
 .charaStat {
   list-style: none; }
 
+@media (max-width: 1070px) {
+  .addToRosterButton {
+    font-size: 1rem; }
+  .imageName h3 {
+    font-size: 1rem; } }
+
+@media (max-width: 985px) {
+  .rowList {
+    display: block; }
+  .addToRosterButton {
+    margin: 0;
+    float: none; } }
+
+@media (max-width: 940px) {
+  .search {
+    float: none;
+    width: 65%;
+    margin: 0 auto; } }
+
 .playerTeam {
   width: 45%;
   float: left; }
   .playerTeam h2 {
-    text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green; }
+    text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green; }
 
 .enemyTeam {
   width: 45%;
   float: right;
   text-align: right; }
   .enemyTeam h2 {
-    text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red; }
+    text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red; }
 
 .playerTeam h2, .enemyTeam h2 {
   letter-spacing: 3px;
@@ -653,20 +756,20 @@ body {
   .sweetResultsDiv.player {
     text-align: right; }
     .sweetResultsDiv.player strong {
-      text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
+      text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
       font-size: 1.1rem; }
   .sweetResultsDiv.enemy {
     text-align: left; }
     .sweetResultsDiv.enemy strong {
-      text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
+      text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
       font-size: 1.1rem; }
 
 strong.player {
-  text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
+  text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
   font-size: 1.1rem; }
 
 strong.enemy {
-  text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
+  text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
   font-size: 1.1rem; }
 
 .swal-title {
@@ -721,5 +824,5 @@ strong.enemy {
   width: 50px;
   border-radius: 40%;
   position: absolute;
-  top: 10px;
+  bottom: 0;
   right: 10px; }

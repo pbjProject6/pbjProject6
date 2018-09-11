@@ -1,8 +1,27 @@
+.logo {
+    margin: 0;
+}
+
+// .headerTextContainer {
+//     padding-top: 5px;
+// }
+
+.title {
+    float: none;
+    text-align: center;
+}
+
+.homeGroup {
+    text-align: center;
+    // float: left;
+}
+
 .homeGroup .button {
     margin: 30px;
-    p{
+    p {
         font-weight: 700;
-    }         
+    }
+
 }
 
 .fa-caret-left {
@@ -18,12 +37,8 @@
     margin: 0;
 }
 
-.homeGroup {
-    text-align: center;
-}
-
 .homeSection .options {
-    width: 38%;
+    // width: 38%;
     padding-top: 5%;
     margin: 0 auto;
 }
@@ -45,6 +60,7 @@
     font-family: $bodyFont;
     li {
         list-style: none;
+        font-weight: 700;
         color: $black;
         display: inline;
         &:hover {
@@ -57,4 +73,61 @@
 
 .homeFloat {
     float: left;
+}
+// =======================
+// RESPONSIVENE DESIGN
+// =======================
+// **Large monitors**
+@media (max-width: 1200px) {
+    .existingTeamsList {
+        width: 40%;
+    }
+}
+// **Landscape phone to portrait tablet**
+@media (max-width: 940px) {
+    .existingTeamsList {
+        width: 47%;
+    }
+    .homeGroup .button {
+        margin-left: 0;
+    }
+    .headerTextContainer .logo {
+        float: none;
+    }
+    .title {
+        margin-top: 20px;
+    }
+}
+// **Portrait tablet to small desktops**
+@media (max-width: 767px) {
+    // .headerTextContainer .logo {
+    //     float: none;
+    // }
+    .existingTeamsList {
+        width: 50%;
+    }
+    .homeGroup .button {
+        margin-right: 10px;
+        width: 175px;
+    }
+}
+// **Small desktop to large desktops**
+@media (max-width: 480px) {
+    .homeGroup .button {
+        margin: 15px 0;
+    }
+    .homeFloat {
+        float: none;
+    }
+    .existingTeamsList {
+        float: none;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .homeGroup .button {
+        width: 100%;
+    }
+    .homeSection .options {
+        margin: -30px 0 auto;
+    }
 }

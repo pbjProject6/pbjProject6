@@ -5,8 +5,8 @@ class HomeButton extends Component {
     render() {
         return (
             <Link to="/">
-                <div className="homeGroup clearfix">
-                    <button className="button shimmer existing"><p>Home</p></button>
+                <div className="hide clearfix">
+                    <button className="button shimmer existing homeButton"><p>Home</p></button>
                     <i class="fas fa-caret-left"></i>
                 </div>
             </Link>
