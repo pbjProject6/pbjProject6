@@ -173,6 +173,20 @@ body {
   color: white;
   margin: 10px 0; }
 
+.swal-title {
+  font-family: "Bowlby One SC";
+  color: white;
+  letter-spacing: 5px; }
+
+.swal-text, .swal-content {
+  font-family: "Nunito";
+  color: #3D3D3D;
+  text-align: center; }
+
+.swal-content__input {
+  font-family: "Nunito";
+  border: 2px solid #3D3D3D; }
+
 .button {
   color: #3D3D3D;
   border: 5px solid #8c8c38;
@@ -499,8 +513,10 @@ body {
   padding: 5px;
   margin-bottom: 10px; }
   .teamPreview .characterBlock img {
-    width: 10%;
-    margin: 0 20px; }
+    width: 14%;
+    margin: 0 20px;
+    border: 2px outset #676729;
+    border-radius: 10px; }
   .teamPreview .characterBlock h3 {
     margin-bottom: 0; }
 
@@ -516,6 +532,13 @@ body {
 .characterBlock.enemy h3 {
   float: right; }
 
+.swal-overlay {
+  background-color: rgba(129, 209, 190, 0.4); }
+
+.swal-modal {
+  background-color: #49789a;
+  border: 5px solid #396683; }
+
 .sweetButton {
   color: #3D3D3D;
   border: 5px solid #8c8c38;
@@ -524,15 +547,21 @@ body {
   font-family: "Nunito";
   text-align: center;
   background: #d5b606; }
+  .sweetButton:hover {
+    background: #8b7604;
+    border-color: #555522; }
 
 .sweetResultsDiv {
   float: left;
-  width: 37%;
-  text-align: right; }
+  width: 37%; }
+  .sweetResultsDiv.player {
+    text-align: right; }
+  .sweetResultsDiv.enemy {
+    text-align: left; }
 
 .sweetVsDiv {
   float: left;
   width: 25%; }
 
 .swal-modal.sweetWideAlert {
-  width: 543px; }
+  width: 553px !important; }

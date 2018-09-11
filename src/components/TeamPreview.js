@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Link, Redirect } from "react-router-dom";
 import firebase from "firebase";
 import swal from 'sweetalert';
+import swal2 from 'sweetalert2'
 
 // COMPONENTS
 import HomeButton from './HomeButton';
@@ -100,7 +101,7 @@ class TeamPreview extends Component {
             }
             playerResult.innerHTML += `<p>${player.teamMember[i].name} : <strong>${playerStat}</strong></p>`;
             vs.innerHTML += `<p> VS </p>`
-            enemyResult.innerHTML += `<p>${enemy.teamMember[i].name} : <strong>${enemyStat}</strong></p>`;
+            enemyResult.innerHTML += `<p><strong>${enemyStat}</strong> : ${enemy.teamMember[i].name}</p>`;
         }
         result.appendChild(playerResult);
         result.appendChild(vs);
@@ -112,7 +113,7 @@ class TeamPreview extends Component {
                 enemyObject.winRatio.losses += 1;
                 this.props.updateWinLoss([1, 0], enemyObject);
 
-                result.innerHTML += `You win with ${playerWins} wins to ${enemyWins}`;
+                result.innerHTML += `<p>You win with <strong>${playerWins}</strong> wins to <strong>${enemyWins}</strong></p>`;
 
                 swal({
                     title: `Competed in ${statFullNames[competeStat]}`,
@@ -153,7 +154,7 @@ class TeamPreview extends Component {
     postBattleChoices = () => {
 
         swal({
-            text: 'What would you like to do next?',
+            title: 'What would you like to do next?',
             buttons: {
                 rematch: {
                     text: 'Fight again?',
@@ -171,7 +172,7 @@ class TeamPreview extends Component {
                     className: "sweetButton"
                 }
             },
-            customClass: 'sweetWideAlert'
+            className: 'sweetWideAlert'
         }).then((res) => {
             console.log(res);
             if (res === 'rematch') {
