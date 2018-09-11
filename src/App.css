@@ -204,7 +204,6 @@ body {
   font-family: "Nunito";
   font-size: 2rem;
   text-align: center;
-  padding-top: 19px;
   background: #d5b606;
   width: 310px;
   max-width: 100%;
@@ -223,6 +222,9 @@ body {
   background-repeat: no-repeat;
   background-position: 0 0;
   background-color: #d5b606; }
+
+.button p {
+  margin: 0; }
 
 .buttonGrey {
   color: #3D3D3D;
@@ -269,6 +271,9 @@ body {
 
 .combatStat {
   background-color: #ffb71b; }
+
+.logo {
+  margin: 0; }
 
 .homeGroup .button {
   margin: 30px; }
@@ -532,14 +537,20 @@ body {
   width: 40%;
   float: left; }
   .playerTeam h2 {
-    text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green; }
+    text-shadow: -2px -2px 0 green,  
+ 2px -2px 0 green,
+ -2px 2px 0 green,
+ 2px 2px 0 green; }
 
 .enemyTeam {
   width: 40%;
   float: right;
   text-align: right; }
   .enemyTeam h2 {
-    text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red; }
+    text-shadow: -2px -2px 0 red,  
+ 2px -2px 0 red,
+ -2px 2px 0 red,
+ 2px 2px 0 red; }
 
 .playerTeam h2, .enemyTeam h2 {
   letter-spacing: 3px; }
@@ -598,20 +609,32 @@ body {
   .sweetResultsDiv.player {
     text-align: right; }
     .sweetResultsDiv.player strong {
-      text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
+      text-shadow: -2px -2px 0 green,  
+ 2px -2px 0 green,
+ -2px 2px 0 green,
+ 2px 2px 0 green;
       font-size: 1.1rem; }
   .sweetResultsDiv.enemy {
     text-align: left; }
     .sweetResultsDiv.enemy strong {
-      text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
+      text-shadow: -2px -2px 0 red,  
+ 2px -2px 0 red,
+ -2px 2px 0 red,
+ 2px 2px 0 red;
       font-size: 1.1rem; }
 
 strong.player {
-  text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
+  text-shadow: -2px -2px 0 green,  
+ 2px -2px 0 green,
+ -2px 2px 0 green,
+ 2px 2px 0 green;
   font-size: 1.1rem; }
 
 strong.enemy {
-  text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
+  text-shadow: -2px -2px 0 red,  
+ 2px -2px 0 red,
+ -2px 2px 0 red,
+ 2px 2px 0 red;
   font-size: 1.1rem; }
 
 .swal-title {
@@ -626,7 +649,7 @@ strong.enemy {
   text-shadow: -3px -3px 0 #3D3D3D, 3px -3px 0 #3D3D3D, -3px 3px 0 #3D3D3D, 3px 3px 0 #3D3D3D; }
 
 .swal-modal.sweetWideAlert {
-<<<<<<< HEAD
+
   width: 553px !important; }
 
 .swal-modal.swalResults {
@@ -637,8 +660,6 @@ strong.enemy {
   .swal-modal.swalResults .swal-content strong {
     font-family: "Bowlby One SC";
     color: white; }
-=======
-  width: 543px; }
 
 #themeAudio {
   width: 50px;
@@ -646,4 +667,4 @@ strong.enemy {
   position: absolute;
   top: 10px;
   right: 10px; }
->>>>>>> ca7bc915e9b469210d336504c401fbf95d49064b
+

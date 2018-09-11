@@ -18,6 +18,8 @@ import CharacterBlock from './components/CharacterBlock';
 // import battle from './components/battle';
 import TeamPreview from './components/TeamPreview';
 // import Results from './components/Results';
+import ReactAudioPlayer from 'react-audio-player';
+import theme from './assets/audio/theme/audioTheme.mp3';
 
 // GLOBAL VARIABLES
 // Goes to the root of the firebase database
@@ -243,7 +245,9 @@ class App extends Component {
     })
   }
 
-
+  audioThemePlay = () => {
+    document.getElementById('themeAudio').setAttribute('autoplay', true);
+  }
 
   render() {
     return (
@@ -252,7 +256,7 @@ class App extends Component {
 
           {/* ========================================== */}
           {/* SET ROUTES FOR ALL APP ROUTING */}
-          <Route exact path="/" render={(props) => (<Home {...props} createNewTeam={this.createNewTeam} displayExistingTeam={this.displayExistingTeam} />)} />
+          <Route exact path="/" render={(props) => (<Home {...props} audioThemePlay={this.audioThemePlay} createNewTeam={this.createNewTeam} displayExistingTeam={this.displayExistingTeam} />)} />
           {/* Route to touch the TeamSelect component/page */}
           <Route path="/teamselect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} removeCharaFromState={this.removeCharaFromState} winRatio={this.state.team.winRatio} showStatsList={this.showStatsList} />)} />
           {/* Route to touch the TeamName component/page */}
@@ -270,6 +274,12 @@ class App extends Component {
           {/* <Route path="/battle" component={battle} /> */}
           {/* Route to touch the Results component/page  */}
           {/* <Route path="/Results" component={Results} /> */}
+          <ReactAudioPlayer
+            src={theme}
+            controls
+            id="themeAudio"
+            loop={true}
+          />
         </div>
       </Router>
     );
