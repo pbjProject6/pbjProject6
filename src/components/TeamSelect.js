@@ -17,23 +17,23 @@ import Search from './Search';
 
 class TeamSelect extends Component {
 
-    
+
 
     render() {
         // if (this.props.teamObject.teamMember.length === 5) {
         //     let saveTeamButton = document.getElementById('saveTeamButton');
         //     saveTeamButton.classList.remove('inactiveLink')
         // }
-        
+
         return (
 
 
             <section className="teamSelectSection">
-        
+
                 <header className="App-header">
                     <div className="wrapper clearfix">
                         <div className="logo"><h2>pb&j</h2></div>
-                        <h1 className="title">Superhero Battle</h1>
+                        <h1 className="title">Havoc Of Heros</h1>
                     </div>
                 </header>
 
@@ -72,10 +72,10 @@ class TeamSelect extends Component {
 
                         </div>
 
-                        
+
 
                         <div className="searchTeam">
-                            <Search addToTeamArray={this.props.addToTeamArray} saveTeamToDB={this.props.saveTeamToDB} teamObject={this.props.teamObject}/>
+                            <Search addToTeamArray={this.props.addToTeamArray} saveTeamToDB={this.props.saveTeamToDB} teamObject={this.props.teamObject} />
                         </div>
                     </div>
                 </main>
