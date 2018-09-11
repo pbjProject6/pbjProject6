@@ -5,6 +5,10 @@ import {
 } from 'react-router-dom';
 import firebase from 'firebase';
 import swal from 'sweetalert';
+// import Sound from 'react-sound';
+import ReactDOM from 'react-dom';
+import ReactAudioPlayer from 'react-audio-player';
+import theme from '../assets/audio/theme/audioTheme.mp3';
 
 // IMPORT COMPONENTS
 import TeamSelect from './TeamSelect';
@@ -20,13 +24,10 @@ class Home extends Component {
             redirect: false,
             showList: false
         }
-        this.audioRef = React.createRef();
     }
-    // componentDidMount() {
 
-    // }
     setTeamName = () => {
-        
+
         let newButton = document.getElementById('newButton');
         newButton.className = 'button shimmer animated fadeOutRightBig'
 
@@ -78,7 +79,7 @@ class Home extends Component {
 
 
     searchTeamName = () => {
-        
+
         dbRef.once('value', (snapshot) => {
             let dbTeams = snapshot.val();
 
@@ -95,14 +96,19 @@ class Home extends Component {
         });
     }
 
-    audioPlay = () => {
-        // console.log('audio function works');
-        const audioNode = this.audioRef.current;
-        this.audioRef.current.play();
+    // audioPlay = () => {
+    //     const audioNode = this.audioRef.current;
+    //     audioNode.play();
+    //     console.log(audioNode);
+    // }
+
+    audioThemePlay = () => {
+        document.getElementById('themeAudio').setAttribute('autoplay', true);
     }
 
     existingTeamButtonClick = () => {
-        this.audioPlay();
+        // this.audioPlay();
+        this.audioThemePlay();
         this.searchTeamName();
         this.setState({
             showList: true
@@ -119,7 +125,7 @@ class Home extends Component {
                     setTimeout(() => { this.setState({ redirect: true }) }, 2000)
                 }
                 console.log(team);
-                
+
                 // If the team exists, run the displayExistingTeam function to display the team's characters on the page
 
             }
@@ -145,6 +151,12 @@ class Home extends Component {
         }
     }
 
+    createNewTeamButtonClick = () => {
+        // this.audioPlay();
+        this.audioThemePlay();
+        this.setTeamName();
+    }
+
     render() {
         // This Redirect will send the user from Home to TeamSelect after they enter a valid team name in the prompt presented after clicking a Hom page button.
         if (this.state.redirect) {
@@ -161,14 +173,28 @@ class Home extends Component {
                     </div>
                 </header>
 
-                <audio ref={this.audioRef} />;
+                {/* <button onClick={this.togglePlay}>{this.state.play ? 'Pause' : 'Play'}</button> */}
+
+                {/* <audio ref={this.audioRef} src="./themeSong.mp3" autoplay /> */}
+                {/* <Sound
+                    url="countdown-edit.mp3"
+                    playStatus={Sound.status.PLAYING}
+                    autoLoad={true}
+                /> */}
+
+                <ReactAudioPlayer
+                    src={theme}
+                    controls
+                    id="themeAudio"
+                />
 
                 <main className="main">
                     <div className="wrapper">
                         <div className="options" id="homeOptions">
 
-
                             <div className="homeGroup clearfix">
+                                <button onClick={this.existingTeamButtonClick} className="button shimmer"><p>Load Existing Team</p></button>
+                                <i className="fas fa-caret-left"></i>
                                 <button onClick={this.setTeamName} className="button shimmer" id="newButton"><p>Create New Team</p></button>
                                 <i class="fas fa-caret-left"></i>
                             </div>
@@ -180,7 +206,7 @@ class Home extends Component {
                         </div>
 
                         {this.displayBlockOfExistingTeams()}
-                        
+
 
 
                     </div>
