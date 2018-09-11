@@ -17,6 +17,7 @@ import CharacterBlock from './components/CharacterBlock';
 // import TeamReview from './components/TeamReview';
 // import battle from './components/battle';
 import TeamPreview from './components/TeamPreview';
+import HomeButton from './components/HomeButton';
 // import Results from './components/Results';
 
 // GLOBAL VARIABLES
@@ -247,11 +248,15 @@ class App extends Component {
 
   render() {
     return (
+
+      
       <Router>
+        
         <div className="App">
 
           {/* ========================================== */}
           {/* SET ROUTES FOR ALL APP ROUTING */}
+          <HomeButton />
           <Route exact path="/" render={(props) => (<Home {...props} createNewTeam={this.createNewTeam} displayExistingTeam={this.displayExistingTeam} />)} />
           {/* Route to touch the TeamSelect component/page */}
           <Route path="/teamselect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} removeCharaFromState={this.removeCharaFromState} winRatio={this.state.team.winRatio} showStatsList={this.showStatsList} />)} />
