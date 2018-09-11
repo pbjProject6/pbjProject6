@@ -60,6 +60,7 @@
     font-family: $bodyFont;
     li {
         list-style: none;
+        font-weight: 700;
         color: $black;
         display: inline;
         &:hover {

@@ -1,6 +1,6 @@
 .selectForm {
     border: 1px solid rgb(140, 140, 56);
-    width: 40%;
+    width: 45%;
     margin: 0 auto;
     background-color: rgb(140, 140, 56);
     float: left;
@@ -10,7 +10,6 @@
     text-align: center;
     // float: left;
     display: inline;
-    font-weight: 700;
     
 }
 
@@ -34,9 +33,9 @@
 }
 
 .selectCharacterButton {
-    // width: calc(100% - 20px);
-    // background-color: rgb(213, 182, 6);
-    // border: none;
+    width: calc(100% - 20px);
+    background-color: rgb(213, 182, 6);
+    border: none;
     text-transform: uppercase;
     color: #3D3D3D;
     // text-align: left;
@@ -69,6 +68,7 @@
 .characterImageContainer {
     display: none;
 }
+
 
 //stats list
 
@@ -103,5 +103,31 @@
     font-size: 1rem;
     background-color: rgb(238, 238, 238);
 }
+.inactiveChangeCharacterButton {
+    pointer-events: none;
+    background: darkgrey;
+    border: 3px solid grey;
+    &:hover {
+        cursor: auto;
+    }
+}
 
+
+
+// MEDIA QUERIES
+
+@media (max-width: 1070px) {
+
+    .topBlock h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 940px) {
+    .selectForm {
+        float: none;
+        width: 65%;
+        margin: 30px auto;
+    }
+}
 

@@ -78,14 +78,16 @@ class Search extends Component {
 
     render() {
         return (
-            <div className="search">
-                <section className="searchArea">
-                    <input id="searchInput" type="text" placehholder="Search for A Character" />
-                    <button className="searchCharacterButton" onClick={this.searchChar}>Search</button>
-                </section>
-                <section className="resultsArea">
-                    {heroArray.map((chara, i) => {
-                        return (
+            <div id="searchPortion" className="search">
+                
+                    <section className="searchArea">
+                        <input id="searchInput" type="text" placeholder="Search Character" />
+                        <button className="searchCharacterButton" onClick={this.searchChar}>Search</button>
+                    </section>
+
+                    <section className="resultsArea">
+                        {heroArray.map((chara, i) => {
+                            return (
                             <div key={chara.id} className="searchResult clearfix">
                                 <div className="imageName">
                                     <img src={chara.image.url} alt={`${chara.name} Snapshot`} />
@@ -93,12 +95,17 @@ class Search extends Component {
                                 </div>
                                 <div className="resultBody">
                                     <ul className="statList">
-                                        <li className="intelligenceStat charaStat">Int:{chara.powerstats.intelligence}</li>
-                                        <li className="strengthStat charaStat">Str:{chara.powerstats.strength}</li>
-                                        <li className="speedStat charaStat">Sp:{chara.powerstats.speed}</li>
-                                        <li className="durabilityStat charaStat">Dur:{chara.powerstats.durability}</li>
-                                        <li className="powerStat charaStat">Pow:{chara.powerstats.power}</li>
-                                        <li className="combatStat charaStat">Com:{chara.powerstats.combat}</li>
+                                        <span className="firstRowList rowList">
+                                            <li className="intelligenceStat charaStat">Int:{chara.powerstats.intelligence}</li>
+                                            <li className="strengthStat charaStat">Str:{chara.powerstats.strength}</li>
+                                            <li className="speedStat charaStat">Sp:{chara.powerstats.speed}</li>
+                                        </span>
+
+                                        <span className="secondRowList rowList">
+                                            <li className="durabilityStat charaStat">Dur:{chara.powerstats.durability}</li>
+                                            <li className="powerStat charaStat">Pow:{chara.powerstats.power}</li>
+                                            <li className="combatStat charaStat">Com:{chara.powerstats.combat}</li>
+                                        </span>
                                     </ul>
                                     {/* can you trigger a click event and rout at the same time? */}
 
@@ -118,11 +125,35 @@ class Search extends Component {
                             <li className="CharaStat">{oldChara.powerstats.combat}</li>
                         </ul>
                     </div> */}
+
+                    
                             </div>
                         )
                     })}
-                </section>
+
+                    </section>
                 {/* {searchResult} */}
+
+                    <div className="teamSelectButtonsContainer">
+                        {this.props.teamObject.teamMember.length === 5 ?
+                            <button onClick={this.props.saveTeamToDB} className="saveTeamButton  shimmer teamButton" id="saveTeamButton">
+                                <i class="fas fa-unlock lock" id="unlockedIcon"></i>
+                                <i class="fas fa-lock lock hide" id="lockedIcon"></i>
+                                Confirm Team</button>
+                            :
+                            <button onClick={this.props.saveTeamToDB} className=" inactiveLink saveTeamButton teamButton" id="saveTeamButton">
+                                <i class="fas fa-unlock lock" id="unlockedIcon"></i>
+                                <i class="fas fa-lock lock hide" id="lockedIcon"></i>
+                                Confirm Team</button>
+                        }
+
+                        <Link to="/teampreview" className="linkToTeamPreview"
+                            id="linkToTeamPreview"><div className=" shimmer goBattleButton teamButton">Go Battle</div></Link>
+
+                    </div>
+                    {/* teamSelectButtonsContainer */}
+
+
             </div>
         )
     }

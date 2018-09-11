@@ -11,9 +11,13 @@ class CharacterBlock extends Component {
 
     showStatsList = () => {
         this.myInput.classList.toggle("showStats");
-        
-        
+    }
 
+    scrollDown = () => {
+        let searchArea = document.getElementById('searchPortion');
+        searchArea.scrollIntoView();
+        
+        
     }
 
     render() {
@@ -29,7 +33,7 @@ class CharacterBlock extends Component {
                         {/* ============================================ */}
                         {/* New Team: Character Select Block */}
 
-                        <p className="selectCharacterButton">Character</p>
+                        <button onClick={this.scrollDown} className="selectCharacterButton">Empty Character</button>
 
                     </div>
 

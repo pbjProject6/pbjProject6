@@ -1,11 +1,11 @@
 // search Area
 
 .search {
-    height:459px;
-    width:459px;
+    height:482px;
+    width:45%;
     float: right;
     background-color: rgb(213, 182, 6);
-    border: 8px solid #8C8C38;
+    border: 7px solid #8C8C38;
     position: relative;
     
 }
@@ -41,7 +41,7 @@
 }
 
 .resultsArea {
-    height: 80%;
+    height: 72%;
     overflow: scroll;
     padding: 20px;
 }
@@ -85,4 +85,39 @@
 
 .charaStat {
     list-style: none;
+}
+
+
+// MEDIA QUERIES
+
+@media (max-width: 1070px) {
+
+    .addToRosterButton {
+        font-size: 1rem;
+    }
+
+    .imageName h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 985px) {
+
+   
+    .rowList {
+        display: block;
+    }
+
+    .addToRosterButton {
+        margin: 0;
+        float: none;
+    }
+}
+
+@media (max-width: 940px) {
+    .search {
+        float: none;
+        width: 65%;
+        margin: 0 auto;
+    }
 }
