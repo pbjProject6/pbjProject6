@@ -27,13 +27,44 @@ body {
     }
 
 
-.title {
+.title, .swal-title, .teamName h3 {
     font-family: $headFont;
     font-size: 3.5rem;
     letter-spacing: 5px;
     float: right;
     color: white;
     margin: 10px 0;
+    text-shadow:
+            -4px -4px 0 $black,  
+            4px -4px 0 $black,
+            -4px 4px 0 $black,
+            4px 4px 0 $black;
+}
+.teamName h3 {
+    float: none;
+    font-size: 1.5rem;
+    text-shadow:
+            -3px -3px 0 $black,  
+            3px -3px 0 $black,
+            -3px 3px 0 $black,
+            3px 3px 0 $black;
+}
+.playerTeam h2, .enemyTeam h2{
+    font-family: $headFont;
+    color: white;
+    letter-spacing: 5px;
+}
+.swal-text, .swal-content, .teamName, .characterBlock{
+    font-family: $bodyFont;
+    color: $black;
+    text-align: center;
+}
+.swal-text{
+    color: white;
+}
+.swal-content__input {
+    font-family: $bodyFont;
+    border: 2px solid $black;
 }
 
 // button styles and animations
@@ -60,7 +91,6 @@ body {
     background-image: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
     background-image: linear-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
     background-size: 125px 100%;
-  
     animation-name: shimmer;
     animation-duration: 2s;
     animation-iteration-count: infinite;
