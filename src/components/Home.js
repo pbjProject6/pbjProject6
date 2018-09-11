@@ -168,7 +168,7 @@ class Home extends Component {
 
             <section className="homeSection">
                 <header className="App-header">
-                    <div className="wrapper clearfix">
+                    <div className="wrapper clearfix headerTextContainer">
                         <h2 className="logo">pb&j</h2>
                         <h1 className="title">Havoc Of Heros</h1>
                     </div>
