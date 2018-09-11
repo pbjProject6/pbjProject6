@@ -259,10 +259,10 @@ class TeamPreview extends Component {
                     }
                     <section className="teamButtons">
                         <Link to="/teamSelect">
-                            <button>Back To Team Roster</button>
+                            <button className="button backTeam">Back To Team</button>
                         </Link>
 
-                        <button onClick={this.startBattle}>Start Battle</button>
+                        <button className="button" onClick={this.startBattle}>Start Battle</button>
 
                         {/* <HomeButton /> */}
                     </section>

@@ -49,6 +49,13 @@ class Search extends Component {
                 });
             } else {
                 console.log(heroArray);
+                heroArray.forEach((chara) => {
+                    for(let stat in chara.powerstats){
+                        if(chara.powerstats[stat] === "null"){
+                            chara.powerstats[stat] = "0";
+                        }
+                    }
+                });
                 this.setState({
                     searchResults: heroArray,
                 })
