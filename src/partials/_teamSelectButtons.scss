@@ -1,13 +1,17 @@
 .teamSelectButtonsContainer {
-    float: left;
-    width: 20%;
+    border-top: 5px solid #8C8C38;
+    border-bottom: 5px solid #8C8C38;
+    width: 100%;
+    height: 11%;
     margin: 0;
+    position: relative;
     a{
         margin: 0;
     }
-    .button {
-        width: 60%;
-        margin: 63px 0 0 20px;
+    .teamButton {
+        width: 50%;
+        height: 100%;
+        border: none;
         &:hover {
             background-size: 50%
         }
@@ -19,7 +23,9 @@
 
 // save team button
 
-
+.lock {
+    margin-right: 5px;
+}
 
 .shrink {
     transform: scale(0.5);
@@ -35,17 +41,17 @@
 
 }
 
-// .shimmer {
-//     background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-//     background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-//     background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-//     background-size: 50%;
-//     background-repeat: no-repeat;
-//     background-color: rgb(213, 182, 6);
-//     animation-name: shimmer;
-//     animation-duration: 2s;
-//     animation-iteration-count: infinite;
-// }
+.shimmer {
+    background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+    background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+    background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-color: rgb(213, 182, 6);
+    animation-name: shimmer;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
 
 .inactiveLink {
     pointer-events: none;
@@ -74,15 +80,12 @@
 
 .goBattleButton {
     display: inline-block;
-    background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-    background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-    background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-color: rgb(213, 182, 6);
-    animation-name: shimmer;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
+    color: $black;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+    padding: 10px 7px 2px;
     
 }
 
@@ -93,4 +96,10 @@
 
 .linkToTeamPreview {
     text-decoration: none;
+}
+
+@media (max-width: 985px) {
+    .teamButton {
+        font-size: 1rem;
+    }
 }

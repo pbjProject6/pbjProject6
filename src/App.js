@@ -183,7 +183,7 @@ class App extends Component {
     battleButton.className = "showButton";
     // make confirm/save button small
     var saveButton = document.getElementById('saveTeamButton');
-    saveButton.className = "saveTeamButton button shrink";
+    saveButton.className = "saveTeamButton shrink";
     // lock and unlock icons
     var unlock = document.getElementById('unlockedIcon');
     unlock.className = "fas fa-unlock lock hide";
