@@ -563,7 +563,7 @@ body {
   font-family: "Nunito";
   color: #3D3D3D;
   height: 65px; }
-  .searchArea input {
+  .searchArea input[type=text] {
     width: 60%;
     background-color: white;
     border: none;
