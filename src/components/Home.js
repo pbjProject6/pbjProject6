@@ -17,7 +17,8 @@ class Home extends Component {
         this.state = {
             buttonClass: 'button shimmer',
             teamNameArray: [],
-            redirect: false
+            redirect: false,
+            showList: false
         }
         this.audioRef = React.createRef();
     }
@@ -103,6 +104,9 @@ class Home extends Component {
     existingTeamButtonClick = () => {
         this.audioPlay();
         this.searchTeamName();
+        this.setState({
+            showList: true
+        })
     }
 
     selectExistingTeam = (clickedTeam) => {
@@ -120,6 +124,25 @@ class Home extends Component {
 
             }
         })
+    }
+
+    displayBlockOfExistingTeams = () => {
+        if (this.state.showList === true) {
+            let homeButtons = document.getElementById('homeOptions');
+            homeButtons.className = "options homeFloat";
+            return (
+                <div className="existingTeamsList">
+                    {teamNameArray.map((team) => {
+                        return (
+                            <ul className="listOfExistingTeams">
+                                <li onClick={() => { (this.selectExistingTeam(team.teamName)) }} >{team.teamName}</li>
+                            </ul>
+                        )
+                    })}
+
+                </div>
+            )
+        }
     }
 
     render() {
@@ -142,7 +165,7 @@ class Home extends Component {
 
                 <main className="main">
                     <div className="wrapper">
-                        <div className="options">
+                        <div className="options" id="homeOptions">
 
 
                             <div className="homeGroup clearfix">
@@ -156,16 +179,8 @@ class Home extends Component {
                             </div>
                         </div>
 
-                        <div className="existingTeamsList">
-                            {teamNameArray.map((team)=> {
-                                return (
-                                    <ul className="listOfExistingTeams">
-                                        <li onClick={() => {(this.selectExistingTeam(team.teamName))}} >{team.teamName}</li>
-                                    </ul>
-                                )
-                            })}
+                        {this.displayBlockOfExistingTeams()}
                         
-                        </div>
 
 
                     </div>
