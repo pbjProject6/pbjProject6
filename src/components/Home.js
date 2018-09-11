@@ -13,17 +13,27 @@ import theme from '../assets/audio/theme/audioTheme.mp3';
 // IMPORT COMPONENTS
 import TeamSelect from './TeamSelect';
 const dbRef = firebase.database().ref('/teams');
+let teamNameArray = [];
 
 class Home extends Component {
     constructor() {
         super();
         this.state = {
             buttonClass: 'button shimmer',
-            autoplay: true
+            teamNameArray: [],
+            redirect: false,
+            showList: false
         }
     }
 
     setTeamName = () => {
+
+        let newButton = document.getElementById('newButton');
+        newButton.className = 'button shimmer animated fadeOutRightBig'
+
+        let existingButton = document.getElementById('existingButton');
+        existingButton.className = 'button shimmer animated fadeOutRightBig'
+
         swal({
             title: 'Please Enter Your Team Name',
             content: 'input',
@@ -67,53 +77,22 @@ class Home extends Component {
         });
     }
 
+
     searchTeamName = () => {
-        this.setState({
-            buttonClass: 'button shimmer animated fadeOutRightBig'
-        })
-        // Prompt the user to enter their existing team's name
-        swal({
-            title: 'Please Enter Your Team Name',
-            content: 'input',
-            button: {
-                className: "sweetButton"
-            }
-        }).then((res) => {
-            if (res !== null) {
-                let userTeam = res.trim();
-                // If the user enters any value for their team name...
-                dbRef.once('value', (snapshot) => {
-                    let doesExist = false;
-                    let dbTeams = snapshot.val();
 
-                    console.log(dbTeams);
-                    // use a forin loop to find whether the team exists in the database.
-                    for (let team in dbTeams) {
-                        // If the team exists, run the displayExistingTeam function to display the team's characters on the page.
-                        if (dbTeams[team].teamName === userTeam) {
-                            doesExist = true;
-                            // console.log('team exists');
-                            this.props.displayExistingTeam(dbTeams[team]);
-                            console.log(dbTeams[team]);
-                            setTimeout(() => { this.setState({ redirect: true }) }, 2000)
+        dbRef.once('value', (snapshot) => {
+            let dbTeams = snapshot.val();
+
+            // console.log(dbTeams);
+
+            // use forin loop to find the names of existing names
+            teamNameArray = Object.values(dbTeams);
+
+            this.setState({
+                teamNameArray: teamNameArray,
+            })
 
 
-                        }
-                    }
-                    // If the team doesn't exist in the database, present an error message. 
-                    if (doesExist !== true) {
-                        // this.props.displayExistingTeam(dbTeams[team]);
-                        swal({
-                            title: 'Error',
-                            text: `Sorry, we couldn't find your team. Please check your spelling or create a new team.`,
-                            icon: 'error',
-                            button: {
-                                className: "sweetButton"
-                            }
-                        });
-                    }
-                })
-            }
         });
     }
 
@@ -131,6 +110,45 @@ class Home extends Component {
         // this.audioPlay();
         this.audioThemePlay();
         this.searchTeamName();
+        this.setState({
+            showList: true
+        })
+    }
+
+    selectExistingTeam = (clickedTeam) => {
+        dbRef.once('value', (snapshot) => {
+            let dbTeams = snapshot.val();
+
+            for (let team in dbTeams) {
+                if (dbTeams[team].teamName === clickedTeam) {
+                    this.props.displayExistingTeam(dbTeams[team]);
+                    setTimeout(() => { this.setState({ redirect: true }) }, 2000)
+                }
+                console.log(team);
+
+                // If the team exists, run the displayExistingTeam function to display the team's characters on the page
+
+            }
+        })
+    }
+
+    displayBlockOfExistingTeams = () => {
+        if (this.state.showList === true) {
+            let homeButtons = document.getElementById('homeOptions');
+            homeButtons.className = "options homeFloat";
+            return (
+                <div className="existingTeamsList">
+                    {teamNameArray.map((team) => {
+                        return (
+                            <ul className="listOfExistingTeams">
+                                <li onClick={() => { (this.selectExistingTeam(team.teamName)) }} >{team.teamName}</li>
+                            </ul>
+                        )
+                    })}
+
+                </div>
+            )
+        }
     }
 
     createNewTeamButtonClick = () => {
@@ -172,19 +190,25 @@ class Home extends Component {
 
                 <main className="main">
                     <div className="wrapper">
-                        <div className="options">
-
+                        <div className="options" id="homeOptions">
 
                             <div className="homeGroup clearfix">
-                                <button onClick={this.createNewTeamButtonClick} className="button shimmer new"><p>Create New Team</p></button>
+                                <button onClick={this.existingTeamButtonClick} className="button shimmer"><p>Load Existing Team</p></button>
                                 <i className="fas fa-caret-left"></i>
+                                <button onClick={this.setTeamName} className="button shimmer" id="newButton"><p>Create New Team</p></button>
+                                <i class="fas fa-caret-left"></i>
                             </div>
 
                             <div className="homeGroup clearfix">
-                                <button onClick={this.existingTeamButtonClick} className="button shimmer existing"><p>Load Existing Team</p></button>
-                                <i className="fas fa-caret-left"></i>
+                                <button onClick={this.existingTeamButtonClick} className="button shimmer" id="existingButton"><p>Load Existing Team</p></button>
+                                <i class="fas fa-caret-left"></i>
                             </div>
                         </div>
+
+                        {this.displayBlockOfExistingTeams()}
+
+
+
                     </div>
                 </main>
             </section>

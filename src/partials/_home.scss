@@ -1,9 +1,7 @@
 .homeGroup .button {
 
-    float: left;
     margin: 30px;
-         
-    }
+}
 
 .fa-caret-left {
     float: left;
@@ -11,18 +9,50 @@
     font-size: 7rem;
     color: #3D3D3D;
     display: none;
-    }
+}
+
 
 .homeGroupe p {
     margin: 0;
 }
 
-.homeGroup .button {
-    float: left;
+.homeGroup {
+    text-align: center;
 }
 
 .homeSection .options {
-    width: 50%;
+    width: 38%;
     padding-top: 5%;
     margin: 0 auto;
+}
+
+// list of existing teams
+
+.existingTeamsList {
+    float: left;
+    width: 30%;
+    height:459px;
+    background-color: rgb(213, 182, 6);
+    border: 8px solid #8C8C38;
+    overflow: scroll;
+
+}
+
+.listOfExistingTeams {
+    cursor: pointer;
+    font-family: $bodyFont;
+    li {
+        list-style: none;
+        color: $black;
+        display: inline;
+        &:hover {
+            color: white;
+            // border-top: 0.5px solid grey;
+            // border-bottom: 0.5px solid grey;
+        }
+    }
+}
+
+.homeFloat {
+    float: left;
 }
