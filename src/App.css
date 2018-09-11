@@ -211,11 +211,10 @@ body {
 
 .button:hover {
   text-align: center;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background-image: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background-image: linear-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
   background-size: 125px 100%;
-  background-clip: text;
   animation-name: shimmer;
   animation-duration: 2s;
   animation-iteration-count: infinite;
@@ -416,17 +415,6 @@ body {
     border: 5px solid grey;
     cursor: auto; }
 
-.shimmer {
-  background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-color: #d5b606;
-  animation-name: shimmer;
-  animation-duration: 2s;
-  animation-iteration-count: infinite; }
-
 .inactiveLink {
   pointer-events: none;
   transform: scale(0.5);
@@ -537,20 +525,14 @@ body {
   width: 40%;
   float: left; }
   .playerTeam h2 {
-    text-shadow: -2px -2px 0 green,  
- 2px -2px 0 green,
- -2px 2px 0 green,
- 2px 2px 0 green; }
+    text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green; }
 
 .enemyTeam {
   width: 40%;
   float: right;
   text-align: right; }
   .enemyTeam h2 {
-    text-shadow: -2px -2px 0 red,  
- 2px -2px 0 red,
- -2px 2px 0 red,
- 2px 2px 0 red; }
+    text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red; }
 
 .playerTeam h2, .enemyTeam h2 {
   letter-spacing: 3px; }
@@ -609,32 +591,20 @@ body {
   .sweetResultsDiv.player {
     text-align: right; }
     .sweetResultsDiv.player strong {
-      text-shadow: -2px -2px 0 green,  
- 2px -2px 0 green,
- -2px 2px 0 green,
- 2px 2px 0 green;
+      text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
       font-size: 1.1rem; }
   .sweetResultsDiv.enemy {
     text-align: left; }
     .sweetResultsDiv.enemy strong {
-      text-shadow: -2px -2px 0 red,  
- 2px -2px 0 red,
- -2px 2px 0 red,
- 2px 2px 0 red;
+      text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
       font-size: 1.1rem; }
 
 strong.player {
-  text-shadow: -2px -2px 0 green,  
- 2px -2px 0 green,
- -2px 2px 0 green,
- 2px 2px 0 green;
+  text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
   font-size: 1.1rem; }
 
 strong.enemy {
-  text-shadow: -2px -2px 0 red,  
- 2px -2px 0 red,
- -2px 2px 0 red,
- 2px 2px 0 red;
+  text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
   font-size: 1.1rem; }
 
 .swal-title {
@@ -649,7 +619,6 @@ strong.enemy {
   text-shadow: -3px -3px 0 #3D3D3D, 3px -3px 0 #3D3D3D, -3px 3px 0 #3D3D3D, 3px 3px 0 #3D3D3D; }
 
 .swal-modal.sweetWideAlert {
-
   width: 553px !important; }
 
 .swal-modal.swalResults {
@@ -667,4 +636,3 @@ strong.enemy {
   position: absolute;
   top: 10px;
   right: 10px; }
-

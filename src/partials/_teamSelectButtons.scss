@@ -35,17 +35,17 @@
 
 }
 
-.shimmer {
-    background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-    background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-    background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-color: rgb(213, 182, 6);
-    animation-name: shimmer;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-}
+// .shimmer {
+//     background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+//     background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+//     background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+//     background-size: 50%;
+//     background-repeat: no-repeat;
+//     background-color: rgb(213, 182, 6);
+//     animation-name: shimmer;
+//     animation-duration: 2s;
+//     animation-iteration-count: infinite;
+// }
 
 .inactiveLink {
     pointer-events: none;
