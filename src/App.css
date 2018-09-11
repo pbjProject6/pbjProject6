@@ -171,7 +171,7 @@ body {
   letter-spacing: 5px;
   float: right;
   color: white;
-  margin: 10px 0; }
+  margin: 0; }
 
 .button {
   color: #3D3D3D;
@@ -181,7 +181,6 @@ body {
   font-family: "Nunito";
   font-size: 2rem;
   text-align: center;
-  padding-top: 19px;
   background: #d5b606;
   width: 310px;
   max-width: 100%;
@@ -200,6 +199,9 @@ body {
   background-repeat: no-repeat;
   background-position: 0 0;
   background-color: #d5b606; }
+
+.button p {
+  margin: 0; }
 
 .buttonGrey {
   color: #3D3D3D;
@@ -246,6 +248,9 @@ body {
 
 .combatStat {
   background-color: #ffb71b; }
+
+.logo {
+  margin: 0; }
 
 .homeGroup .button {
   margin: 30px; }
