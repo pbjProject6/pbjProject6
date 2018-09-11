@@ -193,15 +193,14 @@ class Home extends Component {
                         <div className="options" id="homeOptions">
 
                             <div className="homeGroup clearfix">
-                                <button onClick={this.existingTeamButtonClick} className="button shimmer"><p>Load Existing Team</p></button>
-                                <i className="fas fa-caret-left"></i>
-                                <button onClick={this.setTeamName} className="button shimmer" id="newButton"><p>Create New Team</p></button>
-                                <i class="fas fa-caret-left"></i>
+                                
+                                <button onClick={this.createNewTeamButtonClick} className="button shimmer" id="newButton"><p>Create New Team</p></button>
+                                
                             </div>
 
                             <div className="homeGroup clearfix">
                                 <button onClick={this.existingTeamButtonClick} className="button shimmer" id="existingButton"><p>Load Existing Team</p></button>
-                                <i class="fas fa-caret-left"></i>
+                                
                             </div>
                         </div>
 
