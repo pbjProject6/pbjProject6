@@ -1,13 +1,31 @@
 .playerTeam {
-    width: 35%;
+    width: 40%;
     float: left;
+    h2{
+        text-shadow:
+            -2px -2px 0 green,  
+            2px -2px 0 green,
+            -2px 2px 0 green,
+            2px 2px 0 green;
+    }
 }
 
 .enemyTeam {
-    width: 35%;
+    width: 40%;
     float: right;
     text-align: right;
-    
+    h2{
+        text-shadow:
+            -2px -2px 0 red,  
+            2px -2px 0 red,
+            -2px 2px 0 red,
+            2px 2px 0 red;
+    }
+}
+.playerTeam, .enemyTeam {
+    h2 {
+        letter-spacing: 3px;
+    }
 }
 
 .teamButtons {

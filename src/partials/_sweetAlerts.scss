@@ -28,17 +28,77 @@
     width: 37%;
     &.player{
         text-align: right;
+        strong{
+            text-shadow:
+            -2px -2px 0 green,  
+            2px -2px 0 green,
+            -2px 2px 0 green,
+            2px 2px 0 green;
+            font-size: 1.1rem;
+        }
     }
     &.enemy{
         text-align: left;
+        strong{
+            text-shadow:
+            -2px -2px 0 red,  
+            2px -2px 0 red,
+            -2px 2px 0 red,
+            2px 2px 0 red;
+            font-size: 1.1rem;
+        }
     }
 }
+strong.player{
+    text-shadow:
+    -2px -2px 0 green,  
+    2px -2px 0 green,
+    -2px 2px 0 green,
+    2px 2px 0 green;
+    font-size: 1.1rem;
+}
+strong.enemy{
+    text-shadow:
+    -2px -2px 0 red,  
+    2px -2px 0 red,
+    -2px 2px 0 red,
+    2px 2px 0 red;
+    font-size: 1.1rem;
+}
 
+.swal-title{
+    float: none;
+    font-size: 2.2rem;
+    text-shadow:
+        -3px -3px 0 $black,  
+        3px -3px 0 $black,
+        -3px 3px 0 $black,
+        3px 3px 0 $black;
+}
 
 .sweetVsDiv{
     float: left;
     width: 25%;
+    font-family: $headFont;
+    text-shadow:
+        -3px -3px 0 $black,  
+        3px -3px 0 $black,
+        -3px 3px 0 $black,
+        3px 3px 0 $black;
 }
 .swal-modal.sweetWideAlert{
     width: 553px !important;
+}
+.swal-modal.swalResults{
+    width: 550px !important;
+    .swal-content{
+        p {
+        color: white;
+        font-weight: 700
+        }
+        strong{
+            font-family: $headFont;
+            color: white;
+        }
+    }
 }

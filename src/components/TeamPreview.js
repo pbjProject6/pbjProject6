@@ -78,11 +78,13 @@ class TeamPreview extends Component {
         let enemyWins = 0;
         let result = document.createElement("div");
         let playerResult = document.createElement("div");
-        playerResult.classList.add("sweetResultsDiv")
+        playerResult.classList.add("sweetResultsDiv");
+        playerResult.classList.add("player")
         let vs = document.createElement("div");
         vs.classList.add("sweetVsDiv");
         let enemyResult = document.createElement("div");
-        enemyResult.classList.add("sweetResultsDiv")
+        enemyResult.classList.add("sweetResultsDiv");
+        enemyResult.classList.add("enemy");
 
         // compare each character to the character in the respective slot on the other team
         for (let i = 0; i <= 4; i++) {
@@ -113,14 +115,15 @@ class TeamPreview extends Component {
                 enemyObject.winRatio.losses += 1;
                 this.props.updateWinLoss([1, 0], enemyObject);
 
-                result.innerHTML += `<p>You win with <strong>${playerWins}</strong> wins to <strong>${enemyWins}</strong></p>`;
+                result.innerHTML += `<p>You win with <strong class="player">${playerWins}</strong> wins to <strong class="enemy">${enemyWins}</strong></p>`;
 
                 swal({
                     title: `Competed in ${statFullNames[competeStat]}`,
                     content: result,
                     button: {
                         className: "sweetButton"
-                    }
+                    },
+                    className: "swalResults"
                 }).then(() => {
                     this.postBattleChoices();
                 });
@@ -129,12 +132,16 @@ class TeamPreview extends Component {
                 let enemyObject = this.state.fightingEnemyTeam;
                 enemyObject.winRatio.wins += 1;
                 this.props.updateWinLoss([0, 1], enemyObject);
+
+                result.innerHTML += `<p>The opponent wins with <strong class="enemy">${enemyWins}</strong> wins to <strong class="player">${playerWins}</strong></p>`;
+
                 swal({
                     title: `Competed in ${statNames[competeStat]}`,
                     content: result,
                     button: {
                         className: "sweetButton"
-                    }
+                    },
+                    className: "swalResults"
                 }).then(() => {
                     this.postBattleChoices();
                 });
