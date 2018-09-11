@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import swal2 from 'sweetalert2'
 
 // COMPONENTS
-import HomeButton from './HomeButton';
+// import HomeButton from './HomeButton';
 
 let enemyTeams = [];
 let statNames = ['com', 'dur', 'int', 'pow', 'spd', 'str'];
@@ -69,7 +69,7 @@ class TeamPreview extends Component {
 
     startBattle = () => {
 
-        
+
         //generate random number between 0 and 5 to determine stat compared
         let competeStat = Math.floor(Math.random() * statNames.length);
         let player = this.props.playerTeam;
@@ -204,9 +204,9 @@ class TeamPreview extends Component {
 
                 let goodTeam = document.getElementById('playerBlock')
                 goodTeam.className = 'playerTeam';
-                
+
                 this.componentDidMount();
-                
+
             }
             else if (res === 'adjustTeam') {
                 // go back to team select
@@ -264,7 +264,7 @@ class TeamPreview extends Component {
 
                         <button onClick={this.startBattle}>Start Battle</button>
 
-                        <HomeButton />
+                        {/* <HomeButton /> */}
                     </section>
                 </div>
             </div>

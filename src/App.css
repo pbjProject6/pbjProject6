@@ -152,7 +152,7 @@ body {
 
 .wrapper {
   width: 85%;
-  max-width: 1300px;
+  max-width: 1920px;
   margin: 0 auto; }
 
 .logo {
@@ -238,6 +238,18 @@ body {
   width: 50%;
   pointer-events: none; }
 
+.homeButtonContainer {
+  position: absolute;
+  right: -5px;
+  top: -5px; }
+
+.homeButton {
+  width: 120px;
+  height: auto;
+  margin: 30px 30px 10px 0; }
+  .homeButton p {
+    font-weight: 700; }
+
 @keyframes shimmer {
   0% {
     background-position: top left; }
@@ -274,6 +286,13 @@ body {
 .logo {
   margin: 0; }
 
+.title {
+  float: none;
+  text-align: center; }
+
+.homeGroup {
+  text-align: center; }
+
 .homeGroup .button {
   margin: 30px; }
   .homeGroup .button p {
@@ -289,11 +308,7 @@ body {
 .homeGroupe p {
   margin: 0; }
 
-.homeGroup {
-  text-align: center; }
-
 .homeSection .options {
-  width: 38%;
   padding-top: 5%;
   margin: 0 auto; }
 
@@ -317,6 +332,41 @@ body {
 
 .homeFloat {
   float: left; }
+
+@media (max-width: 1200px) {
+  .existingTeamsList {
+    width: 40%; } }
+
+@media (max-width: 940px) {
+  .existingTeamsList {
+    width: 47%; }
+  .homeGroup .button {
+    margin-left: 0; }
+  .headerTextContainer .logo {
+    float: none; }
+  .title {
+    margin-top: 20px; } }
+
+@media (max-width: 767px) {
+  .existingTeamsList {
+    width: 50%; }
+  .homeGroup .button {
+    margin-right: 10px;
+    width: 175px; } }
+
+@media (max-width: 480px) {
+  .homeGroup .button {
+    margin: 15px 0; }
+  .homeFloat {
+    float: none; }
+  .existingTeamsList {
+    float: none;
+    margin: 0 auto;
+    width: 100%; }
+  .homeGroup .button {
+    width: 100%; }
+  .homeSection .options {
+    margin: -30px 0 auto; } }
 
 .selectForm {
   border: 1px solid #8c8c38;
@@ -443,9 +493,6 @@ body {
   animation-name: shimmer;
   animation-duration: 2s;
   animation-iteration-count: infinite; }
-
-.hide {
-  display: none; }
 
 .linkToTeamPreview {
   text-decoration: none; }
@@ -634,5 +681,9 @@ strong.enemy {
   width: 50px;
   border-radius: 40%;
   position: absolute;
-  top: 10px;
+  bottom: 0;
   right: 10px; }
+
+@media (max-width: 767px) {
+  #themeAudio {
+    top: 95%; } }
