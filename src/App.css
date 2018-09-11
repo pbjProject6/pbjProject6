@@ -266,7 +266,19 @@ body {
 .homeSection .options {
   width: 50%;
   padding-top: 5%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  float: left; }
+
+.existingTeamsList {
+  float: left;
+  width: 30%;
+  height: 459px;
+  background-color: #d5b606;
+  border: 8px solid #8C8C38;
+  overflow: scroll; }
+
+.listOfExistingTeams {
+  cursor: pointer; }
 
 .selectForm {
   border: 1px solid #8c8c38;

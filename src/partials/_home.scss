@@ -25,4 +25,20 @@
     width: 50%;
     padding-top: 5%;
     margin: 0 auto;
+    float: left;
+}
+
+// list of existing teams
+
+.existingTeamsList {
+    float: left;
+    width: 30%;
+    height:459px;
+    background-color: rgb(213, 182, 6);
+    border: 8px solid #8C8C38;
+    overflow: scroll;
+}
+
+.listOfExistingTeams {
+    cursor: pointer;
 }
