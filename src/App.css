@@ -204,7 +204,6 @@ body {
   font-family: "Nunito";
   font-size: 2rem;
   text-align: center;
-  padding-top: 19px;
   background: #d5b606;
   width: 310px;
   max-width: 100%;
@@ -222,6 +221,9 @@ body {
   background-repeat: no-repeat;
   background-position: 0 0;
   background-color: #d5b606; }
+
+.button p {
+  margin: 0; }
 
 .buttonGrey {
   color: #3D3D3D;
@@ -269,6 +271,9 @@ body {
 .combatStat {
   background-color: #ffb71b; }
 
+.logo {
+  margin: 0; }
+
 .homeGroup .button {
   margin: 30px; }
   .homeGroup .button p {
@@ -311,8 +316,7 @@ body {
       color: white; }
 
 .homeFloat {
-  float: left;
-  color: purple; }
+  float: left; }
 
 .selectForm {
   border: 1px solid #8c8c38;

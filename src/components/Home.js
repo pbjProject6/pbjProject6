@@ -8,7 +8,8 @@ import swal from 'sweetalert';
 // import Sound from 'react-sound';
 import ReactDOM from 'react-dom';
 import ReactAudioPlayer from 'react-audio-player';
-import theme from '../assets/audio/theme/audioTheme.mp3';
+// import theme from '../assets/audio/theme/audioTheme.mp3';
+// import Sound from 'react-sound';
 
 // IMPORT COMPONENTS
 import TeamSelect from './TeamSelect';
@@ -102,13 +103,13 @@ class Home extends Component {
     //     console.log(audioNode);
     // }
 
-    audioThemePlay = () => {
-        document.getElementById('themeAudio').setAttribute('autoplay', true);
-    }
+    // audioThemePlay = () => {
+    //     document.getElementById('themeAudio').setAttribute('autoplay', true);
+    // }
 
     existingTeamButtonClick = () => {
         // this.audioPlay();
-        this.audioThemePlay();
+        this.props.audioThemePlay();
         this.searchTeamName();
         this.setState({
             showList: true
@@ -153,7 +154,7 @@ class Home extends Component {
 
     createNewTeamButtonClick = () => {
         // this.audioPlay();
-        this.audioThemePlay();
+        this.props.audioThemePlay();
         this.setTeamName();
     }
 
@@ -168,39 +169,38 @@ class Home extends Component {
             <section className="homeSection">
                 <header className="App-header">
                     <div className="wrapper clearfix">
-                        <div className="logo"><h2>pb&j</h2></div>
-                        <h1 className="title">Superhero Battle</h1>
+                        <h2 className="logo">pb&j</h2>
+                        <h1 className="title">Havoc Of Heros</h1>
                     </div>
                 </header>
 
                 {/* <button onClick={this.togglePlay}>{this.state.play ? 'Pause' : 'Play'}</button> */}
 
-                {/* <audio ref={this.audioRef} src="./themeSong.mp3" autoplay /> */}
+                {/* <audio ref={this.audioRef} src={theme} /> */}
                 {/* <Sound
-                    url="countdown-edit.mp3"
+                    url={theme}
                     playStatus={Sound.status.PLAYING}
-                    autoLoad={true}
+                    autoLoad={false}
                 /> */}
 
-                <ReactAudioPlayer
+                {/* <ReactAudioPlayer
                     src={theme}
                     controls
                     id="themeAudio"
-                />
+                /> */}
 
                 <main className="main">
                     <div className="wrapper">
                         <div className="options" id="homeOptions">
 
                             <div className="homeGroup clearfix">
-                                
-                                <button onClick={this.createNewTeamButtonClick} className="button shimmer" id="newButton"><p>Create New Team</p></button>
-                                
+                                <button onClick={this.createNewTeamButtonClick} className="button" id="newButton"><p>Create New Team</p></button>
+                                <i class="fas fa-caret-left"></i>
                             </div>
 
                             <div className="homeGroup clearfix">
-                                <button onClick={this.existingTeamButtonClick} className="button shimmer" id="existingButton"><p>Load Existing Team</p></button>
-                                
+                                <button onClick={this.existingTeamButtonClick} className="button" id="existingButton"><p>Load Existing Team</p></button>
+                                <i class="fas fa-caret-left"></i>
                             </div>
                         </div>
 
