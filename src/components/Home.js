@@ -92,8 +92,6 @@ class Home extends Component {
             this.setState({
                 teamNameArray: teamNameArray,
             })
-
-
         });
     }
 
@@ -106,11 +104,16 @@ class Home extends Component {
     // audioThemePlay = () => {
     //     document.getElementById('themeAudio').setAttribute('autoplay', true);
     // }
+    scrollDown = () => {
+        let teamList = document.getElementById('existingButton');
+        teamList.scrollIntoView();
+    }
 
     existingTeamButtonClick = () => {
         // this.audioPlay();
         this.props.audioThemePlay();
         this.searchTeamName();
+        this.scrollDown();
         this.setState({
             showList: true
         })
