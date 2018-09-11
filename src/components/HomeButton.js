@@ -6,7 +6,7 @@ class HomeButton extends Component {
         return (
             <Link to="/">
                 <div className="hide clearfix">
-                    <button className="button shimmer existing homeButton"><p>Home</p></button>
+                    <button className="button existing homeButton"><p>Home</p></button>
                     <i class="fas fa-caret-left"></i>
                 </div>
             </Link>

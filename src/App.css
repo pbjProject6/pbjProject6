@@ -241,12 +241,11 @@ body {
 .homeButtonContainer {
   position: absolute;
   right: -5px;
-  top: -5px; }
+  top: -20px; }
 
 .homeButton {
   width: 120px;
-  height: auto;
-  margin: 30px 30px 10px 0; }
+  height: auto; }
   .homeButton p {
     font-weight: 700; }
 
@@ -355,20 +354,26 @@ body {
 
 @media (max-width: 767px) {
   .existingTeamsList {
-    width: 50%; }
+    width: 75%;
+    margin: 0 auto;
+    float: none;
+    text-align: center; }
+  .listOfExistingTeams {
+    padding-left: 0; }
   .homeGroup .button {
-    margin-right: 10px;
-    width: 175px; } }
+    margin-right: 0;
+    margin-left: 0;
+    width: 310px; }
+  .homeFloat {
+    float: none; } }
 
 @media (max-width: 480px) {
   .homeGroup .button {
     margin: 15px 0; }
-  .homeFloat {
-    float: none; }
   .existingTeamsList {
     float: none;
     margin: 0 auto;
-    width: 100%; }
+    width: 78%; }
   .homeGroup .button {
     width: 100%; }
   .homeSection .options {
@@ -823,6 +828,10 @@ strong.enemy {
 #themeAudio {
   width: 50px;
   border-radius: 40%;
-  position: absolute;
-  bottom: 0;
-  right: 10px; }
+  position: fixed;
+  bottom: 2px;
+  right: 2px; }
+
+@media (max-width: 767px) {
+  #themeAudio {
+    top: 95%; } }

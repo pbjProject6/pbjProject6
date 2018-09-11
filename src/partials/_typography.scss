@@ -122,13 +122,13 @@ body {
 .homeButtonContainer {
     position: absolute;
     right: -5px;
-    top: -5px;
+    top: -20px;
+    // margin: 15px 30px 10px 0;
 }
 
 .homeButton {
     width: 120px;
     height: auto;
-    margin: 30px 30px 10px 0;
     p {
         font-weight: 700;
     }
