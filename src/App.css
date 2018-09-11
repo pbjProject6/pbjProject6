@@ -207,6 +207,7 @@ body {
   padding-top: 19px;
   background: #d5b606;
   width: 310px;
+  max-width: 100%;
   height: 150px; }
 
 .button:hover {
@@ -270,7 +271,6 @@ body {
   background-color: #ffb71b; }
 
 .homeGroup .button {
-  float: left;
   margin: 30px; }
   .homeGroup .button p {
     font-weight: 700; }
@@ -285,13 +285,34 @@ body {
 .homeGroupe p {
   margin: 0; }
 
-.homeGroup .button {
-  float: left; }
+.homeGroup {
+  text-align: center; }
 
 .homeSection .options {
-  width: 50%;
+  width: 38%;
   padding-top: 5%;
   margin: 0 auto; }
+
+.existingTeamsList {
+  float: left;
+  width: 30%;
+  height: 459px;
+  background-color: #d5b606;
+  border: 8px solid #8C8C38;
+  overflow: scroll; }
+
+.listOfExistingTeams {
+  cursor: pointer;
+  font-family: "Nunito"; }
+  .listOfExistingTeams li {
+    list-style: none;
+    color: #3D3D3D;
+    display: inline; }
+    .listOfExistingTeams li:hover {
+      color: white; }
+
+.homeFloat {
+  float: left; }
 
 .selectForm {
   border: 1px solid #8c8c38;
@@ -605,6 +626,7 @@ strong.enemy {
   text-shadow: -3px -3px 0 #3D3D3D, 3px -3px 0 #3D3D3D, -3px 3px 0 #3D3D3D, 3px 3px 0 #3D3D3D; }
 
 .swal-modal.sweetWideAlert {
+<<<<<<< HEAD
   width: 553px !important; }
 
 .swal-modal.swalResults {
@@ -615,3 +637,13 @@ strong.enemy {
   .swal-modal.swalResults .swal-content strong {
     font-family: "Bowlby One SC";
     color: white; }
+=======
+  width: 543px; }
+
+#themeAudio {
+  width: 50px;
+  border-radius: 40%;
+  position: absolute;
+  top: 10px;
+  right: 10px; }
+>>>>>>> ca7bc915e9b469210d336504c401fbf95d49064b
