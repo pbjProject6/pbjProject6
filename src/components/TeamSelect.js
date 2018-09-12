@@ -46,7 +46,7 @@ class TeamSelect extends Component {
                             </div>
 
                             <div className="infoIcon">
-                                <i class="fas fa-question-circle"></i>
+                                <i className="fas fa-question-circle"></i>
                             </div>
 
                             <div className="characterBlockContainer">
