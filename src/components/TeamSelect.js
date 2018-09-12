@@ -5,6 +5,8 @@ import {
     BrowserRouter as Router,
     Route, Link
 } from 'react-router-dom';
+import swal from 'sweetalert';
+import swal2 from 'sweetalert2'
 
 // COMPONENTS
 import CharacterBlock from './CharacterBlock';
@@ -17,7 +19,26 @@ import Search from './Search';
 
 class TeamSelect extends Component {
 
-
+    // This function will create and call the powerstats description pop-up
+    statsInfoIconClick = () => {
+        let statsList = document.createElement("ul");
+        statsList.classList.add("statsDescription__list")
+        let combatStat = `<li class="statsDescription__item"><strong>C</strong> = Combat</li>`;
+        let durabilityStat = `<li class="statsDescription__item"><strong>D</strong> = Durability</li>`;
+        let intelligenceStat = `<li class="statsDescription__item"><strong>I</strong> = Intelligence</li>`;
+        let powerStat = `<li class="statsDescription__item"><strong>P</strong> = Power</li>`;
+        let speedStat = `<li class="statsDescription__item"><strong>Sp</strong> = Speed</li>`;
+        let strengthStat = `<li class="statsDescription__item"><strong>St</strong> = Strength</li>`;
+        statsList.innerHTML = `${combatStat}${durabilityStat}${intelligenceStat}${powerStat}${speedStat}${strengthStat}`;
+        swal({
+            title: 'Powerstats',
+            content: statsList,
+            button: {
+                className: "sweetButton"
+            },
+            className: "statsDescription"
+        })
+    }
 
     render() {
         // if (this.props.teamObject.teamMember.length === 5) {
@@ -46,8 +67,20 @@ class TeamSelect extends Component {
                             </div>
 
                             <div className="infoIcon">
-                                <i className="fas fa-question-circle"></i>
+                                <i onClick={this.statsInfoIconClick} className="fas fa-question-circle"></i>
                             </div>
+
+                            {/* <div className="statsDescription">
+                                <h4 className="statsDescription__header">Powerstats</h4>
+                                <ul className="statsDescription__List">
+                                    <li className="statsDescription__item">C = Combat</li>
+                                    <li className="statsDescription__item">D = Durability</li>
+                                    <li className="statsDescription__item">I = Intelligence</li>
+                                    <li className="statsDescription__item">P = Power</li>
+                                    <li className="statsDescription__item">Sp = Speed</li>
+                                    <li className="statsDescription__item">St = Strength</li>
+                                </ul>
+                            </div> */}
 
                             <div className="characterBlockContainer">
                                 <CharacterBlock chara={this.props.teamObject.teamMember[0]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />

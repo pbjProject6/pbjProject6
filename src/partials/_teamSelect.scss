@@ -20,6 +20,28 @@
     cursor: pointer;
 }
 
+.statsDescription {
+    text-align: center;
+    width: 30%;
+    &__list {
+        text-align: left;
+        // width: 100%;
+        transform: translateX(20%);
+        margin: 0 auto;
+    }
+    &__item {
+        font-size: 20px;
+        color: white;
+        font-weight: 700;  
+        strong {
+            font-size: 25px;
+        }
+    }
+}
+
+
+
+
 .selectCharacterBlock {
     margin: 10px;
     width: calc(100% - 20px);
@@ -117,6 +139,11 @@
 
 
 // MEDIA QUERIES
+@media (max-width: 1150px) {
+    .statsDescription {
+        width: 45%;
+    }
+}
 
 @media (max-width: 1070px) {
 
@@ -130,6 +157,28 @@
         float: none;
         width: 65%;
         margin: 30px auto;
+    }
+    .statsDescription {
+    width: 45%;
+    }
+}
+
+@media (max-width: 767px) {
+    .statsDescription {
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    .statsDescription {
+        width: 95%;
+        &__list {
+            transform: translateX(15%);
+        }
+    }
+    .statsDescription .swal-title {
+        font-size: 1.9rem;
+        padding: 10px 8px;
     }
 }
 

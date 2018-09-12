@@ -396,6 +396,20 @@ body {
   margin: 0 5px 0 0;
   cursor: pointer; }
 
+.statsDescription {
+  text-align: center;
+  width: 30%; }
+  .statsDescription__list {
+    text-align: left;
+    transform: translateX(20%);
+    margin: 0 auto; }
+  .statsDescription__item {
+    font-size: 20px;
+    color: white;
+    font-weight: 700; }
+    .statsDescription__item strong {
+      font-size: 25px; }
+
 .selectCharacterBlock {
   margin: 10px;
   width: calc(100% - 20px);
@@ -463,6 +477,10 @@ body {
   .inactiveChangeCharacterButton:hover {
     cursor: auto; }
 
+@media (max-width: 1150px) {
+  .statsDescription {
+    width: 45%; } }
+
 @media (max-width: 1070px) {
   .topBlock h3 {
     font-size: 1rem; } }
@@ -471,7 +489,22 @@ body {
   .selectForm {
     float: none;
     width: 65%;
-    margin: 30px auto; } }
+    margin: 30px auto; }
+  .statsDescription {
+    width: 45%; } }
+
+@media (max-width: 767px) {
+  .statsDescription {
+    width: 70%; } }
+
+@media (max-width: 480px) {
+  .statsDescription {
+    width: 95%; }
+    .statsDescription__list {
+      transform: translateX(15%); }
+  .statsDescription .swal-title {
+    font-size: 1.9rem;
+    padding: 10px 8px; } }
 
 .teamSelectButtonsContainer {
   border-top: 5px solid #8C8C38;
