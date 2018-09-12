@@ -5,7 +5,7 @@ class HomeButton extends Component {
     render() {
         return (
             <Link to="/">
-                <div className="hide clearfix">
+                <div className="clearfix">
                     <button className="button existing homeButton"><p>Home</p></button>
                     <i class="fas fa-caret-left"></i>
                 </div>
