@@ -635,14 +635,14 @@ body {
   width: 45%;
   float: left; }
   .playerTeam h2 {
-    text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green; }
+    text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green; }
 
 .enemyTeam {
   width: 45%;
   float: right;
   text-align: right; }
   .enemyTeam h2 {
-    text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red; }
+    text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red; }
 
 .playerTeam h2, .enemyTeam h2 {
   letter-spacing: 3px;
@@ -709,7 +709,6 @@ body {
     .playerTeam img, .enemyTeam img {
       margin: 0 10px; }
   .teamPreview .characterBlock h3 {
-    font-size: 0.8rem;
     margin-top: 18px; }
   .playerTeam h2, .enemyTeam h2 {
     font-size: 1.1rem; }
@@ -721,7 +720,10 @@ body {
   .playerTeam, .enemyTeam {
     width: 50%; }
     .playerTeam h2, .enemyTeam h2 {
-      font-size: 0.8rem; } }
+      font-size: 0.8rem; }
+  .teamPreview .characterBlock h3 {
+    font-size: 0.8rem;
+    margin-top: 23px; } }
 
 @media (max-width: 490px) {
   .teamPreview .characterBlock h3 {
@@ -756,20 +758,20 @@ body {
   .sweetResultsDiv.player {
     text-align: right; }
     .sweetResultsDiv.player strong {
-      text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
+      text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
       font-size: 1.1rem; }
   .sweetResultsDiv.enemy {
     text-align: left; }
     .sweetResultsDiv.enemy strong {
-      text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
+      text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
       font-size: 1.1rem; }
 
 strong.player {
-  text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
+  text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
   font-size: 1.1rem; }
 
 strong.enemy {
-  text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
+  text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
   font-size: 1.1rem; }
 
 .swal-title {
@@ -826,3 +828,7 @@ strong.enemy {
   position: absolute;
   bottom: 0;
   right: 10px; }
+
+@media (max-width: 767px) {
+  #themeAudio {
+    top: 95%; } }
