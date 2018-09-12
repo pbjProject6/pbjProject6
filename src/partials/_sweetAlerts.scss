@@ -130,6 +130,12 @@ strong.enemy{
     }
 }
 @media (max-width: 480px) {
+    .swal-modal{
+        width: 350px;
+    }
+    .swal-modal.swalResults{
+        width: 370px !important;
+    }
     .swal-modal.sweetWideAlert{
         width: 400px !important;
         .swal-button{

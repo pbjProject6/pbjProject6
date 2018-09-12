@@ -222,6 +222,7 @@ class TeamPreview extends Component {
         if (this.state.redirect) {
             return <Redirect push to="/teamselect" />;
         }
+  
         return (
             <div className="teamPreview">
                 <header className="App-header">
@@ -259,10 +260,10 @@ class TeamPreview extends Component {
                     }
                     <section className="teamButtons">
                         <Link to="/teamSelect">
-                            <button>Back To Team Roster</button>
+                            <button className="button backTeam">Back To Team</button>
                         </Link>
 
-                        <button onClick={this.startBattle}>Start Battle</button>
+                        <button className="button" onClick={this.startBattle}>Start Battle</button>
 
                         {/* <HomeButton /> */}
                     </section>
