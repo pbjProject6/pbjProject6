@@ -269,7 +269,7 @@ class TeamPreview extends Component {
                             <button className="button backTeam">Back To Team</button>
                         </Link>
 
-                        <button onClick={this.startBattleButtonClick}>Start Battle</button>
+                        <button className="finalBattleButton shimmer button" onClick={this.startBattleButtonClick}>Start Battle</button>
 
                         {/* <HomeButton /> */}
                     </section>
