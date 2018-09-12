@@ -287,6 +287,10 @@ body {
     height: auto;
     padding-bottom: 100px; } }
 
+@media (max-width: 640px) {
+  .wrapper {
+    width: 100%; } }
+
 .logo {
   margin: 0; }
 
@@ -431,6 +435,8 @@ body {
   text-align: center;
   font-family: "Nunito";
   margin: 0; }
+  .selectCharacterButton:hover {
+    font-weight: bold; }
 
 .displayCharacterBlock {
   background-color: #d5b606;
@@ -491,7 +497,9 @@ body {
     width: 65%;
     margin: 30px auto; }
   .statsDescription {
-    width: 45%; } }
+    width: 45%; }
+  .selectCharacterButton {
+    border: 0.5px grey solid; } }
 
 @media (max-width: 767px) {
   .statsDescription {
@@ -505,6 +513,10 @@ body {
   .statsDescription .swal-title {
     font-size: 1.9rem;
     padding: 10px 8px; } }
+
+@media (max-width: 640px) {
+  .selectForm {
+    width: 100%; } }
 
 .teamSelectButtonsContainer {
   border-top: 5px solid #8C8C38;
@@ -574,6 +586,9 @@ body {
   text-align: center;
   padding: 10px 7px 2px; }
 
+.hide {
+  display: none; }
+
 .linkToTeamPreview {
   text-decoration: none; }
 
@@ -605,7 +620,7 @@ body {
     text-transform: uppercase;
     color: #3D3D3D;
     text-align: left;
-    height: 100%;
+    height: 97%;
     padding: 5px;
     font-size: 17px; }
 
@@ -672,6 +687,14 @@ body {
     width: 65%;
     margin: 0 auto; } }
 
+@media (max-width: 640px) {
+  .search {
+    width: 100%; } }
+
+.teamPreview .logo h2 {
+  font-size: 2.5rem;
+  margin: 0; }
+
 .playerTeam {
   width: 45%;
   float: left; }
@@ -687,7 +710,7 @@ body {
 
 .playerTeam h2, .enemyTeam h2 {
   letter-spacing: 3px;
-  margin-top: 0; }
+  margin: 0; }
 
 .teamButtons {
   clear: both; }
@@ -734,10 +757,16 @@ body {
   .characterBlock.enemy h3 {
     float: right; }
 
+@media (max-width: 940px) {
+  .teamPreview .title {
+    font-size: 2.5rem; } }
+
 @media (max-width: 825px) {
   .teamPreview .characterBlock h3 {
     font-size: 1rem;
     margin-top: 18px; }
+  .teamPreview .characterBlock img {
+    margin: 0 10px; }
   .playerTeam h2, .enemyTeam h2 {
     font-size: 1.5rem; }
   .teamButtons button {
@@ -745,12 +774,14 @@ body {
     font-size: 1.5rem; } }
 
 @media (max-width: 730px) {
+  .homeButtonContainer .homeButton {
+    width: 75px !important;
+    font-size: 1rem !important; }
   .playerTeam, .enemyTeam {
     width: 50%; }
     .playerTeam img, .enemyTeam img {
       margin: 0 10px; }
   .teamPreview .characterBlock h3 {
-    font-size: 0.8rem;
     margin-top: 18px; }
   .playerTeam h2, .enemyTeam h2 {
     font-size: 1.1rem; }
@@ -758,13 +789,18 @@ body {
     width: 200px;
     font-size: 1.5rem; } }
 
-@media (max-width: 570px) {
+@media (max-width: 585px) {
+  .teamPreview .title {
+    font-size: 2rem; }
   .playerTeam, .enemyTeam {
     width: 50%; }
     .playerTeam h2, .enemyTeam h2 {
-      font-size: 0.8rem; } }
+      font-size: 0.8rem; }
+  .teamPreview .characterBlock h3 {
+    font-size: 0.8rem;
+    margin-top: 23px; } }
 
-@media (max-width: 490px) {
+@media (max-width: 520px) {
   .teamPreview .characterBlock h3 {
     font-size: 0.6rem;
     margin-top: 23px; }
@@ -856,6 +892,10 @@ strong.enemy {
       font-size: 0.8rem; } }
 
 @media (max-width: 480px) {
+  .swal-modal {
+    width: 350px; }
+  .swal-modal.swalResults {
+    width: 370px !important; }
   .swal-modal.sweetWideAlert {
     width: 400px !important; }
     .swal-modal.sweetWideAlert .swal-button {
