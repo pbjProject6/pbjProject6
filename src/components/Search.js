@@ -117,15 +117,15 @@ class Search extends Component {
                                 <div className="resultBody">
                                     <ul className="statList">
                                         <span className="firstRowList rowList">
+                                            <li className="combatStat charaStat">Com:{chara.powerstats.combat}</li>
+                                            <li className="durabilityStat charaStat">Dur:{chara.powerstats.durability}</li>
                                             <li className="intelligenceStat charaStat">Int:{chara.powerstats.intelligence}</li>
-                                            <li className="strengthStat charaStat">Str:{chara.powerstats.strength}</li>
-                                            <li className="speedStat charaStat">Sp:{chara.powerstats.speed}</li>
                                         </span>
 
                                         <span className="secondRowList rowList">
-                                            <li className="durabilityStat charaStat">Dur:{chara.powerstats.durability}</li>
                                             <li className="powerStat charaStat">Pow:{chara.powerstats.power}</li>
-                                            <li className="combatStat charaStat">Com:{chara.powerstats.combat}</li>
+                                            <li className="speedStat charaStat">Sp:{chara.powerstats.speed}</li>
+                                            <li className="strengthStat charaStat">Str:{chara.powerstats.strength}</li>
                                         </span>
                                     </ul>
                                     {/* can you trigger a click event and rout at the same time? */}

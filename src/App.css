@@ -644,7 +644,9 @@ body {
   width: 30%;
   float: left; }
   .imageName img {
-    width: 100%; }
+    width: 100%;
+    border: 3px outset #676729;
+    border-radius: 15px; }
   .imageName h3 {
     color: #3D3D3D;
     margin: 0; }
@@ -699,14 +701,14 @@ body {
   width: 45%;
   float: left; }
   .playerTeam h2 {
-    text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green; }
+    text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green; }
 
 .enemyTeam {
   width: 45%;
   float: right;
   text-align: right; }
   .enemyTeam h2 {
-    text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red; }
+    text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red; }
 
 .playerTeam h2, .enemyTeam h2 {
   letter-spacing: 3px;
@@ -833,20 +835,20 @@ body {
   .sweetResultsDiv.player {
     text-align: right; }
     .sweetResultsDiv.player strong {
-      text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
+      text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
       font-size: 1.1rem; }
   .sweetResultsDiv.enemy {
     text-align: left; }
     .sweetResultsDiv.enemy strong {
-      text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
+      text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
       font-size: 1.1rem; }
 
 strong.player {
-  text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
+  text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
   font-size: 1.1rem; }
 
 strong.enemy {
-  text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
+  text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
   font-size: 1.1rem; }
 
 .swal-title {
