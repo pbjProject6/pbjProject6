@@ -21,6 +21,7 @@ import HomeButton from './components/HomeButton';
 // import Results from './components/Results';
 import ReactAudioPlayer from 'react-audio-player';
 import theme from './assets/audio/theme/audioTheme.mp3';
+import fight from './assets/audio/fight/fightSounds1.wav';
 
 // GLOBAL VARIABLES
 // Goes to the root of the firebase database
@@ -250,6 +251,18 @@ class App extends Component {
     document.getElementById('themeAudio').setAttribute('autoplay', true);
   }
 
+  audioFightPlay = (auto) => {
+    let audioElement = document.getElementById('themeAudio');
+    audioElement.setAttribute('autoplay', auto);
+    audioElement.setAttribute('src', fight);
+    audioElement.setAttribute('loop', false);
+  };
+
+  audioStop = () => {
+    let audioElement = document.getElementById('themeAudio');
+    audioElement.setAttribute('src', "");
+  }
+
   render() {
     return (
 
@@ -271,7 +284,7 @@ class App extends Component {
           {/* Route to touch the SearchResults component/page  */}
           {/* <Route path="/SearchResults" component={SearchResults} /> */}
           {/* Route to touch the TeamPreview component/page  */}
-          <Route path="/teampreview" render={(props) => (<TeamPreview {...props} playerTeam={this.state.team} updateWinLoss={this.updateWinLoss} />)} />
+          <Route path="/teampreview" render={(props) => (<TeamPreview {...props} playerTeam={this.state.team} updateWinLoss={this.updateWinLoss} audioFightPlay={this.audioFightPlay} audioStop={this.audioStop} />)} />
           {/* Route to touch the Battle component/page  */}
           {/* <Route path="/battle" component={battle} /> */}
           {/* Route to touch the Results component/page  */}
@@ -280,7 +293,7 @@ class App extends Component {
             src={theme}
             controls
             id="themeAudio"
-            loop={true}
+            loop="false"
           />
           <div className="homeButtonContainer">
             <HomeButton />

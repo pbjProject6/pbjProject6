@@ -69,7 +69,6 @@ class TeamPreview extends Component {
 
     startBattle = () => {
 
-
         //generate random number between 0 and 5 to determine stat compared
         let competeStat = Math.floor(Math.random() * statNames.length);
         let player = this.props.playerTeam;
@@ -110,6 +109,7 @@ class TeamPreview extends Component {
         result.appendChild(enemyResult);
         // display match results to player and update ratios
         setTimeout(() => {
+            this.props.audioStop();
             if (playerWins > enemyWins) {
                 let enemyObject = this.state.fightingEnemyTeam;
                 enemyObject.winRatio.losses += 1;
@@ -146,7 +146,7 @@ class TeamPreview extends Component {
                     this.postBattleChoices();
                 });
             }
-        }, 1500)
+        }, 5500)
 
         // battle animations
         let badTeam = document.getElementById('enemyBlock')
@@ -157,6 +157,12 @@ class TeamPreview extends Component {
 
     }
 
+
+
+    startBattleButtonClick = () => {
+        this.startBattle();
+        this.props.audioFightPlay(true);
+    }
 
     postBattleChoices = () => {
 
@@ -222,7 +228,7 @@ class TeamPreview extends Component {
         if (this.state.redirect) {
             return <Redirect push to="/teamselect" />;
         }
-  
+
         return (
             <div className="teamPreview">
                 <header className="App-header">
@@ -263,7 +269,7 @@ class TeamPreview extends Component {
                             <button className="button backTeam">Back To Team</button>
                         </Link>
 
-                        <button className="button" onClick={this.startBattle}>Start Battle</button>
+                        <button onClick={this.startBattleButtonClick}>Start Battle</button>
 
                         {/* <HomeButton /> */}
                     </section>

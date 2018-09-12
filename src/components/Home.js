@@ -8,8 +8,7 @@ import swal from 'sweetalert';
 // import Sound from 'react-sound';
 import ReactDOM from 'react-dom';
 import ReactAudioPlayer from 'react-audio-player';
-// import theme from '../assets/audio/theme/audioTheme.mp3';
-// import Sound from 'react-sound';
+import scrollToComponent from 'react-scroll-to-component';
 
 // IMPORT COMPONENTS
 import TeamSelect from './TeamSelect';
@@ -78,13 +77,11 @@ class Home extends Component {
         });
     }
 
-
+    // This function searches for a team name in database
     searchTeamName = () => {
 
         dbRef.once('value', (snapshot) => {
             let dbTeams = snapshot.val();
-
-            // console.log(dbTeams);
 
             // use forin loop to find the names of existing names
             teamNameArray = Object.values(dbTeams);
@@ -95,22 +92,15 @@ class Home extends Component {
         });
     }
 
-    // audioPlay = () => {
-    //     const audioNode = this.audioRef.current;
-    //     audioNode.play();
-    //     console.log(audioNode);
-    // }
-
-    // audioThemePlay = () => {
-    //     document.getElementById('themeAudio').setAttribute('autoplay', true);
-    // }
+    // Scroll to the list of team names when clicking the button on the Home page to see pick an exsting team
     scrollDown = () => {
         let teamList = document.getElementById('existingButton');
         teamList.scrollIntoView();
+        scrollToComponent(teamList);
     }
 
+    // Button click when wanting to play with an existing team.
     existingTeamButtonClick = () => {
-        // this.audioPlay();
         this.props.audioThemePlay();
         this.searchTeamName();
         this.scrollDown();
@@ -119,6 +109,7 @@ class Home extends Component {
         })
     }
 
+    // Get existing team from database and display on page
     selectExistingTeam = (clickedTeam) => {
         dbRef.once('value', (snapshot) => {
             let dbTeams = snapshot.val();
@@ -128,14 +119,11 @@ class Home extends Component {
                     this.props.displayExistingTeam(dbTeams[team]);
                     this.setState({ redirect: true });
                 }
-                console.log(team);
-
-                // If the team exists, run the displayExistingTeam function to display the team's characters on the page
-
             }
         })
     }
 
+    // Display list of existing teams
     displayBlockOfExistingTeams = () => {
         if (this.state.showList === true) {
             let homeButtons = document.getElementById('homeOptions');
@@ -155,8 +143,8 @@ class Home extends Component {
         }
     }
 
+    // Begin creating new team and play audio when clicking new team button on Home page
     createNewTeamButtonClick = () => {
-        // this.audioPlay();
         this.props.audioThemePlay();
         this.setTeamName();
     }
@@ -177,21 +165,6 @@ class Home extends Component {
                     </div>
                 </header>
 
-                {/* <button onClick={this.togglePlay}>{this.state.play ? 'Pause' : 'Play'}</button> */}
-
-                {/* <audio ref={this.audioRef} src={theme} /> */}
-                {/* <Sound
-                    url={theme}
-                    playStatus={Sound.status.PLAYING}
-                    autoLoad={false}
-                /> */}
-
-                {/* <ReactAudioPlayer
-                    src={theme}
-                    controls
-                    id="themeAudio"
-                /> */}
-
                 <main className="main">
                     <div className="wrapper">
                         <div className="options homeButtonsContainer clearfix" id="homeOptions">
@@ -209,8 +182,6 @@ class Home extends Component {
 
                         {this.displayBlockOfExistingTeams()}
 
-
-
                     </div>
                 </main>
             </section>
@@ -219,7 +190,3 @@ class Home extends Component {
 }
 
 export default Home;
-
-// 1. onClick of Load Existing Team button, display a sweet alert prompting the user to enter their existing team's name. The team name is passed into the function displayExistingTeam() which is passed in from App.js.
-// 2. displayExistingTeam() searches the database by team name and returns the team object.
-// 3. The team object is passed as a prop to TeamSelect, which is passed as a prop to CharacterBlock based on it's index number.
