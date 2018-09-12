@@ -57,6 +57,8 @@
     float: left;
     img {
         width: 100%;
+        border: 3px outset rgb(103, 103, 41);
+        border-radius: 15px;
     }
     h3 {
         color: $black;
