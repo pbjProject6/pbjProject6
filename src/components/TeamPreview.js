@@ -227,7 +227,7 @@ class TeamPreview extends Component {
                 <header className="App-header">
                     <div className="wrapper clearfix">
                         <div className="logo"><h2>pb&j</h2></div>
-                        <h1 className="title">Superhero Battle</h1>
+                        <h1 className="title">Havoc Of Heros</h1>
                     </div>
                 </header>
 
@@ -259,10 +259,10 @@ class TeamPreview extends Component {
                     }
                     <section className="teamButtons">
                         <Link to="/teamSelect">
-                            <button className="button backTeam">Back To Team</button>
+                            <button>Back To Team Roster</button>
                         </Link>
 
-                        <button className="button" onClick={this.startBattle}>Start Battle</button>
+                        <button onClick={this.startBattle}>Start Battle</button>
 
                         {/* <HomeButton /> */}
                     </section>

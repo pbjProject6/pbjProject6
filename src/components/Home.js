@@ -68,7 +68,7 @@ class Home extends Component {
                     }
                     else {
                         this.props.createNewTeam(userTeam);
-                        setTimeout(() => { this.setState({ redirect: true }) }, 2000)
+                        this.setState({ redirect: true })
 
                     }
                 });
@@ -92,8 +92,6 @@ class Home extends Component {
             this.setState({
                 teamNameArray: teamNameArray,
             })
-
-
         });
     }
 
@@ -106,11 +104,16 @@ class Home extends Component {
     // audioThemePlay = () => {
     //     document.getElementById('themeAudio').setAttribute('autoplay', true);
     // }
+    scrollDown = () => {
+        let teamList = document.getElementById('existingButton');
+        teamList.scrollIntoView();
+    }
 
     existingTeamButtonClick = () => {
         // this.audioPlay();
         this.props.audioThemePlay();
         this.searchTeamName();
+        this.scrollDown();
         this.setState({
             showList: true
         })
@@ -123,7 +126,7 @@ class Home extends Component {
             for (let team in dbTeams) {
                 if (dbTeams[team].teamName === clickedTeam) {
                     this.props.displayExistingTeam(dbTeams[team]);
-                    setTimeout(() => { this.setState({ redirect: true }) }, 2000)
+                    this.setState({ redirect: true });
                 }
                 console.log(team);
 
