@@ -287,6 +287,10 @@ body {
     height: auto;
     padding-bottom: 100px; } }
 
+@media (max-width: 640px) {
+  .wrapper {
+    width: 100%; } }
+
 .logo {
   margin: 0; }
 
@@ -431,6 +435,8 @@ body {
   text-align: center;
   font-family: "Nunito";
   margin: 0; }
+  .selectCharacterButton:hover {
+    font-weight: bold; }
 
 .displayCharacterBlock {
   background-color: #d5b606;
@@ -491,7 +497,9 @@ body {
     width: 65%;
     margin: 30px auto; }
   .statsDescription {
-    width: 45%; } }
+    width: 45%; }
+  .selectCharacterButton {
+    border: 0.5px grey solid; } }
 
 @media (max-width: 767px) {
   .statsDescription {
@@ -505,6 +513,10 @@ body {
   .statsDescription .swal-title {
     font-size: 1.9rem;
     padding: 10px 8px; } }
+
+@media (max-width: 640px) {
+  .selectForm {
+    width: 100%; } }
 
 .teamSelectButtonsContainer {
   border-top: 5px solid #8C8C38;
@@ -574,6 +586,9 @@ body {
   text-align: center;
   padding: 10px 7px 2px; }
 
+.hide {
+  display: none; }
+
 .linkToTeamPreview {
   text-decoration: none; }
 
@@ -605,7 +620,7 @@ body {
     text-transform: uppercase;
     color: #3D3D3D;
     text-align: left;
-    height: 100%;
+    height: 97%;
     padding: 5px;
     font-size: 17px; }
 
@@ -675,19 +690,28 @@ body {
 .teamPreview .logo h2 {
   font-size: 2.5rem;
   margin: 0; }
+@media (max-width: 640px) {
+  .search {
+    width: 100%; } }
 
 .playerTeam {
   width: 45%;
   float: left; }
   .playerTeam h2 {
-    text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green; }
+    text-shadow: -2px -2px 0 green,  
+ 2px -2px 0 green,
+ -2px 2px 0 green,
+ 2px 2px 0 green; }
 
 .enemyTeam {
   width: 45%;
   float: right;
   text-align: right; }
   .enemyTeam h2 {
-    text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red; }
+    text-shadow: -2px -2px 0 red,  
+ 2px -2px 0 red,
+ -2px 2px 0 red,
+ 2px 2px 0 red; }
 
 .playerTeam h2, .enemyTeam h2 {
   letter-spacing: 3px;
@@ -814,20 +838,32 @@ body {
   .sweetResultsDiv.player {
     text-align: right; }
     .sweetResultsDiv.player strong {
-      text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
+      text-shadow: -2px -2px 0 green,  
+ 2px -2px 0 green,
+ -2px 2px 0 green,
+ 2px 2px 0 green;
       font-size: 1.1rem; }
   .sweetResultsDiv.enemy {
     text-align: left; }
     .sweetResultsDiv.enemy strong {
-      text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
+      text-shadow: -2px -2px 0 red,  
+ 2px -2px 0 red,
+ -2px 2px 0 red,
+ 2px 2px 0 red;
       font-size: 1.1rem; }
 
 strong.player {
-  text-shadow: -2px -2px 0 green,   2px -2px 0 green, -2px 2px 0 green, 2px 2px 0 green;
+  text-shadow: -2px -2px 0 green,  
+ 2px -2px 0 green,
+ -2px 2px 0 green,
+ 2px 2px 0 green;
   font-size: 1.1rem; }
 
 strong.enemy {
-  text-shadow: -2px -2px 0 red,   2px -2px 0 red, -2px 2px 0 red, 2px 2px 0 red;
+  text-shadow: -2px -2px 0 red,  
+ 2px -2px 0 red,
+ -2px 2px 0 red,
+ 2px 2px 0 red;
   font-size: 1.1rem; }
 
 .swal-title {

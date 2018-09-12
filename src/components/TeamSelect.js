@@ -14,9 +14,6 @@ import TeamName from './TeamName';
 import Search from './Search';
 
 
-// const teamObjectLength = this.props.teamObject.length;
-// console.log(teamObjectLength);
-
 class TeamSelect extends Component {
 
     // This function will create and call the powerstats description pop-up
@@ -41,10 +38,6 @@ class TeamSelect extends Component {
     }
 
     render() {
-        // if (this.props.teamObject.teamMember.length === 5) {
-        //     let saveTeamButton = document.getElementById('saveTeamButton');
-        //     saveTeamButton.classList.remove('inactiveLink')
-        // }
 
         return (
 
@@ -52,7 +45,7 @@ class TeamSelect extends Component {
             <section className="teamSelectSection">
 
                 <header className="App-header">
-                    <div className="wrapper clearfix">
+                    <div className="wrapper clearfix headerTextContainer">
                         <div className="logo"><h2>pb&j</h2></div>
                         <h1 className="title">Havoc Of Heros</h1>
                     </div>
@@ -70,17 +63,6 @@ class TeamSelect extends Component {
                                 <i onClick={this.statsInfoIconClick} className="fas fa-question-circle"></i>
                             </div>
 
-                            {/* <div className="statsDescription">
-                                <h4 className="statsDescription__header">Powerstats</h4>
-                                <ul className="statsDescription__List">
-                                    <li className="statsDescription__item">C = Combat</li>
-                                    <li className="statsDescription__item">D = Durability</li>
-                                    <li className="statsDescription__item">I = Intelligence</li>
-                                    <li className="statsDescription__item">P = Power</li>
-                                    <li className="statsDescription__item">Sp = Speed</li>
-                                    <li className="statsDescription__item">St = Strength</li>
-                                </ul>
-                            </div> */}
 
                             <div className="characterBlockContainer">
                                 <CharacterBlock chara={this.props.teamObject.teamMember[0]} removeCharaFromTeamBlock={this.props.removeCharaFromState} />
