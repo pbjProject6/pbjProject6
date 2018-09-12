@@ -147,7 +147,6 @@ class App extends Component {
 
           doesExist = true;
           dbKey = dbTeams[team].key;
-          // console.log(dbKey);
         }
       }
 
@@ -161,7 +160,6 @@ class App extends Component {
         let teamCopy = this.state.team;
         console.log(teamCopy);
         teamCopy.key = teamKey;
-        // teamCopy.name =
         this.setState({
           team: teamCopy
         })
@@ -248,7 +246,9 @@ class App extends Component {
   }
 
   audioThemePlay = () => {
-    document.getElementById('themeAudio').setAttribute('autoplay', true);
+    let audioElement = document.getElementById('themeAudio');
+    audioElement.setAttribute('src', theme);
+    audioElement.setAttribute('autoplay', true);
   }
 
   audioFightPlay = (auto) => {
