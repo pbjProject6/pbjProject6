@@ -198,9 +198,11 @@ class TeamPreview extends Component {
                 let goodTeam = document.getElementById('playerBlock')
                 goodTeam.className = 'playerTeam';
 
+                this.props.audioFightPlay(true);
+
                 setTimeout(() => {
                     this.startBattle();
-                }, 2000)
+                }, 1000)
             }
             else if (res === 'newOpponent') {
                 //get a new random opponent
