@@ -287,6 +287,10 @@ body {
     height: auto;
     padding-bottom: 100px; } }
 
+@media (max-width: 640px) {
+  .wrapper {
+    width: 100%; } }
+
 .logo {
   margin: 0; }
 
@@ -431,6 +435,8 @@ body {
   text-align: center;
   font-family: "Nunito";
   margin: 0; }
+  .selectCharacterButton:hover {
+    font-weight: bold; }
 
 .displayCharacterBlock {
   background-color: #d5b606;
@@ -491,7 +497,9 @@ body {
     width: 65%;
     margin: 30px auto; }
   .statsDescription {
-    width: 45%; } }
+    width: 45%; }
+  .selectCharacterButton {
+    border: 0.5px grey solid; } }
 
 @media (max-width: 767px) {
   .statsDescription {
@@ -505,6 +513,10 @@ body {
   .statsDescription .swal-title {
     font-size: 1.9rem;
     padding: 10px 8px; } }
+
+@media (max-width: 640px) {
+  .selectForm {
+    width: 100%; } }
 
 .teamSelectButtonsContainer {
   border-top: 5px solid #8C8C38;
@@ -574,6 +586,9 @@ body {
   text-align: center;
   padding: 10px 7px 2px; }
 
+.hide {
+  display: none; }
+
 .linkToTeamPreview {
   text-decoration: none; }
 
@@ -605,7 +620,7 @@ body {
     text-transform: uppercase;
     color: #3D3D3D;
     text-align: left;
-    height: 100%;
+    height: 97%;
     padding: 5px;
     font-size: 17px; }
 
@@ -671,6 +686,10 @@ body {
     float: none;
     width: 65%;
     margin: 0 auto; } }
+
+@media (max-width: 640px) {
+  .search {
+    width: 100%; } }
 
 .playerTeam {
   width: 45%;

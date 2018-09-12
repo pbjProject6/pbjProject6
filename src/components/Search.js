@@ -3,6 +3,7 @@ import axios from "axios";
 import Qs from 'qs';
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import swal from 'sweetalert';
+import scrollToComponent from 'react-scroll-to-component';
 
 const apiKey = '10155759872521417';
 let heroArray = [];
@@ -40,6 +41,7 @@ class Search extends Component {
             // Array of different search results, i.e. 3 Batmans
             heroArray = res.data.results;
             if (!heroArray) {
+                // if there are no search matches
                 swal({
                     title: 'error',
                     text: `${charString} returns no results. Please try a another character.`,
@@ -52,6 +54,7 @@ class Search extends Component {
                 console.log(heroArray);
                 heroArray.forEach((chara) => {
                     for (let stat in chara.powerstats) {
+                        // change null number values to 0
                         if (chara.powerstats[stat] === "null") {
                             chara.powerstats[stat] = "0";
                         }
@@ -79,16 +82,25 @@ class Search extends Component {
                 com: selChar.powerstats.combat
             }
         };
-        // console.log('Testy McTesterface');
+ 
         console.log(this.props)
         this.props.addToTeamArray(charObj);
+
+        let characterList = document.getElementById('characterBlockParent');
+        scrollToComponent(characterList)
+
+    }
+
+    changeClassName = () => {
+        let form = document.getElementById('inputForm');
+        form.className = 'searchArea';
     }
 
     render() {
         return (
             <div id="searchPortion" className="search">
 
-                <form onSubmit={this.searchChar} className="searchArea">
+                <form id="inputForm" onSubmit={this.searchChar} className="searchArea" onClick={this.changeClassName}>
                     <input id="searchInput" type="text" placeholder="Search Character" />
                     {/* <button className="searchCharacterButton" onClick={this.searchChar}>Search</button> */}
                     <input type="submit" value="Search" className="searchCharacterButton" />
