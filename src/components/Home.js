@@ -5,13 +5,10 @@ import {
 } from 'react-router-dom';
 import firebase from 'firebase';
 import swal from 'sweetalert';
-// import Sound from 'react-sound';
-import ReactDOM from 'react-dom';
-import ReactAudioPlayer from 'react-audio-player';
+// import ReactAudioPlayer from 'react-audio-player';
 import scrollToComponent from 'react-scroll-to-component';
 
 // IMPORT COMPONENTS
-import TeamSelect from './TeamSelect';
 const dbRef = firebase.database().ref('/teams');
 let teamNameArray = [];
 
@@ -101,7 +98,7 @@ class Home extends Component {
 
     // Button click when wanting to play with an existing team.
     existingTeamButtonClick = () => {
-        this.props.audioThemePlay();
+        // this.props.audioThemePlay();
         this.searchTeamName();
         this.scrollDown();
         this.setState({
@@ -145,7 +142,7 @@ class Home extends Component {
 
     // Begin creating new team and play audio when clicking new team button on Home page
     createNewTeamButtonClick = () => {
-        this.props.audioThemePlay();
+        // this.props.audioThemePlay();
         this.setTeamName();
     }
 
