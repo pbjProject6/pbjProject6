@@ -19,7 +19,7 @@
     font-family: $bodyFont;
     color: #3D3D3D;
     height: 65px;
-    input {
+    input[type=text] {
         width: 60%;
         background-color: white;
         border: none;
@@ -28,7 +28,7 @@
         text-align: left;
         height: 100%;
         padding: 5px;
-
+        font-size: 17px;
     }
 
 }

@@ -222,12 +222,13 @@ class TeamPreview extends Component {
         if (this.state.redirect) {
             return <Redirect push to="/teamselect" />;
         }
+  
         return (
             <div className="teamPreview">
                 <header className="App-header">
                     <div className="wrapper clearfix">
                         <div className="logo"><h2>pb&j</h2></div>
-                        <h1 className="title">Havoc Of Heroes</h1>
+                        <h1 className="title">Havoc Of Heros</h1>
                     </div>
                 </header>
 

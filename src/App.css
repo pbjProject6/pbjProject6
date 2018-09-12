@@ -239,14 +239,13 @@ body {
   pointer-events: none; }
 
 .homeButtonContainer {
-  position: absolute;
-  right: -5px;
-  top: -5px; }
+  position: fixed;
+  right: 5px;
+  top: 8px; }
 
 .homeButton {
   width: 120px;
-  height: auto;
-  margin: 30px 30px 10px 0; }
+  height: auto; }
   .homeButton p {
     font-weight: 700; }
 
@@ -355,20 +354,26 @@ body {
 
 @media (max-width: 767px) {
   .existingTeamsList {
-    width: 50%; }
+    width: 75%;
+    margin: 0 auto;
+    float: none;
+    text-align: center; }
+  .listOfExistingTeams {
+    padding-left: 0; }
   .homeGroup .button {
-    margin-right: 10px;
-    width: 175px; } }
+    margin-right: 0;
+    margin-left: 0;
+    width: 310px; }
+  .homeFloat {
+    float: none; } }
 
 @media (max-width: 480px) {
   .homeGroup .button {
     margin: 15px 0; }
-  .homeFloat {
-    float: none; }
   .existingTeamsList {
     float: none;
     margin: 0 auto;
-    width: 100%; }
+    width: 78%; }
   .homeGroup .button {
     width: 100%; }
   .homeSection .options {
@@ -387,7 +392,23 @@ body {
 
 .infoIcon {
   float: right;
-  text-align: right; }
+  text-align: right;
+  margin: 0 5px 0 0;
+  cursor: pointer; }
+
+.statsDescription {
+  text-align: center;
+  width: 30%; }
+  .statsDescription__list {
+    text-align: left;
+    transform: translateX(20%);
+    margin: 0 auto; }
+  .statsDescription__item {
+    font-size: 20px;
+    color: white;
+    font-weight: 700; }
+    .statsDescription__item strong {
+      font-size: 25px; }
 
 .selectCharacterBlock {
   margin: 10px;
@@ -456,6 +477,10 @@ body {
   .inactiveChangeCharacterButton:hover {
     cursor: auto; }
 
+@media (max-width: 1150px) {
+  .statsDescription {
+    width: 45%; } }
+
 @media (max-width: 1070px) {
   .topBlock h3 {
     font-size: 1rem; } }
@@ -464,7 +489,22 @@ body {
   .selectForm {
     float: none;
     width: 65%;
-    margin: 30px auto; } }
+    margin: 30px auto; }
+  .statsDescription {
+    width: 45%; } }
+
+@media (max-width: 767px) {
+  .statsDescription {
+    width: 70%; } }
+
+@media (max-width: 480px) {
+  .statsDescription {
+    width: 95%; }
+    .statsDescription__list {
+      transform: translateX(15%); }
+  .statsDescription .swal-title {
+    font-size: 1.9rem;
+    padding: 10px 8px; } }
 
 .teamSelectButtonsContainer {
   border-top: 5px solid #8C8C38;
@@ -558,7 +598,7 @@ body {
   font-family: "Nunito";
   color: #3D3D3D;
   height: 65px; }
-  .searchArea input {
+  .searchArea input[type=text] {
     width: 60%;
     background-color: white;
     border: none;
@@ -566,7 +606,8 @@ body {
     color: #3D3D3D;
     text-align: left;
     height: 100%;
-    padding: 5px; }
+    padding: 5px;
+    font-size: 17px; }
 
 .searchCharacterButton {
   width: 38%;
@@ -631,6 +672,10 @@ body {
     width: 65%;
     margin: 0 auto; } }
 
+.teamPreview .logo h2 {
+  font-size: 2.5rem;
+  margin: 0; }
+
 .playerTeam {
   width: 45%;
   float: left; }
@@ -646,7 +691,7 @@ body {
 
 .playerTeam h2, .enemyTeam h2 {
   letter-spacing: 3px;
-  margin-top: 0; }
+  margin: 0; }
 
 .teamButtons {
   clear: both; }
@@ -693,10 +738,16 @@ body {
   .characterBlock.enemy h3 {
     float: right; }
 
+@media (max-width: 940px) {
+  .teamPreview .title {
+    font-size: 2.5rem; } }
+
 @media (max-width: 825px) {
   .teamPreview .characterBlock h3 {
     font-size: 1rem;
     margin-top: 18px; }
+  .teamPreview .characterBlock img {
+    margin: 0 10px; }
   .playerTeam h2, .enemyTeam h2 {
     font-size: 1.5rem; }
   .teamButtons button {
@@ -704,6 +755,9 @@ body {
     font-size: 1.5rem; } }
 
 @media (max-width: 730px) {
+  .homeButtonContainer .homeButton {
+    width: 75px !important;
+    font-size: 1rem !important; }
   .playerTeam, .enemyTeam {
     width: 50%; }
     .playerTeam img, .enemyTeam img {
@@ -716,7 +770,9 @@ body {
     width: 200px;
     font-size: 1.5rem; } }
 
-@media (max-width: 570px) {
+@media (max-width: 585px) {
+  .teamPreview .title {
+    font-size: 2rem; }
   .playerTeam, .enemyTeam {
     width: 50%; }
     .playerTeam h2, .enemyTeam h2 {
@@ -725,7 +781,7 @@ body {
     font-size: 0.8rem;
     margin-top: 23px; } }
 
-@media (max-width: 490px) {
+@media (max-width: 520px) {
   .teamPreview .characterBlock h3 {
     font-size: 0.6rem;
     margin-top: 23px; }
@@ -817,6 +873,10 @@ strong.enemy {
       font-size: 0.8rem; } }
 
 @media (max-width: 480px) {
+  .swal-modal {
+    width: 350px; }
+  .swal-modal.swalResults {
+    width: 370px !important; }
   .swal-modal.sweetWideAlert {
     width: 400px !important; }
     .swal-modal.sweetWideAlert .swal-button {
@@ -825,9 +885,9 @@ strong.enemy {
 #themeAudio {
   width: 50px;
   border-radius: 40%;
-  position: absolute;
-  bottom: 0;
-  right: 10px; }
+  position: fixed;
+  bottom: 2px;
+  right: 2px; }
 
 @media (max-width: 767px) {
   #themeAudio {

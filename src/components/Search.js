@@ -20,8 +20,9 @@ class Search extends Component {
     componentDidMount() {
     }
     // get sarch results and display them on page
-    searchChar = () => {
+    searchChar = (e) => {
         let charString = (document.getElementById("searchInput")).value;
+        e.preventDefault();
 
         axios({
             method: "GET",
@@ -50,8 +51,8 @@ class Search extends Component {
             } else {
                 console.log(heroArray);
                 heroArray.forEach((chara) => {
-                    for(let stat in chara.powerstats){
-                        if(chara.powerstats[stat] === "null"){
+                    for (let stat in chara.powerstats) {
+                        if (chara.powerstats[stat] === "null") {
                             chara.powerstats[stat] = "0";
                         }
                     }
@@ -86,15 +87,16 @@ class Search extends Component {
     render() {
         return (
             <div id="searchPortion" className="search">
-                
-                    <section className="searchArea">
-                        <input id="searchInput" type="text" placeholder="Search Character" />
-                        <button className="searchCharacterButton" onClick={this.searchChar}>Search</button>
-                    </section>
 
-                    <section className="resultsArea">
-                        {heroArray.map((chara, i) => {
-                            return (
+                <form onSubmit={this.searchChar} className="searchArea">
+                    <input id="searchInput" type="text" placeholder="Search Character" />
+                    {/* <button className="searchCharacterButton" onClick={this.searchChar}>Search</button> */}
+                    <input type="submit" value="Search" className="searchCharacterButton" />
+                </form>
+
+                <section className="resultsArea">
+                    {heroArray.map((chara, i) => {
+                        return (
                             <div key={chara.id} className="searchResult clearfix">
                                 <div className="imageName">
                                     <img src={chara.image.url} alt={`${chara.name} Snapshot`} />
@@ -133,32 +135,32 @@ class Search extends Component {
                         </ul>
                     </div> */}
 
-                    
+
                             </div>
                         )
                     })}
 
-                    </section>
+                </section>
                 {/* {searchResult} */}
 
-                    <div className="teamSelectButtonsContainer">
-                        {this.props.teamObject.teamMember.length === 5 ?
-                            <button onClick={this.props.saveTeamToDB} className="saveTeamButton  shimmer teamButton" id="saveTeamButton">
-                                <i class="fas fa-unlock lock" id="unlockedIcon"></i>
-                                <i class="fas fa-lock lock hide" id="lockedIcon"></i>
-                                Confirm Team</button>
-                            :
-                            <button onClick={this.props.saveTeamToDB} className=" inactiveLink saveTeamButton teamButton" id="saveTeamButton">
-                                <i class="fas fa-unlock lock" id="unlockedIcon"></i>
-                                <i class="fas fa-lock lock hide" id="lockedIcon"></i>
-                                Confirm Team</button>
-                        }
+                <div className="teamSelectButtonsContainer">
+                    {this.props.teamObject.teamMember.length === 5 ?
+                        <button onClick={this.props.saveTeamToDB} className="saveTeamButton  shimmer teamButton" id="saveTeamButton">
+                            <i class="fas fa-unlock lock" id="unlockedIcon"></i>
+                            <i class="fas fa-lock lock hide" id="lockedIcon"></i>
+                            Confirm Team</button>
+                        :
+                        <button onClick={this.props.saveTeamToDB} className=" inactiveLink saveTeamButton teamButton" id="saveTeamButton">
+                            <i class="fas fa-unlock lock" id="unlockedIcon"></i>
+                            <i class="fas fa-lock lock hide" id="lockedIcon"></i>
+                            Confirm Team</button>
+                    }
 
-                        <Link to="/teampreview" className="linkToTeamPreview"
-                            id="linkToTeamPreview"><div className=" shimmer goBattleButton teamButton">Go Battle</div></Link>
+                    <Link to="/teampreview" className="linkToTeamPreview"
+                        id="linkToTeamPreview"><div className=" shimmer goBattleButton teamButton">Go Battle</div></Link>
 
-                    </div>
-                    {/* teamSelectButtonsContainer */}
+                </div>
+                {/* teamSelectButtonsContainer */}
 
 
             </div>

@@ -104,11 +104,23 @@
     //     float: none;
     // }
     .existingTeamsList {
-        width: 50%;
+        width: 75%;
+        margin: 0 auto;
+        float: none;
+        text-align: center;
     }
+    
+    .listOfExistingTeams {
+        padding-left: 0;
+    }
+
     .homeGroup .button {
-        margin-right: 10px;
-        width: 175px;
+        margin-right: 0;
+        margin-left: 0;
+        width: 310px;
+    }
+    .homeFloat {
+        float: none;
     }
 }
 // **Small desktop to large desktops**
@@ -116,13 +128,13 @@
     .homeGroup .button {
         margin: 15px 0;
     }
-    .homeFloat {
-        float: none;
-    }
+    // .homeFloat {
+    //     float: none;
+    // }
     .existingTeamsList {
         float: none;
         margin: 0 auto;
-        width: 100%;
+        width: 78%;
     }
     .homeGroup .button {
         width: 100%;
