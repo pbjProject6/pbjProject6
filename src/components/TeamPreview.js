@@ -234,7 +234,7 @@ class TeamPreview extends Component {
         return (
             <div className="teamPreview">
                 <header className="App-header">
-                    <div className="wrapper clearfix">
+                    <div className="wrapper header-container clearfix">
                         <div className="logo"><h2>pb&j</h2></div>
                         <h1 className="title">Havoc Of Heros</h1>
                     </div>

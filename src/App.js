@@ -39,8 +39,7 @@ class App extends Component {
   }
 
   createNewTeam = (teamName) => {
-    console.log('creating new Team');
-
+    // console.log('creating new Team');
     this.setState({
       team: {
         teamMember: [],
@@ -112,19 +111,19 @@ class App extends Component {
       }
 
       if (doesExist === false) {
-        console.log('testing db adding');
+        // console.log('testing db adding');
 
         const teamKey = dbRef.push().key;
 
-        console.log(this.state.team.key);
+        // console.log(this.state.team.key);
 
         let teamCopy = this.state.team;
-        console.log(teamCopy);
+        // console.log(teamCopy);
         teamCopy.key = teamKey;
         this.setState({
           team: teamCopy
         })
-        console.log(this.state.team.key);
+        // console.log(this.state.team.key);
 
         const itemReference = firebase.database().ref(`/teams/${teamKey}`);
 
@@ -172,14 +171,14 @@ class App extends Component {
       itemReference.update({
         winRatio: enemyScore.winRatio
       });
-      console.log('enemyUpdated');
+      // console.log('enemyUpdated');
 
       itemReference = firebase.database().ref(`/teams/${this.state.team.key}`);
 
       itemReference.update({
         winRatio: this.state.team.winRatio
       });
-      console.log('playerUpdated');
+      // console.log('playerUpdated');
     });
   }
 

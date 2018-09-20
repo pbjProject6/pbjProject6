@@ -12,6 +12,7 @@
         width: 50%;
         height: 100%;
         border: none;
+        border-right: 5px solid #8C8C38;
         &:hover {
             background-size: 50%
         }
@@ -42,12 +43,12 @@
 }
 
 .shimmer {
-    background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-    background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-    background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+    background: -webkit-gradient(linear, left top, right top, from(rgba($yellow, 0.9)), to(rgba($yellow, 0.9)), color-stop(0.5, #fff));
+    background: -moz-gradient(linear, left top, right top, from(rgba($yellow, 0.9)), to(rgba($yellow, 0.9)), color-stop(0.5, #fff));
+    background: gradient(linear, left top, right top, from(rgba($yellow, 0.9)), to(rgba($yellow, 0.9)), color-stop(0.5, #fff));
     background-size: 50%;
     background-repeat: no-repeat;
-    background-color: rgb(213, 182, 6);
+    background-color: $yellow;
     animation-name: shimmer;
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -86,13 +87,12 @@
     top: 0;
     text-align: center;
     padding: 10px 7px 2px;
-    
 }
 
 
-.hide {
-    display: none;
-}
+// .hide {
+//     display: none;
+// }
 
 .linkToTeamPreview {
     text-decoration: none;

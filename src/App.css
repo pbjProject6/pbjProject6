@@ -204,23 +204,23 @@ body {
   font-family: "Nunito";
   font-size: 2rem;
   text-align: center;
-  background: #d5b606;
+  background: #fff200;
   width: 310px;
   max-width: 100%;
   height: 150px; }
 
 .button:hover {
   text-align: center;
-  background-image: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background-image: linear-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background-image: -moz-gradient(linear, left top, right top, from(rgba(255, 242, 0, 0.9)), to(rgba(255, 242, 0, 0.9)), color-stop(0.5, #fff));
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 242, 0, 0.9)), to(rgba(255, 242, 0, 0.9)), color-stop(0.5, #fff));
+  background-image: linear-gradient(linear, left top, right top, from(rgba(255, 242, 0, 0.9)), to(rgba(255, 242, 0, 0.9)), color-stop(0.5, #fff));
   background-size: 125px 100%;
   animation-name: shimmer;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   background-repeat: no-repeat;
   background-position: 0 0;
-  background-color: #d5b606; }
+  background-color: #fff200; }
 
 .button p {
   margin: 0; }
@@ -244,8 +244,10 @@ body {
   top: 8px; }
 
 .homeButton {
-  width: 120px;
-  height: auto; }
+  width: 85px !important;
+  font-size: 1rem !important;
+  height: auto;
+  padding: 2px 5px; }
   .homeButton p {
     font-weight: 700; }
 
@@ -265,7 +267,7 @@ body {
   border: 1px solid black; }
 
 .intelligenceStat {
-  background-color: yellow; }
+  background-color: #ffff00; }
 
 .strengthStat {
   background-color: #00ffc3; }
@@ -286,6 +288,12 @@ body {
   body {
     height: auto;
     padding-bottom: 100px; } }
+
+@media (max-width: 730px) {
+  .homeButton {
+    width: 85px;
+    font-size: 1rem;
+    padding: 2px 5px; } }
 
 @media (max-width: 640px) {
   .wrapper {
@@ -324,7 +332,7 @@ body {
   float: left;
   width: 30%;
   height: 459px;
-  background-color: #d5b606;
+  background-color: #fff200;
   border: 8px solid #8C8C38;
   overflow: scroll; }
 
@@ -418,7 +426,7 @@ body {
   margin: 10px;
   width: calc(100% - 20px);
   padding: 20px;
-  background-color: #d5b606;
+  background-color: #fff200;
   border: 3px solid #676729;
   text-transform: uppercase;
   color: #3D3D3D; }
@@ -428,7 +436,7 @@ body {
 
 .selectCharacterButton {
   width: calc(100% - 20px);
-  background-color: #d5b606;
+  background-color: #fff200;
   border: none;
   text-transform: uppercase;
   color: #3D3D3D;
@@ -439,7 +447,7 @@ body {
     font-weight: bold; }
 
 .displayCharacterBlock {
-  background-color: #d5b606;
+  background-color: #fff200;
   margin: 10px;
   padding: 10px;
   border: 7px solid #81CBBE; }
@@ -531,6 +539,7 @@ body {
     width: 50%;
     height: 100%;
     border: none;
+    border-right: 5px solid #8C8C38;
     font-weight: 700; }
     .teamSelectButtonsContainer .teamButton:hover {
       background-size: 50%; }
@@ -550,12 +559,12 @@ body {
     cursor: auto; }
 
 .shimmer {
-  background: -webkit-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background: -moz-gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
-  background: gradient(linear, left top, right top, from(rgba(220, 191, 27, 0.9)), to(rgba(220, 191, 27, 0.9)), color-stop(0.5, #fff));
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 242, 0, 0.9)), to(rgba(255, 242, 0, 0.9)), color-stop(0.5, #fff));
+  background: -moz-gradient(linear, left top, right top, from(rgba(255, 242, 0, 0.9)), to(rgba(255, 242, 0, 0.9)), color-stop(0.5, #fff));
+  background: gradient(linear, left top, right top, from(rgba(255, 242, 0, 0.9)), to(rgba(255, 242, 0, 0.9)), color-stop(0.5, #fff));
   background-size: 50%;
   background-repeat: no-repeat;
-  background-color: #d5b606;
+  background-color: #fff200;
   animation-name: shimmer;
   animation-duration: 2s;
   animation-iteration-count: infinite; }
@@ -586,9 +595,6 @@ body {
   text-align: center;
   padding: 10px 7px 2px; }
 
-.hide {
-  display: none; }
-
 .linkToTeamPreview {
   text-decoration: none; }
 
@@ -600,14 +606,14 @@ body {
   height: 482px;
   width: 45%;
   float: right;
-  background-color: #d5b606;
+  background-color: #fff200;
   border: 7px solid #8C8C38;
   position: relative; }
 
 .searchArea {
   margin: 10px;
   width: calc(100% - 20px);
-  background-color: #d5b606;
+  background-color: #fff200;
   border: 4px solid #676729;
   text-transform: uppercase;
   font-family: "Nunito";
@@ -620,13 +626,13 @@ body {
     text-transform: uppercase;
     color: #3D3D3D;
     text-align: left;
-    height: 97%;
+    height: 100%;
     padding: 5px;
     font-size: 17px; }
 
 .searchCharacterButton {
   width: 38%;
-  background-color: #d5b606;
+  background-color: #fff200;
   border: 0;
   height: 100%; }
 
@@ -687,9 +693,9 @@ body {
     width: 65%;
     margin: 0 auto; } }
 
-@media (max-width: 640px) {
-  .search {
-    width: 100%; } }
+.header-container {
+  display: flex;
+  flex-direction: column; }
 
 .teamPreview .logo h2 {
   font-size: 2.5rem;
@@ -724,7 +730,7 @@ body {
     float: left; }
 
 .teamPreview .characterBlock {
-  background-color: #d5b606;
+  background-color: #fff200;
   border: 3px solid #676729;
   border-radius: 50px;
   padding: 5px;
@@ -774,9 +780,6 @@ body {
     font-size: 1.5rem; } }
 
 @media (max-width: 730px) {
-  .homeButtonContainer .homeButton {
-    width: 75px !important;
-    font-size: 1rem !important; }
   .playerTeam, .enemyTeam {
     width: 50%; }
     .playerTeam img, .enemyTeam img {
