@@ -167,6 +167,8 @@ class Home extends Component {
 
                 <main className="main">
                     <div className="wrapper">
+                        <p className="instructions">Create a new team of superheroes or call upon your existing heroes</p>
+
                         <div className="options homeButtonsContainer clearfix" id="homeOptions">
 
                             <div className="homeGroup clearfix">

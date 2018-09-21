@@ -121,3 +121,15 @@
         margin: 0 auto;
     }
 }
+
+@media (max-width: 600px) {
+    .searchArea input[type=text] {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .searchArea input[type=text] {
+        font-size: 8px;
+    }
+}

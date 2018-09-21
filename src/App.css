@@ -202,12 +202,15 @@ body {
   border-radius: 50px;
   text-decoration: none;
   font-family: "Nunito";
-  font-size: 2rem;
+  font-size: 1.7rem;
   text-align: center;
   background: #fff200;
-  width: 310px;
   max-width: 100%;
-  height: 150px; }
+  height: 100px;
+  padding: 0 60px; }
+
+#newButton {
+  padding: 0 69px; }
 
 .button:hover {
   text-align: center;
@@ -309,6 +312,16 @@ body {
 .homeGroup {
   text-align: center; }
 
+.instructions {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  color: white;
+  font-family: "Bowlby One SC";
+  font-size: 1.7rem;
+  letter-spacing: 3px;
+  width: 70%; }
+
 .homeGroup .button {
   margin: 30px; }
   .homeGroup .button p {
@@ -348,7 +361,8 @@ body {
       color: white; }
 
 .homeFloat {
-  float: left; }
+  float: left;
+  margin: 0 auto; }
 
 @media (max-width: 1200px) {
   .existingTeamsList {
@@ -367,9 +381,9 @@ body {
 @media (max-width: 767px) {
   .existingTeamsList {
     width: 75%;
-    margin: 0 auto;
     float: none;
-    text-align: center; }
+    text-align: center;
+    margin: 0 auto; }
   .listOfExistingTeams {
     padding-left: 0; }
   .homeGroup .button {
@@ -593,7 +607,8 @@ body {
   right: 0;
   top: 0;
   text-align: center;
-  padding: 10px 7px 2px; }
+  padding: 10px 7px 2px;
+  border-left: 5px solid #8C8C38 !important; }
 
 .linkToTeamPreview {
   text-decoration: none; }
@@ -692,6 +707,14 @@ body {
     float: none;
     width: 65%;
     margin: 0 auto; } }
+
+@media (max-width: 600px) {
+  .searchArea input[type=text] {
+    font-size: 14px; } }
+
+@media (max-width: 480px) {
+  .searchArea input[type=text] {
+    font-size: 8px; } }
 
 .header-container {
   display: flex;
@@ -825,9 +848,9 @@ body {
   text-decoration: none;
   font-family: "Nunito";
   text-align: center;
-  background: #d5b606; }
+  background: #fff200; }
   .sweetButton:hover {
-    background: #8b7604;
+    background: #c6a906;
     border-color: #555522; }
 
 .sweetResultsDiv {

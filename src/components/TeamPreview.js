@@ -27,26 +27,20 @@ class TeamPreview extends Component {
         //get total number of teams in database
 
         dbRef.once('value', (snapshot) => {
-            console.log(snapshot.val());
-
             //create an array of all the teams in the database
             let dbEnemyTeams = snapshot.val();
             for (let team in dbEnemyTeams) {
 
                 enemyTeams.push(dbEnemyTeams[team]);
             }
-            console.log(enemyTeams);
 
-            // genereate a random number and get a random team
+            // generate a random number and get a random team
             let enemyNum = Math.floor(Math.random() * enemyTeams.length);
             // if the randomly generated team is the players team
             if (enemyTeams[enemyNum].teamName === this.props.playerTeam.teamName) {
                 //remove it and get a new one
-                console.log(enemyTeams.length);
 
                 let playersTeam = enemyTeams.splice(enemyNum, 1);
-                console.log('removes players team');
-                console.log(enemyTeams);
 
                 enemyNum = Math.floor(Math.random() * enemyTeams.length);
             }
