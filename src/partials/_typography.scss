@@ -35,10 +35,10 @@ body {
     color: white;
     margin: 10px 0;
     text-shadow:
-            -4px -4px 0 $black,  
-            4px -4px 0 $black,
-            -4px 4px 0 $black,
-            4px 4px 0 $black;
+        -4px -4px 0 $black,  
+        4px -4px 0 $black,
+        -4px 4px 0 $black,
+        4px 4px 0 $black;
 }
 
 .teamName h3 {
@@ -97,7 +97,7 @@ body {
     background-image: -webkit-gradient(linear, left top, right top, from(rgba($yellow, 0.9)), to(rgba($yellow, 0.9)), color-stop(0.5, #fff));
     background-image: linear-gradient(linear, left top, right top, from(rgba($yellow, 0.9)), to(rgba($yellow, 0.9)), color-stop(0.5, #fff));
     background-size: 125px 100%;
-    animation-name: shimmer;
+    animation-name: shimmer !important;
     animation-duration: 2s;
     animation-iteration-count: infinite;
     background-repeat: no-repeat;

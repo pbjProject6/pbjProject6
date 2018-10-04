@@ -2,13 +2,6 @@
     margin: 0;
 }
 
-// .options {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     height: 100vh;
-// }
-
 .title {
     float: none;
     text-align: center;
@@ -78,8 +71,6 @@
         display: inline;
         &:hover {
             color: white;
-            // border-top: 0.5px solid grey;
-            // border-bottom: 0.5px solid grey;
         }
     }
 }
@@ -105,6 +96,7 @@
 #existingButton {
     animation: pulseButton 1s ease infinite;
 }
+
 // =======================
 // RESPONSIVENE DESIGN
 // =======================
