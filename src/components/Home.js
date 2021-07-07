@@ -5,13 +5,10 @@ import {
 } from 'react-router-dom';
 import firebase from 'firebase';
 import swal from 'sweetalert';
-// import Sound from 'react-sound';
-import ReactDOM from 'react-dom';
-import ReactAudioPlayer from 'react-audio-player';
+// import ReactAudioPlayer from 'react-audio-player';
 import scrollToComponent from 'react-scroll-to-component';
 
 // IMPORT COMPONENTS
-import TeamSelect from './TeamSelect';
 const dbRef = firebase.database().ref('/teams');
 let teamNameArray = [];
 
@@ -26,20 +23,22 @@ class Home extends Component {
         }
     }
 
+    // When the user click to create a new team, this function 
     setTeamName = () => {
-
+        // Add classes to the Home page buttons that will apply the shimmer animations
         let newButton = document.getElementById('newButton');
         newButton.className = 'button shimmer animated fadeOutRightBig'
 
         let existingButton = document.getElementById('existingButton');
         existingButton.className = 'button shimmer animated fadeOutRightBig'
-
+        //Present the user with an alert asking them to enter a new team name
         swal({
             title: 'Please Enter Your Team Name',
             content: 'input',
             button: {
                 className: "sweetButton",
             }
+            // If the user enters a value in the alert, take a snapshot of the results from firebase and compare them with the team name entered by the user.
         }).then((res) => {
             if (res !== null) {
                 let userTeam = res.trim();
@@ -49,12 +48,13 @@ class Home extends Component {
                     let dbTeams = snapshot.val();
                     console.log(dbTeams);
                     for (let team in dbTeams) {
+                        // Check whether the team name entered by the user equals a team that already exists in the database.
                         if (dbTeams[team].teamName === userTeam) {
 
                             doesExist = true;
                         }
                     }
-
+                    // If the team name entered by the user already exists in the database, present an alert asking them to enter a new team name.
                     if (doesExist === true) {
                         swal({
                             title: 'Error',
@@ -66,33 +66,32 @@ class Home extends Component {
                         })
                     }
                     else {
+                        // If the team doesn't alreay exist in the database pass the new team name into the createNewTeam function
                         this.props.createNewTeam(userTeam);
+                        //  Redirect to true will send the user to the TeamSelect page.
                         this.setState({ redirect: true })
-
                     }
                 });
-
             }
-
         });
     }
 
-    // This function searches for a team name in database
+    // This function searches for a team name in the database
     searchTeamName = () => {
-
+        // Take a snapshot of the teams object in the database
         dbRef.once('value', (snapshot) => {
             let dbTeams = snapshot.val();
 
-            // use forin loop to find the names of existing names
+            // Convert the team object to an array
             teamNameArray = Object.values(dbTeams);
-
+            // Add the team array to state
             this.setState({
                 teamNameArray: teamNameArray,
             })
         });
     }
 
-    // Scroll to the list of team names when clicking the button on the Home page to see pick an exsting team
+    // Scroll to the list of team names when clicking the button on the Home page to see existing teams
     scrollDown = () => {
         let teamList = document.getElementById('existingButton');
         teamList.scrollIntoView();
@@ -101,7 +100,7 @@ class Home extends Component {
 
     // Button click when wanting to play with an existing team.
     existingTeamButtonClick = () => {
-        this.props.audioThemePlay();
+        // this.props.audioThemePlay();
         this.searchTeamName();
         this.scrollDown();
         this.setState({
@@ -109,7 +108,7 @@ class Home extends Component {
         })
     }
 
-    // Get existing team from database and display on page
+    // Get existing team from the database, pass it into the displayExistingTeam function which sets the state in App.js with the user's team. Redirect the user to the TeamSelect page.
     selectExistingTeam = (clickedTeam) => {
         dbRef.once('value', (snapshot) => {
             let dbTeams = snapshot.val();
@@ -123,21 +122,22 @@ class Home extends Component {
         })
     }
 
-    // Display list of existing teams
+    // If showList is true, which is set to true when the user click the button to use an existing team, render the list of existing teams.
     displayBlockOfExistingTeams = () => {
         if (this.state.showList === true) {
             let homeButtons = document.getElementById('homeOptions');
             homeButtons.className = "options homeFloat";
             return (
                 <div className="existingTeamsList">
+                    {/* Map the team array from state and render a list of teams names */}
                     {teamNameArray.map((team) => {
                         return (
                             <ul className="listOfExistingTeams">
+                                {/* On clicking one of the existing teams, fun the selectExistingTeam function and pass in the team name. That function will look for the tam in the database and display pass the iformation to be available on the TeamSelect page.*/}
                                 <li onClick={() => { (this.selectExistingTeam(team.teamName)) }} >{team.teamName}</li>
                             </ul>
                         )
                     })}
-
                 </div>
             )
         }
@@ -145,12 +145,12 @@ class Home extends Component {
 
     // Begin creating new team and play audio when clicking new team button on Home page
     createNewTeamButtonClick = () => {
-        this.props.audioThemePlay();
+        // this.props.audioThemePlay();
         this.setTeamName();
     }
 
     render() {
-        // This Redirect will send the user from Home to TeamSelect after they enter a valid team name in the prompt presented after clicking a Hom page button.
+        // This Redirect will send the user from Home to TeamSelect after they enter a valid team name in the prompt presented after clicking a Home page button.
         if (this.state.redirect) {
             return (<Redirect push to="/TeamSelect" />)
         }
@@ -167,6 +167,8 @@ class Home extends Component {
 
                 <main className="main">
                     <div className="wrapper">
+                        <p className="instructions">Create a new team of superheroes or call upon your existing champions</p>
+
                         <div className="options homeButtonsContainer clearfix" id="homeOptions">
 
                             <div className="homeGroup clearfix">

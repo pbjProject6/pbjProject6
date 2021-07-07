@@ -10,25 +10,17 @@ import swal from 'sweetalert';
 // COMPONENTS
 import Home from './components/Home';
 import TeamSelect from './components/TeamSelect';
-import TeamName from './components/TeamName';
 import Search from './components/Search';
-import CharacterBlock from './components/CharacterBlock';
-// import SearchResults from './components/SearchResults';
-// import TeamReview from './components/TeamReview';
-// import battle from './components/battle';
 import TeamPreview from './components/TeamPreview';
 import HomeButton from './components/HomeButton';
 // import Results from './components/Results';
-import ReactAudioPlayer from 'react-audio-player';
-import theme from './assets/audio/theme/audioTheme.mp3';
-import fight from './assets/audio/fight/fightSounds1.wav';
+// import ReactAudioPlayer from 'react-audio-player';
+// import theme from './assets/audio/theme/audioTheme.mp3';
+// import fight from './assets/audio/fight/fightSounds1.wav';
 
 // GLOBAL VARIABLES
 // Goes to the root of the firebase database
 const dbRef = firebase.database().ref('/teams');
-// this variable holds the team object when the user retrieves an existing team
-// let existingTeamObject = {};
-let tempArray = []
 
 class App extends Component {
   constructor() {
@@ -47,24 +39,10 @@ class App extends Component {
   }
 
   createNewTeam = (teamName) => {
-    console.log('creating new Team');
-
+    // console.log('creating new Team');
     this.setState({
       team: {
-        teamMember: [
-          // order: 1,
-          // name: "",
-          // img: "",
-          // stats: {
-          //   int: "",
-          //   str: "",
-          //   spd: "",
-          //   dur: "",
-          //   pow: "",
-          //   com: "",
-          // },
-          // winRatio: "",
-        ],
+        teamMember: [],
         teamName: teamName,
         winRatio: {
           wins: 0,
@@ -72,21 +50,11 @@ class App extends Component {
         },
       }
     })
-    // console.log(this.state);
   }
 
   displayExistingTeam = (team) => {
     this.setState({
       team: team
-    });
-    // existingTeamObject = team
-    console.log(this.state.team);
-  }
-
-  componentDidMount() {
-    // FIREBASE
-    // Add event listener to tell us if the database has anything on load and when everything changes
-    dbRef.on('value', (snapshot) => {
     });
   }
 
@@ -101,12 +69,7 @@ class App extends Component {
       teamObject.teamMember.forEach((item) => {
         if (item.img === charObj.img) {
           isInTeam = true;
-
-        } else {
-
-          console.log('yes!');
         }
-
       });
 
       if (isInTeam === false) {
@@ -123,10 +86,7 @@ class App extends Component {
       this.setState({
         team: teamObject
       })
-
     }
-
-
   }
 
   // This function save the user's new team of five characters to the database
@@ -151,19 +111,19 @@ class App extends Component {
       }
 
       if (doesExist === false) {
-        console.log('testing db adding');
+        // console.log('testing db adding');
 
         const teamKey = dbRef.push().key;
 
-        console.log(this.state.team.key);
+        // console.log(this.state.team.key);
 
         let teamCopy = this.state.team;
-        console.log(teamCopy);
+        // console.log(teamCopy);
         teamCopy.key = teamKey;
         this.setState({
           team: teamCopy
         })
-        console.log(this.state.team.key);
+        // console.log(this.state.team.key);
 
         const itemReference = firebase.database().ref(`/teams/${teamKey}`);
 
@@ -211,14 +171,14 @@ class App extends Component {
       itemReference.update({
         winRatio: enemyScore.winRatio
       });
-      console.log('enemyUpdated');
+      // console.log('enemyUpdated');
 
       itemReference = firebase.database().ref(`/teams/${this.state.team.key}`);
 
       itemReference.update({
         winRatio: this.state.team.winRatio
       });
-      console.log('playerUpdated');
+      // console.log('playerUpdated');
     });
   }
 
@@ -245,56 +205,44 @@ class App extends Component {
     })
   }
 
-  audioThemePlay = () => {
-    let audioElement = document.getElementById('themeAudio');
-    audioElement.setAttribute('src', theme);
-    audioElement.setAttribute('autoplay', true);
-  }
+  // audioThemePlay = () => {
+  //   let audioElement = document.getElementById('themeAudio');
+  //   audioElement.setAttribute('src', theme);
+  //   audioElement.setAttribute('autoplay', true);
+  // }
 
-  audioFightPlay = (auto) => {
-    let audioElement = document.getElementById('themeAudio');
-    audioElement.setAttribute('autoplay', auto);
-    audioElement.setAttribute('src', fight);
-    audioElement.setAttribute('loop', false);
-  };
+  // audioFightPlay = (auto) => {
+  //   let audioElement = document.getElementById('themeAudio');
+  //   audioElement.setAttribute('autoplay', auto);
+  //   audioElement.setAttribute('src', fight);
+  //   audioElement.setAttribute('loop', false);
+  // };
 
-  audioStop = () => {
-    let audioElement = document.getElementById('themeAudio');
-    audioElement.setAttribute('src', "");
-  }
+  // audioStop = () => {
+  //   let audioElement = document.getElementById('themeAudio');
+  //   audioElement.setAttribute('src', "");
+  // }
 
   render() {
     return (
-
-
       <Router>
         <div className="App">
           {/* ========================================== */}
           {/* SET ROUTES FOR ALL APP ROUTING */}
-          <Route exact path="/" render={(props) => (<Home {...props} audioThemePlay={this.audioThemePlay} createNewTeam={this.createNewTeam} displayExistingTeam={this.displayExistingTeam} />)} />
+          <Route exact path="/" render={(props) => (<Home {...props} createNewTeam={this.createNewTeam} displayExistingTeam={this.displayExistingTeam} />)} />
           {/* Route to touch the TeamSelect component/page */}
           <Route path="/teamselect" render={(props) => (<TeamSelect {...props} teamObject={this.state.team} addToTeamArray={this.addToTeamArray} saveTeamToDB={this.saveTeamToDB} removeCharaFromState={this.removeCharaFromState} winRatio={this.state.team.winRatio} showStatsList={this.showStatsList} />)} />
-          {/* Route to touch the TeamName component/page */}
-          {/* <Route path="/teamname" render={(props) => (<TeamName {...props} existingTeamObject={this.state.team} />)} /> */}
 
-          {/* Route to touch the CharacterBlock component/page */}
-          {/* <Route path="/characterblock" render={(props) => (<CharacterBlock {...props} removeCharaFromState={this.removeCharaFromState} />)} /> */}
-          {/* Route to touch the Search component/page */}
           <Route path="/search" render={(props) => (<Search {...props} />)} />
-          {/* Route to touch the SearchResults component/page  */}
-          {/* <Route path="/SearchResults" component={SearchResults} /> */}
-          {/* Route to touch the TeamPreview component/page  */}
-          <Route path="/teampreview" render={(props) => (<TeamPreview {...props} playerTeam={this.state.team} updateWinLoss={this.updateWinLoss} audioFightPlay={this.audioFightPlay} audioStop={this.audioStop} />)} />
-          {/* Route to touch the Battle component/page  */}
-          {/* <Route path="/battle" component={battle} /> */}
-          {/* Route to touch the Results component/page  */}
-          {/* <Route path="/Results" component={Results} /> */}
-          <ReactAudioPlayer
+
+          <Route path="/teampreview" render={(props) => (<TeamPreview {...props} playerTeam={this.state.team} updateWinLoss={this.updateWinLoss} />)} />
+
+          {/* <ReactAudioPlayer
             src={theme}
             controls
             id="themeAudio"
             loop="false"
-          />
+          /> */}
           <div className="homeButtonContainer">
             <HomeButton />
           </div>

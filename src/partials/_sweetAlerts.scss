@@ -15,11 +15,11 @@
     // font-size: 2rem;
     text-align: center;
     // padding-top: 19px;
-    background: rgb(213, 182, 6);
+    background: $yellow;
     // width: 310px;
     // height: 150px;
     &:hover{
-        background: darken(rgb(213, 182, 6), 15%);
+        background: darken(rgb(213, 182, 6), 3%);
         border-color: darken(rgb(140, 140, 56), 15%);
     }
 }

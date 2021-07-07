@@ -4,7 +4,7 @@
     height:482px;
     width:45%;
     float: right;
-    background-color: rgb(213, 182, 6);
+    background-color: $yellow;
     border: 7px solid #8C8C38;
     position: relative;
     
@@ -13,7 +13,7 @@
 .searchArea {
     margin: 10px;
     width: calc(100% - 20px);
-    background-color: rgb(213, 182, 6);
+    background-color: $yellow;
     border: 4px solid rgb(103, 103, 41);
     text-transform: uppercase;
     font-family: $bodyFont;
@@ -26,7 +26,7 @@
         text-transform: uppercase;
         color: #3D3D3D;
         text-align: left;
-        height: 97%;
+        height: 100%;
         padding: 5px;
         font-size: 17px;
     }
@@ -35,7 +35,7 @@
 
 .searchCharacterButton {
     width: 38%;
-    background-color: rgb(213, 182, 6);
+    background-color: $yellow;
     border: 0;
     height: 100%;
 }
@@ -122,8 +122,14 @@
     }
 }
 
-@media (max-width: 640px) {
-    .search {
-        width: 100%;
+@media (max-width: 600px) {
+    .searchArea input[type=text] {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .searchArea input[type=text] {
+        font-size: 8px;
     }
 }

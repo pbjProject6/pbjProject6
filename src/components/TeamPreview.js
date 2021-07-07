@@ -27,26 +27,20 @@ class TeamPreview extends Component {
         //get total number of teams in database
 
         dbRef.once('value', (snapshot) => {
-            console.log(snapshot.val());
-
             //create an array of all the teams in the database
             let dbEnemyTeams = snapshot.val();
             for (let team in dbEnemyTeams) {
 
                 enemyTeams.push(dbEnemyTeams[team]);
             }
-            console.log(enemyTeams);
 
-            // genereate a random number and get a random team
+            // generate a random number and get a random team
             let enemyNum = Math.floor(Math.random() * enemyTeams.length);
             // if the randomly generated team is the players team
             if (enemyTeams[enemyNum].teamName === this.props.playerTeam.teamName) {
                 //remove it and get a new one
-                console.log(enemyTeams.length);
 
                 let playersTeam = enemyTeams.splice(enemyNum, 1);
-                console.log('removes players team');
-                console.log(enemyTeams);
 
                 enemyNum = Math.floor(Math.random() * enemyTeams.length);
             }
@@ -109,7 +103,7 @@ class TeamPreview extends Component {
         result.appendChild(enemyResult);
         // display match results to player and update ratios
         setTimeout(() => {
-            this.props.audioStop();
+            // this.props.audioStop();
             if (playerWins > enemyWins) {
                 let enemyObject = this.state.fightingEnemyTeam;
                 enemyObject.winRatio.losses += 1;
@@ -146,7 +140,7 @@ class TeamPreview extends Component {
                     this.postBattleChoices();
                 });
             }
-        }, 5500)
+        }, 2000)
 
         // battle animations
         let badTeam = document.getElementById('enemyBlock')
@@ -161,7 +155,7 @@ class TeamPreview extends Component {
 
     startBattleButtonClick = () => {
         this.startBattle();
-        this.props.audioFightPlay(true);
+        // this.props.audioFightPlay(true);
     }
 
     postBattleChoices = () => {
@@ -198,7 +192,7 @@ class TeamPreview extends Component {
                 let goodTeam = document.getElementById('playerBlock')
                 goodTeam.className = 'playerTeam';
 
-                this.props.audioFightPlay(true);
+                // this.props.audioFightPlay(true);
 
                 setTimeout(() => {
                     this.startBattle();
@@ -234,7 +228,7 @@ class TeamPreview extends Component {
         return (
             <div className="teamPreview">
                 <header className="App-header">
-                    <div className="wrapper clearfix">
+                    <div className="wrapper header-container clearfix">
                         <div className="logo"><h2>pb&j</h2></div>
                         <h1 className="title">Havoc Of Heros</h1>
                     </div>

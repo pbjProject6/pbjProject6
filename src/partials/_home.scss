@@ -2,10 +2,6 @@
     margin: 0;
 }
 
-// .headerTextContainer {
-//     padding-top: 5px;
-// }
-
 .title {
     float: none;
     text-align: center;
@@ -13,7 +9,17 @@
 
 .homeGroup {
     text-align: center;
-    // float: left;
+}
+
+.instructions {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    color: white;
+    font-family: $headFont; 
+    font-size: 1.7rem;
+    letter-spacing: 3px;
+    width: 70%
 }
 
 .homeGroup .button {
@@ -49,10 +55,10 @@
     float: left;
     width: 30%;
     height:459px;
-    background-color: rgb(213, 182, 6);
+    background-color: $yellow;
     border: 8px solid #8C8C38;
     overflow: scroll;
-
+    // margin: 0 auto;
 }
 
 .listOfExistingTeams {
@@ -65,15 +71,32 @@
         display: inline;
         &:hover {
             color: white;
-            // border-top: 0.5px solid grey;
-            // border-bottom: 0.5px solid grey;
         }
     }
 }
 
 .homeFloat {
     float: left;
+    margin: 0 auto;
 }
+
+@keyframes pulseButton {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#newButton,
+#existingButton {
+    animation: pulseButton 1s ease infinite;
+}
+
 // =======================
 // RESPONSIVENE DESIGN
 // =======================
@@ -100,14 +123,11 @@
 }
 // **Portrait tablet to small desktops**
 @media (max-width: 767px) {
-    // .headerTextContainer .logo {
-    //     float: none;
-    // }
     .existingTeamsList {
         width: 75%;
-        margin: 0 auto;
         float: none;
         text-align: center;
+        margin: 0 auto;
     }
     
     .listOfExistingTeams {
